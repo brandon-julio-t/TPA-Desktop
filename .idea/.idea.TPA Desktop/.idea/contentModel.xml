@@ -2,20 +2,47 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\bandu\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\bandu\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TPA Desktop.-980006269.00" t="ExcludeRecursive" />
-    <e p="D:\TPA\TPA Desktop" t="IncludeFlat">
+    <e p="C:\Users\bandu\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TPA Desktop.-155701077.00" t="ExcludeRecursive" />
+    <e p="C:\Users\bandu\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\bandu\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\bandu\OneDrive - Bina Nusantara University (2)\TPA\TPA Desktop" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="TPA Desktop" t="IncludeRecursive">
         <e p="App.config" t="Include" />
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="MainWindow.xaml" t="Include" />
-        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="database.sql" t="Include" />
+        <e p="Facades" t="Include">
+          <e p="Authentication.cs" t="Include" />
+          <e p="Database.cs" t="Include" />
+          <e p="QueryBuilder.cs" t="Include" />
+          <e p="Validator.cs" t="Include" />
+        </e>
+        <e p="Factories" t="Include">
+          <e p="ViewStrategyFactory.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="Strategy.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Abstract" t="Include">
+            <e p="User.cs" t="Include" />
+          </e>
+          <e p="Employee.cs" t="Include" />
+          <e p="EmployeePosition.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="App.g.cs" t="Include" />
-            <e p="MainWindow.g.cs" t="Include" />
+            <e p="TPA_Desktop_Content.g.cs" t="Include" />
+            <e p="Views" t="Include">
+              <e p="HumanResource" t="Include">
+                <e p="MainWindow.g.cs" t="Include" />
+                <e p="NewEmployeeWindow.g.cs" t="Include" />
+              </e>
+              <e p="LoginWindow.g.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Properties" t="Include">
@@ -23,7 +50,27 @@
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
         </e>
+        <e p="Strategies" t="Include">
+          <e p="Views" t="Include">
+            <e p="CustomerServiceViewStrategy.cs" t="Include" />
+            <e p="FinanceViewStrategy.cs" t="Include" />
+            <e p="HumanResourceViewStrategy.cs" t="Include" />
+            <e p="ManagerViewStrategy.cs" t="Include" />
+            <e p="SecurityAndMaintenanceViewStrategy.cs" t="Include" />
+            <e p="TellerViewStrategy.cs" t="Include" />
+          </e>
+        </e>
         <e p="TPA Desktop.csproj" t="IncludeRecursive" />
+        <e p="Views" t="Include">
+          <e p="HumanResource" t="Include">
+            <e p="MainWindow.xaml" t="Include" />
+            <e p="MainWindow.xaml.cs" t="Include" />
+            <e p="NewEmployeeWindow.xaml" t="Include" />
+            <e p="NewEmployeeWindow.xaml.cs" t="Include" />
+          </e>
+          <e p="LoginWindow.xaml" t="Include" />
+          <e p="LoginWindow.xaml.cs" t="Include" />
+        </e>
       </e>
       <e p="TPA Desktop.sln" t="IncludeFlat" />
     </e>

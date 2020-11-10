@@ -14,22 +14,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760d4621-b2da-4b79-bf1d-13d1e28ac865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/App.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/App.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/MainWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/MainWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Properties/Resources.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Properties/Resources.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Documents/Diagrams/TPA Desktop.vpp.bak_000f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Facades/Authentication.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Facades/Database.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Facades/QueryBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Facades/Validator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Factories/ViewStrategyFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Interfaces/Strategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Models/Abstract/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Models/Employee.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Models/EmployeePosition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/CustomerServiceViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/FinanceViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/HumanResourceViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/ManagerViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/SecurityAndMaintenanceViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Strategies/Views/TellerViewStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainWindow.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/NewEmployeeWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/NewEmployeeWindow.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/LoginWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/LoginWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +55,91 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F32505C5-59F6-4436-9659-51ACD16EAF13/54/95ecba96/ItemCollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/97/940c20ed/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F32505C5-59F6-4436-9659-51ACD16EAF13/67/951afbe0/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F9F1C957-A59E-46FF-9F4C-0938ABC0D38A/22/ec9ad9f7/SqlDataReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3BCDABCE-AB43-41BA-8F8D-B5A06E9A7C18/6b/3c3d9a7e/RoutedEventHandlerInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/33/a35fa940/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/05/905dc2c2/Array.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F32505C5-59F6-4436-9659-51ACD16EAF13/dc/3fd54ede/Window.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/TPA Desktop/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/LoginView.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/LoginView.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/DatabaseConnection.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/DB.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/asdf.xaml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0a8b58ea-a2cb-4d8b-b513-6f6319d8ecc5/console.sql" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/LoginWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/MainMenuWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/MainMenuWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/CustomerServiceViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/ManagerViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/FinanceViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/SecurityAndMaintenanceViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/TellerWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Models/User.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Interfaces/Strategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Models/Exmployee.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Factories/ViewStrategyFactory.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Models/Abstract/User.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/TellerWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerServiceWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerServiceWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Authentication.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResourceWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResourceWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/HumanResourceWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainMenu.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainMenu.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/HumanResourceViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Strategies/Views/TellerViewStrategy.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/NewEmployeeUserControl.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainMenuUserControl.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainMenuUserControl.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Models/EmployeePosition.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/NewEmployeeWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/NewEmployeeWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Validator.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/App.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/LoginWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Models/Employee.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Database.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Facades/QueryBuilder.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/database.sql" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1jaY5yHhYOyjoVWmHjxvsle6dWE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.webOptions" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -88,13 +171,19 @@
       <option name="presentableId" value="Default" />
       <updated>1604043493544</updated>
       <workItem from="1604043506382" duration="256000" />
+      <workItem from="1604044061606" duration="64000" />
+      <workItem from="1604944860036" duration="52000" />
+      <workItem from="1604945708652" duration="9933000" />
+      <workItem from="1604970283274" duration="2035000" />
+      <workItem from="1604978516155" duration="18999000" />
+      <workItem from="1605001456744" duration="5805000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -106,34 +195,132 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604043765159">
+    <state x="348" y="361" key="#SQL_Dialects" timestamp="1604948793161">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604043765159" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604043765158">
+    <state x="348" y="361" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1604948793161" />
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604948046562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604043765158" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604043765158">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604948046562" />
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1605009349408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604043765158" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604043765159">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605009349408" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1605009349408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604043765159" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1604043757662">
+    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605009349408" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1605009349408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604043757662" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604043690002">
+    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605009349408" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1605009349408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604043690002" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605009349408" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1605007647231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647231" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1605007647231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647231" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1605007647231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647231" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1605007647234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647234" />
+    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1605007647234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647234" />
+    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1605007647233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647233" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1605007647234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605007647234" />
+    <state x="670" y="198" key="RiderGenerateDialog" timestamp="1604993879578">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="670" y="198" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604993879578" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1604978587430">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604978587430" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1604952616179">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604952616179" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1604982327931">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1604982327931" />
+    <state x="739" y="364" key="cloudConfig.PluginsDialog" timestamp="1605001360616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="364" key="cloudConfig.PluginsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605001360616" />
+    <state x="832" y="364" key="cloudConfig.SelfSettingsDialog" timestamp="1605001353751">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="832" y="364" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605001353751" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605007137389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605007137389" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605005395220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605005395220" />
   </component>
 </project>

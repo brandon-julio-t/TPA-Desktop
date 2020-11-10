@@ -1,0 +1,59 @@
+﻿<Window x:Class="TPA_Desktop.Views.HumanResource.NewEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TPA_Desktop.Views.HumanResource"
+        mc:Ignorable="d"
+        Title="New Employee"
+        Topmost="True"
+        Width="350"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen" d:DataContext="{d:DesignInstance local:NewEmployeeViewModel}">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Gender" />
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            <RadioButton GroupName="gender" Content="Male" IsChecked="{Binding IsMaleChecked, Mode=TwoWay}" />
+            <RadioButton GroupName="gender" Content="Female" IsChecked="{Binding IsFemaleChecked, Mode=TwoWay}" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Birth Date" />
+        <DatePicker Grid.Row="3" Grid.Column="1" Text="{Binding DateOfBirth, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Phone Number" />
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding PhoneNumber, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Salary" />
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Salary, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Position" />
+        <ComboBox Grid.Row="6"
+                  Grid.Column="1"
+                  ItemsSource="{Binding EmployeePositions, Mode=OneWay}"
+                  SelectedItem="{Binding SelectedEmployeePosition, Mode=TwoWay}" />
+        
+        <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Click="HandleSubmit">Submit</Button>
+    </Grid>
+</Window>
