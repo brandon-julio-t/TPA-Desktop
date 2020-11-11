@@ -18,11 +18,20 @@ create table [EmployeePosition]
 
 create table [Employee]
 (
-    UserID             uniqueidentifier not null foreign key references [User] (ID) on update cascade on delete cascade,
+    UserID             uniqueidentifier not null primary key foreign key references [User] (ID) on update cascade on delete cascade,
     EmployeePositionID uniqueidentifier not null foreign key references [EmployeePosition] (ID) on update cascade on delete cascade,
     Email              varchar(50)      not null,
     Password           varchar(255)     not null,
     Salary             money            not null
+)
+
+create table [EmployeeViolation]
+(
+    ID         uniqueidentifier not null primary key default newid(),
+    EmployeeID uniqueidentifier not null foreign key references [Employee] (UserID) on update cascade on delete cascade,
+    Title      varchar(50)      not null,
+    Comment    text             not null,
+    ViolatedAt datetime2        not null
 )
 
 create table [Customer]
@@ -68,13 +77,13 @@ insert into [Customer] (UserID, IsBusinessOwner, MotherMaidenName)
 values ('549365E9-F3E7-4576-B2EA-4594A3223940', 1, 'Cooking Mama'),
        ('2ADADE88-6C40-4977-963B-4723F6B13032', 0, 'Cooking Mama')
 
-select *
-from [User] U
-         full join Customer C on U.ID = C.UserID
-         full join Employee E on U.ID = E.UserID
-         full join EmployeePosition EP on EP.ID = E.EmployeePositionID
-
 drop table [EmployeePosition]
 drop table [Customer]
 drop table [Employee]
 drop table [User]
+alter table EmployeeViolation
+add DeletedAt datetime2
+select EV.ID, Title, Comment, ViolatedAt, EV.DeletedAt
+from EmployeeViolation EV
+         join Employee E on E.UserID = EV.EmployeeID
+         join [User] U on U.ID = E.UserID

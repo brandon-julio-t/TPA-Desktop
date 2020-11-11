@@ -22,7 +22,7 @@ namespace TPA_Desktop.Views
 
         private void HandleLogin(object sender, RoutedEventArgs e)
         {
-            var employee = new Employee(_viewModel.Email, _viewModel.Password);
+            var employee = new Employee(_viewModel.Email, PasswordBox.Password);
             
             if (employee.Id == Guid.Empty) return;
             
@@ -35,6 +35,5 @@ namespace TPA_Desktop.Views
     public class LoginViewModel
     {
         public string Email { get; set; } = "clarissa.chuardi@binus.edu";
-        public string Password { get; set; } = "clarissa123";
     }
 }

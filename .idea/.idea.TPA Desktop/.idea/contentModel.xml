@@ -27,10 +27,12 @@
         </e>
         <e p="Models" t="Include">
           <e p="Abstract" t="Include">
+            <e p="BaseModel.cs" t="Include" />
             <e p="User.cs" t="Include" />
           </e>
           <e p="Employee.cs" t="Include" />
           <e p="EmployeePosition.cs" t="Include" />
+          <e p="EmployeeViolation.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -46,6 +48,7 @@
           </e>
         </e>
         <e p="Properties" t="Include">
+          <e p="Annotations.cs" t="Include" />
           <e p="AssemblyInfo.cs" t="Include" />
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
@@ -63,10 +66,18 @@
         <e p="TPA Desktop.csproj" t="IncludeRecursive" />
         <e p="Views" t="Include">
           <e p="HumanResource" t="Include">
+            <e p="Employees" t="Include">
+              <e p="AddViolationWindow.xaml" t="Include" />
+              <e p="AddViolationWindow.xaml.cs" t="Include" />
+              <e p="AllViolationsWindow.xaml" t="Include" />
+              <e p="AllViolationsWindow.xaml.cs" t="Include" />
+              <e p="ManageEmployeesWindow.xaml" t="Include" />
+              <e p="ManageEmployeesWindow.xaml.cs" t="Include" />
+              <e p="NewEmployeeWindow.xaml" t="Include" />
+              <e p="NewEmployeeWindow.xaml.cs" t="Include" />
+            </e>
             <e p="MainWindow.xaml" t="Include" />
             <e p="MainWindow.xaml.cs" t="Include" />
-            <e p="NewEmployeeWindow.xaml" t="Include" />
-            <e p="NewEmployeeWindow.xaml.cs" t="Include" />
           </e>
           <e p="LoginWindow.xaml" t="Include" />
           <e p="LoginWindow.xaml.cs" t="Include" />

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TPA_Desktop.Facades;
 using TPA_Desktop.Models;
+using TPA_Desktop.Views.HumanResource.Employees;
 
 namespace TPA_Desktop.Views.HumanResource
 {
@@ -18,10 +19,15 @@ namespace TPA_Desktop.Views.HumanResource
         {
             new NewEmployeeWindow().Show();
         }
-        
-        private void HandleNewViolation(object sender, RoutedEventArgs e)
+
+        private void HandleManageEmployees(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            new ManageEmployeesWindow().Show();
+        }
+
+        private void ViewAllViolations(object sender, RoutedEventArgs e)
+        {
+            new AllViolationsWindow().Show();
         }
     }
 

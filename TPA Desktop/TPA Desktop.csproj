@@ -60,20 +60,32 @@
         <Compile Include="Facades\Validator.cs" />
         <Compile Include="Factories\ViewStrategyFactory.cs" />
         <Compile Include="Interfaces\Strategy.cs" />
+        <Compile Include="Models\Abstract\BaseModel.cs" />
         <Compile Include="Models\Abstract\User.cs" />
         <Compile Include="Models\Employee.cs" />
         <Compile Include="Models\EmployeePosition.cs" />
+        <Compile Include="Models\EmployeeViolation.cs" />
+        <Compile Include="Properties\Annotations.cs" />
         <Compile Include="Strategies\Views\CustomerServiceViewStrategy.cs" />
         <Compile Include="Strategies\Views\FinanceViewStrategy.cs" />
         <Compile Include="Strategies\Views\HumanResourceViewStrategy.cs" />
         <Compile Include="Strategies\Views\ManagerViewStrategy.cs" />
         <Compile Include="Strategies\Views\SecurityAndMaintenanceViewStrategy.cs" />
         <Compile Include="Strategies\Views\TellerViewStrategy.cs" />
+        <Compile Include="Views\HumanResource\Employees\AddViolationWindow.xaml.cs">
+          <DependentUpon>AddViolationWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\HumanResource\Employees\NewEmployeeWindow.xaml.cs">
+          <DependentUpon>NewEmployeeWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\HumanResource\Employees\ManageEmployeesWindow.xaml.cs">
+          <DependentUpon>ManageEmployeesWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\HumanResource\Employees\AllViolationsWindow.xaml.cs">
+          <DependentUpon>AllViolationsWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\HumanResource\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
-        </Compile>
-        <Compile Include="Views\HumanResource\NewEmployeeWindow.xaml.cs">
-          <DependentUpon>NewEmployeeWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\LoginWindow.xaml.cs">
           <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -98,8 +110,11 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <Page Include="Views\HumanResource\Employees\AddViolationWindow.xaml" />
+      <Page Include="Views\HumanResource\Employees\NewEmployeeWindow.xaml" />
+      <Page Include="Views\HumanResource\Employees\ManageEmployeesWindow.xaml" />
+      <Page Include="Views\HumanResource\Employees\AllViolationsWindow.xaml" />
       <Page Include="Views\HumanResource\MainWindow.xaml" />
-      <Page Include="Views\HumanResource\NewEmployeeWindow.xaml" />
       <Page Include="Views\LoginWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>

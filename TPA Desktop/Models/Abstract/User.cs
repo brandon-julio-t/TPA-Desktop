@@ -5,7 +5,7 @@ using TPA_Desktop.Facades;
 
 namespace TPA_Desktop.Models.Abstract
 {
-    public abstract class User
+    public abstract class User : BaseModel
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
@@ -13,10 +13,7 @@ namespace TPA_Desktop.Models.Abstract
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime RegisteredAt { get; set; }
-        public DateTime DeletedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         public string PhoneNumber { get; set; }
-
-        public bool IsCustomer => false;
-        public bool IsEmployee => false;
     }
 }

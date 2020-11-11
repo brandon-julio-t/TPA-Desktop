@@ -3,23 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:TPA_Desktop.Views.HumanResource"
-        xmlns:ns0="using:TPA_Desktop.Views.HumanResource"
+        xmlns:humanResource="clr-namespace:TPA_Desktop.Views.HumanResource"
         mc:Ignorable="d"
         Title="Human Resource"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        d:DataContext="{d:DesignInstance}">
-    <StackPanel Margin="20"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-        <TextBlock Text="{Binding Name, StringFormat=Hello\, {0}.}" />
-        <TextBlock Text="{Binding Role, StringFormat=Logged in as {0}.}" />
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-            <Button Click="HandleNewEmployee">New employee</Button>
-            <Button Click="HandleNewViolation">New violation</Button>
-        </StackPanel>
-    </StackPanel>
+        d:DataContext="{d:DesignInstance humanResource:MainWindowViewModel}">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Name, StringFormat=Hello\, {0}.}" />
+        <TextBlock Grid.Row="1" Text="{Binding Role, StringFormat=Logged in as {0}.}" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Click="HandleNewEmployee">New Employee</Button>
+            <Button Grid.Column="1" Click="HandleManageEmployees">Manage Employees</Button>
+            <Button Grid.Column="2" Click="ViewAllViolations">View All Violations</Button>
+        </Grid>
+    </Grid>
 </Window>

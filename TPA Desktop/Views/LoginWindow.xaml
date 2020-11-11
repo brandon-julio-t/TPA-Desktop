@@ -14,7 +14,7 @@
         <TextBlock>Email</TextBlock>
         <TextBox Text="{Binding Email, Mode = TwoWay}" />
         <TextBlock>Password</TextBlock>
-        <TextBox Text="{Binding Password, Mode = TwoWay}" />
+        <PasswordBox x:Name="PasswordBox" />
         <Button Click="HandleLogin">Login</Button>
     </StackPanel>
 
