@@ -2,17 +2,17 @@
 using System.Windows;
 using TPA_Desktop.Facades;
 using TPA_Desktop.Factories;
+using TPA_Desktop.Interfaces;
 using TPA_Desktop.Models;
-using TPA_Desktop.Models.Abstract;
 
 namespace TPA_Desktop.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class LoginWindow
     {
-        private readonly LoginViewModel _viewModel = new LoginViewModel();
+        private readonly LoginWindowViewModel _viewModel = new LoginWindowViewModel();
 
         public LoginWindow()
         {
@@ -23,17 +23,20 @@ namespace TPA_Desktop.Views
         private void HandleLogin(object sender, RoutedEventArgs e)
         {
             var employee = new Employee(_viewModel.Email, PasswordBox.Password);
-            
+
             if (employee.Id == Guid.Empty) return;
-            
+
             Authentication.Login(employee);
-            ViewStrategyFactory.CreateViewStrategyFrom(employee).Execute();
+            
+            var viewStrategy = new ViewStrategyFactory(employee).Create() as IStrategy;
+            viewStrategy?.Execute();
+            
             Close();
         }
     }
 
-    public class LoginViewModel
+    public class LoginWindowViewModel
     {
-        public string Email { get; set; } = "clarissa.chuardi@binus.edu";
+        public string Email { get; set; } = "skolastika.gabriella@binus.edu";
     }
 }

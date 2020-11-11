@@ -1,5 +1,4 @@
 ﻿using TPA_Desktop.Models;
-using TPA_Desktop.Models.Abstract;
 
 namespace TPA_Desktop.Facades
 {

@@ -42,11 +42,6 @@ namespace TPA_Desktop.Views.HumanResource.Employees
 
     public class ManageEmployeesViewModel
     {
-        public EmployeeViewModel[] EmployeeViewModels { get; set; }
-        public EmployeeViewModel SelectedEmployeeViewModel => EmployeeViewModels[SelectedEmployeeIndex];
-        public Employee SelectedEmployee => SelectedEmployeeViewModel.Employee;
-        public int SelectedEmployeeIndex { get; set; }
-
         public ManageEmployeesViewModel()
         {
             EmployeeViewModels = Employee
@@ -54,10 +49,20 @@ namespace TPA_Desktop.Views.HumanResource.Employees
                 .Select(employee => new EmployeeViewModel(employee))
                 .ToArray();
         }
+
+        public EmployeeViewModel[] EmployeeViewModels { get; set; }
+        public EmployeeViewModel SelectedEmployeeViewModel => EmployeeViewModels[SelectedEmployeeIndex];
+        public Employee SelectedEmployee => SelectedEmployeeViewModel.Employee;
+        public int SelectedEmployeeIndex { get; set; }
     }
 
     public class EmployeeViewModel
     {
+        public EmployeeViewModel(Employee employee)
+        {
+            Employee = employee;
+        }
+
         public Employee Employee { get; set; }
 
         public bool IsMale
@@ -70,11 +75,6 @@ namespace TPA_Desktop.Views.HumanResource.Employees
         {
             get => !IsMale;
             set => IsMale = !value;
-        }
-
-        public EmployeeViewModel(Employee employee)
-        {
-            Employee = employee;
         }
     }
 }

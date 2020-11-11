@@ -1,0 +1,75 @@
+﻿<Window x:Class="TPA_Desktop.Views.CustomerService.CustomerServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TPA_Desktop.Views.CustomerService"
+        mc:Ignorable="d"
+        Title="Customer Service"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance local:CustomerServiceWindowViewModel}">
+    <Grid Margin="20" Width="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Hello, " />
+            <TextBlock Text="{Binding Name}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Logged in as " />
+            <TextBlock Text="{Binding Role}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Account" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="New Individual Account" Click="HandleNewIndividualAccount" />
+                <Button Grid.Column="1" Content="New Business Account" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Customer" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="New Customer" Click="HandleRegisterNewCustomer" />
+                <Button Grid.Column="1" Content="Transfer" />
+                <Button Grid.Column="2" Content="Payment" />
+                <Button Grid.Column="3" Content="Deposit" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5">
+            <TextBlock Text="Miscellaneous" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Virtual Account" />
+                <Button Grid.Column="1" Content="Payroll" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

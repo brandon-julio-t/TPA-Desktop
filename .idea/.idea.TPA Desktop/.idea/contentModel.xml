@@ -15,69 +15,114 @@
         <e p="database.sql" t="Include" />
         <e p="Facades" t="Include">
           <e p="Authentication.cs" t="Include" />
-          <e p="Database.cs" t="Include" />
-          <e p="QueryBuilder.cs" t="Include" />
-          <e p="Validator.cs" t="Include" />
-        </e>
-        <e p="Factories" t="Include">
-          <e p="ViewStrategyFactory.cs" t="Include" />
-        </e>
-        <e p="Interfaces" t="Include">
-          <e p="Strategy.cs" t="Include" />
-        </e>
-        <e p="Models" t="Include">
-          <e p="Abstract" t="Include">
-            <e p="BaseModel.cs" t="Include" />
-            <e p="User.cs" t="Include" />
+          <e p="Builders" t="Include">
+            <e p="AccountBuilder.cs" t="Include" />
+            <e p="Directors" t="Include">
+              <e p="AccountBuilderDirector.cs" t="Include" />
+            </e>
+            <e p="QueryBuilder.cs" t="Include" />
           </e>
-          <e p="Employee.cs" t="Include" />
-          <e p="EmployeePosition.cs" t="Include" />
-          <e p="EmployeeViolation.cs" t="Include" />
+          <e p="Database.cs" t="Include" />
+          <e p="Environment.cs" t="Include" />
+          <e p="Factories" t="Include">
+            <e p="ViewStrategyFactory.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="IFactory.cs" t="Include" />
+            <e p="IStrategy.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="Abstract" t="Include">
+              <e p="BaseModel.cs" t="Include" />
+              <e p="User.cs" t="Include" />
+            </e>
+            <e p="Account.cs" t="Include" />
+            <e p="Customer.cs" t="Include" />
+            <e p="Employee.cs" t="Include" />
+            <e p="EmployeePosition.cs" t="Include" />
+            <e p="EmployeeViolation.cs" t="Include" />
+          </e>
+          <e p="Strategies" t="Include">
+            <e p="Views" t="Include">
+              <e p="CustomerServiceViewStrategy.cs" t="Include" />
+              <e p="FinanceViewStrategy.cs" t="Include" />
+              <e p="HumanResourceViewStrategy.cs" t="Include" />
+              <e p="ManagerViewStrategy.cs" t="Include" />
+              <e p="SecurityAndMaintenanceViewStrategy.cs" t="Include" />
+              <e p="TellerViewStrategy.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Validator.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="App.g.cs" t="Include" />
             <e p="TPA_Desktop_Content.g.cs" t="Include" />
             <e p="Views" t="Include">
+              <e p="CustomerService" t="Include">
+                <e p="Accounts" t="Include">
+                  <e p="NewIndividualAccountWindow.g.cs" t="Include" />
+                </e>
+                <e p="Customers" t="Include">
+                  <e p="Regular" t="Include">
+                    <e p="NewCustomerWindow.g.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="CustomerServiceWindow.g.cs" t="Include" />
+              </e>
               <e p="HumanResource" t="Include">
-                <e p="MainWindow.g.cs" t="Include" />
-                <e p="NewEmployeeWindow.g.cs" t="Include" />
+                <e p="Employees" t="Include">
+                  <e p="ManageEmployeesWindow.g.cs" t="Include" />
+                  <e p="NewEmployeeWindow.g.cs" t="Include" />
+                </e>
+                <e p="HumanResourceWindow.g.cs" t="Include" />
+                <e p="Violations" t="Include">
+                  <e p="AddViolationWindow.g.cs" t="Include" />
+                  <e p="AllViolationsWindow.g.cs" t="Include" />
+                </e>
               </e>
               <e p="LoginWindow.g.cs" t="Include" />
             </e>
           </e>
         </e>
+        <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="Annotations.cs" t="Include" />
           <e p="AssemblyInfo.cs" t="Include" />
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
         </e>
-        <e p="Strategies" t="Include">
-          <e p="Views" t="Include">
-            <e p="CustomerServiceViewStrategy.cs" t="Include" />
-            <e p="FinanceViewStrategy.cs" t="Include" />
-            <e p="HumanResourceViewStrategy.cs" t="Include" />
-            <e p="ManagerViewStrategy.cs" t="Include" />
-            <e p="SecurityAndMaintenanceViewStrategy.cs" t="Include" />
-            <e p="TellerViewStrategy.cs" t="Include" />
-          </e>
-        </e>
         <e p="TPA Desktop.csproj" t="IncludeRecursive" />
         <e p="Views" t="Include">
+          <e p="CustomerService" t="Include">
+            <e p="Accounts" t="Include">
+              <e p="NewIndividualAccountWindow.xaml" t="Include" />
+              <e p="NewIndividualAccountWindow.xaml.cs" t="Include" />
+            </e>
+            <e p="Customers" t="Include">
+              <e p="Regular" t="Include">
+                <e p="NewCustomerWindow.xaml" t="Include" />
+                <e p="NewCustomerWindow.xaml.cs" t="Include" />
+              </e>
+            </e>
+            <e p="CustomerServiceWindow.xaml" t="Include" />
+            <e p="CustomerServiceWindow.xaml.cs" t="Include" />
+          </e>
           <e p="HumanResource" t="Include">
             <e p="Employees" t="Include">
-              <e p="AddViolationWindow.xaml" t="Include" />
-              <e p="AddViolationWindow.xaml.cs" t="Include" />
-              <e p="AllViolationsWindow.xaml" t="Include" />
-              <e p="AllViolationsWindow.xaml.cs" t="Include" />
               <e p="ManageEmployeesWindow.xaml" t="Include" />
               <e p="ManageEmployeesWindow.xaml.cs" t="Include" />
               <e p="NewEmployeeWindow.xaml" t="Include" />
               <e p="NewEmployeeWindow.xaml.cs" t="Include" />
             </e>
-            <e p="MainWindow.xaml" t="Include" />
-            <e p="MainWindow.xaml.cs" t="Include" />
+            <e p="HumanResourceWindow.xaml" t="Include" />
+            <e p="HumanResourceWindow.xaml.cs" t="Include" />
+            <e p="Violations" t="Include">
+              <e p="AddViolationWindow.xaml" t="Include" />
+              <e p="AddViolationWindow.xaml.cs" t="Include" />
+              <e p="AllViolationsWindow.xaml" t="Include" />
+              <e p="AllViolationsWindow.xaml.cs" t="Include" />
+            </e>
           </e>
           <e p="LoginWindow.xaml" t="Include" />
           <e p="LoginWindow.xaml.cs" t="Include" />

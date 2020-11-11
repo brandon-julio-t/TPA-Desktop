@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace TPA_Desktop.Facades
 {
@@ -15,7 +13,6 @@ namespace TPA_Desktop.Facades
         private object Object { get; }
         private string FieldName { get; }
 
-        private bool IsObject { get; set; }
 
         private Validator(string fieldName)
         {
@@ -39,6 +36,8 @@ namespace TPA_Desktop.Facades
             Value = value;
         }
 
+        private bool IsObject { get; }
+
         public Validator NotEmpty()
         {
             if (!IsValid) return this;
@@ -46,7 +45,7 @@ namespace TPA_Desktop.Facades
             IsValid = IsObject
                 ? Object != null
                 : !string.IsNullOrEmpty(Value) && !string.IsNullOrWhiteSpace(Value);
-            
+
             if (!IsValid) MessageBox.Show($"{FieldName} must not be empty.");
 
             return this;
@@ -69,6 +68,16 @@ namespace TPA_Desktop.Facades
             IsValid = Options.Count > 0 && Options.Any(option => option);
             if (!IsValid) MessageBox.Show($"{FieldName} must be selected.");
 
+            return this;
+        }
+
+        public Validator In(params object[] values)
+        {
+            if (!IsValid) return this;
+            
+            IsValid = values.Contains(IsObject ? Object : Value);
+            if (!IsValid) MessageBox.Show($"{FieldName} must be any of {values}.");
+            
             return this;
         }
     }

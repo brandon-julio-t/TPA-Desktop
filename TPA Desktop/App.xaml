@@ -4,6 +4,6 @@
              DispatcherUnhandledException="App_OnDispatcherUnhandledException"
              StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

@@ -53,14 +53,18 @@ namespace TPA_Desktop.Views.HumanResource.Employees
         public EmployeePosition[] EmployeePositions => EmployeePosition.GetAllEmployeePositions();
         public EmployeePosition SelectedEmployeePosition { get; set; }
 
-        public bool ValidateFields() =>
-            new Validator("First Name", FirstName).NotEmpty().IsValid
-            && new Validator("Last Name", LastName).NotEmpty().IsValid
-            && new Validator("Gender", IsMaleChecked, IsFemaleChecked).AnyIsSelected().IsValid
-            && new Validator("Date of Birth", DateOfBirth).NotEmpty().IsValid
-            && new Validator("Phone Number", PhoneNumber).NotEmpty().Numeric().IsValid
-            && new Validator("Salary", Salary).NotEmpty().Numeric().IsValid
-            && new Validator("Employee Position", SelectedEmployeePosition).NotEmpty().IsValid;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool ValidateFields()
+        {
+            return new Validator("First Name", FirstName).NotEmpty().IsValid
+                   && new Validator("Last Name", LastName).NotEmpty().IsValid
+                   && new Validator("Gender", IsMaleChecked, IsFemaleChecked).AnyIsSelected().IsValid
+                   && new Validator("Date of Birth", DateOfBirth).NotEmpty().IsValid
+                   && new Validator("Phone Number", PhoneNumber).NotEmpty().Numeric().IsValid
+                   && new Validator("Salary", Salary).NotEmpty().Numeric().IsValid
+                   && new Validator("Employee Position", SelectedEmployeePosition).NotEmpty().IsValid;
+        }
 
         public void ResetFields()
         {
@@ -82,8 +86,6 @@ namespace TPA_Desktop.Views.HumanResource.Employees
             OnPropertyChanged(nameof(Salary));
             OnPropertyChanged(nameof(SelectedEmployeePosition));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
