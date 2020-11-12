@@ -1,64 +1,67 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
-using TPA_Desktop.Annotations;
-using TPA_Desktop.Facades;
-using TPA_Desktop.Facades.Managers;
-using TPA_Desktop.Facades.Models;
-using TPA_Desktop.Views.CustomerService.Accounts;
-using TPA_Desktop.Views.CustomerService.Customers.Regular;
+using TPA_Desktop.Core.DefaultImplementations;
+using TPA_Desktop.Core.Interfaces;
+using TPA_Desktop.Core.Managers;
+using TPA_Desktop.Core.Models;
+using TPA_Desktop.Core.Strategies.CustomerService;
 
 namespace TPA_Desktop.Views.CustomerService
 {
     public partial class CustomerServiceWindow
     {
-        private readonly CustomerServiceWindowViewModel _viewModel = new CustomerServiceWindowViewModel();
-        private readonly CustomerQueueManager _queueManager = new CustomerQueueManager("CustomerServiceQueue");
+        public readonly CustomerServiceWindowViewModel ViewModel = new CustomerServiceWindowViewModel();
+        public readonly CustomerQueueManager QueueManager = new CustomerQueueManager("CustomerServiceQueue");
+        private readonly IMediator _mediator;
 
         public CustomerServiceWindow()
         {
             InitializeComponent();
-            DataContext = _viewModel;
+            DataContext = ViewModel;
+            _mediator = new CustomerServiceWindowMediator(this);
         }
 
-        private void HandleRegisterNewCustomer(object sender, RoutedEventArgs e)
-        {
-            new NewCustomerWindow().Show();
-        }
+        private void HandleRegisterNewCustomer(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "Register New Customer");
 
-        private void HandleNewIndividualAccount(object sender, RoutedEventArgs e)
-        {
-            new NewIndividualAccountWindow().Show();
-        }
+        private void HandleNewIndividualAccount(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "New Individual Account");
 
         private void HandleNextCustomerQueue(object sender, RoutedEventArgs e)
         {
-            var previousQueue = _viewModel.CurrentQueue;
+            var previousQueue = ViewModel.CurrentQueue;
             if (previousQueue != null)
             {
                 previousQueue.ServedAt = DateTime.Now;
                 previousQueue.Save();
             }
 
-            var currentQueue = _queueManager.Dequeue();
+            var currentQueue = QueueManager.Dequeue();
             if (currentQueue == null)
             {
                 MessageBox.Show("Customer service queue is empty.");
                 return;
             }
 
-            _viewModel.CurrentQueue = currentQueue;
+            ViewModel.CurrentQueue = currentQueue;
             currentQueue.ServiceStartAt = DateTime.Now;
             currentQueue.Save();
         }
+
+        private void CreateVirtualAccount(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GenerateVirtualAccountsFromExcel(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public sealed class CustomerServiceWindowViewModel : INotifyPropertyChanged
+    public sealed class CustomerServiceWindowViewModel : DefaultNotifyPropertyChanged
     {
         private Queue _currentQueue;
-        public string Name => $"{Authentication.Employee.FirstName} {Authentication.Employee.LastName}";
-        public string Role => Authentication.Employee.EmployeePosition.Name;
 
         public Queue CurrentQueue
         {
@@ -66,16 +69,42 @@ namespace TPA_Desktop.Views.CustomerService
             set
             {
                 _currentQueue = value;
-                OnPropertyChanged(nameof(CurrentQueue));
+                OnPropertyChanged();
             }
         }
+    }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+    public class CustomerServiceWindowMediator : IMediator
+    {
+        private readonly CustomerServiceWindow _window;
 
-        [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public CustomerServiceWindowMediator(CustomerServiceWindow window) => _window = window;
+
+        public void Notify(object sender, string @event)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            IStrategy strategy;
+
+            switch (@event)
+            {
+                case "Register New Customer":
+                    strategy = new RegisterNewCustomerStrategy();
+                    break;
+                case "New Individual Account":
+                    strategy = new NewIndividualAccountStrategy();
+                    break;
+                case "Next Customer Queue":
+                    strategy = new NextCustomerQueueStrategy(_window);
+                    break;
+                case "Create Virtual Account": 
+                    strategy = new CreateVirtualAccountStrategy();
+                    break;
+                case "Generate Virtual Accounts From Excel":
+                    strategy = new GenerateVirtualAccountsFromExcelStrategy();
+                    break;
+                default: throw new InvalidOperationException();
+            }
+
+            strategy.Execute();
         }
     }
 }

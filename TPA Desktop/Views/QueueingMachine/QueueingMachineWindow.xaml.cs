@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using TPA_Desktop.Facades.Managers;
+using TPA_Desktop.Core.Managers;
 
 namespace TPA_Desktop.Views.QueueingMachine
 {
@@ -18,7 +18,7 @@ namespace TPA_Desktop.Views.QueueingMachine
             
             if (queue != null)
             {
-                MessageBox.Show($"Queueing success. Your queue number: {queue.Number}");
+                new ShowQueueWindow(queue).Show();
             }
             else
             {

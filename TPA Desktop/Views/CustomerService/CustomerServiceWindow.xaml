@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TPA_Desktop.Views.CustomerService"
+        xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
         mc:Ignorable="d"
         Title="Customer Service"
         SizeToContent="WidthAndHeight"
@@ -18,27 +19,18 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="Hello, " />
-            <TextBlock Text="{Binding Name}" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Text="Logged in as " />
-            <TextBlock Text="{Binding Role}" />
-        </StackPanel>
+        <userControls:Greeting Grid.Row="0" />
         
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Text="Current queue number: " />
             <TextBlock Text="{Binding CurrentQueue.Number}" />
         </StackPanel>
         
-        <Button Grid.Row="3" Content="Next Queue" Click="HandleNextCustomerQueue" />
+        <Button Grid.Row="2" Content="Next Queue" Click="HandleNextCustomerQueue" />
 
-        <StackPanel Grid.Row="4">
+        <StackPanel Grid.Row="3">
             <TextBlock Text="Account" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -51,7 +43,7 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="5">
+        <StackPanel Grid.Row="4">
             <TextBlock Text="Customer" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -64,7 +56,7 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="6">
+        <StackPanel Grid.Row="5">
             <TextBlock Text="Virtual Account" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -72,12 +64,12 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Create Virtual Account" />
-                <Button Grid.Column="1" Content="Generate Virtual Accounts From Excel" />
+                <Button Grid.Column="0" Content="Create Virtual Account" Click="CreateVirtualAccount" />
+                <Button Grid.Column="1" Content="Generate Virtual Accounts From Excel" Click="GenerateVirtualAccountsFromExcel" />
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="7">
+        <StackPanel Grid.Row="6">
             <TextBlock Text="Payroll" />
             <Grid>
                 <Grid.ColumnDefinitions>

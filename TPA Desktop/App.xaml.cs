@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using TPA_Desktop.Facades;
+using TPA_Desktop.Core;
+using TPA_Desktop.Core.Facades;
 
 namespace TPA_Desktop
 {

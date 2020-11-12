@@ -43,6 +43,7 @@
         <Reference Include="System.ComponentModel.Composition" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
         <Reference Include="System.IO.Compression.FileSystem" />
         <Reference Include="System.Numerics" />
         <Reference Include="System.Xml" />
@@ -67,31 +68,41 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Facades\Authentication.cs" />
-        <Compile Include="Facades\Builders\AccountBuilder.cs" />
-        <Compile Include="Facades\Builders\Directors\AccountBuilderDirector.cs" />
-        <Compile Include="Facades\Builders\QueryBuilder.cs" />
-        <Compile Include="Facades\Database.cs" />
-        <Compile Include="Facades\Environment.cs" />
-        <Compile Include="Facades\Factories\ViewStrategyFactory.cs" />
-        <Compile Include="Facades\Interfaces\IFactory.cs" />
-        <Compile Include="Facades\Interfaces\IStrategy.cs" />
-        <Compile Include="Facades\Managers\CustomerQueueManager.cs" />
-        <Compile Include="Facades\Models\Abstract\BaseModel.cs" />
-        <Compile Include="Facades\Models\Abstract\User.cs" />
-        <Compile Include="Facades\Models\Account.cs" />
-        <Compile Include="Facades\Models\Customer.cs" />
-        <Compile Include="Facades\Models\Employee.cs" />
-        <Compile Include="Facades\Models\EmployeePosition.cs" />
-        <Compile Include="Facades\Models\EmployeeViolation.cs" />
-        <Compile Include="Facades\Models\Queue.cs" />
-        <Compile Include="Facades\Strategies\Views\CustomerServiceViewStrategy.cs" />
-        <Compile Include="Facades\Strategies\Views\FinanceViewStrategy.cs" />
-        <Compile Include="Facades\Strategies\Views\HumanResourceViewStrategy.cs" />
-        <Compile Include="Facades\Strategies\Views\ManagerViewStrategy.cs" />
-        <Compile Include="Facades\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs" />
-        <Compile Include="Facades\Strategies\Views\TellerViewStrategy.cs" />
-        <Compile Include="Facades\Validator.cs" />
+        <Compile Include="Core\Builders\AccountBuilder.cs" />
+        <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs" />
+        <Compile Include="Core\Builders\QueryBuilder.cs" />
+        <Compile Include="Core\Decorators\QRCodeDecorator.cs" />
+        <Compile Include="Core\DefaultImplementations\DefaultNotifyPropertyChanged.cs" />
+        <Compile Include="Core\Facades\Authentication.cs" />
+        <Compile Include="Core\Facades\Database.cs" />
+        <Compile Include="Core\Facades\Environment.cs" />
+        <Compile Include="Core\Facades\Validator.cs" />
+        <Compile Include="Core\Factories\ViewStrategyFactory.cs" />
+        <Compile Include="Core\Interfaces\IMediator.cs" />
+        <Compile Include="Core\Interfaces\IStrategy.cs" />
+        <Compile Include="Core\Managers\CustomerQueueManager.cs" />
+        <Compile Include="Core\Models\Abstracts\BaseModel.cs" />
+        <Compile Include="Core\Models\Abstracts\User.cs" />
+        <Compile Include="Core\Models\Account.cs" />
+        <Compile Include="Core\Models\Customer.cs" />
+        <Compile Include="Core\Models\CustomerSatisfaction.cs" />
+        <Compile Include="Core\Models\Employee.cs" />
+        <Compile Include="Core\Models\EmployeePosition.cs" />
+        <Compile Include="Core\Models\EmployeeViolation.cs" />
+        <Compile Include="Core\Models\QrCode.cs" />
+        <Compile Include="Core\Models\Queue.cs" />
+        <Compile Include="Core\Models\VirtualAccount.cs" />
+        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\NextCustomerQueueStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs" />
         <Compile Include="Properties\Annotations.cs" />
         <Compile Include="Views\CustomerService\Accounts\NewIndividualAccountWindow.xaml.cs">
           <DependentUpon>NewIndividualAccountWindow.xaml</DependentUpon>
@@ -121,8 +132,23 @@
           <DependentUpon>LoginWindow.xaml</DependentUpon>
           <SubType>Code</SubType>
         </Compile>
+        <Compile Include="Views\QueueingMachine\CustomerSatisfactionWindow.xaml.cs">
+          <DependentUpon>CustomerSatisfactionWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\QueueingMachine\QueueingMachineWindow.xaml.cs">
           <DependentUpon>QueueingMachineWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\QueueingMachine\ShowQueueWindow.xaml.cs">
+          <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Teller\DepositWindow.xaml.cs">
+          <DependentUpon>DepositWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Teller\TellerWindow.xaml.cs">
+          <DependentUpon>TellerWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\UserControls\Greeting.xaml.cs">
+          <DependentUpon>Greeting.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -156,7 +182,12 @@
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>
       </Page>
+      <Page Include="Views\QueueingMachine\CustomerSatisfactionWindow.xaml" />
       <Page Include="Views\QueueingMachine\QueueingMachineWindow.xaml" />
+      <Page Include="Views\QueueingMachine\ShowQueueWindow.xaml" />
+      <Page Include="Views\Teller\DepositWindow.xaml" />
+      <Page Include="Views\Teller\TellerWindow.xaml" />
+      <Page Include="Views\UserControls\Greeting.xaml" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="database.sql" />

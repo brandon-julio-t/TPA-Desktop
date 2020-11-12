@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TPA_Desktop.Views.HumanResource.Employees"
         xmlns:models="clr-namespace:TPA_Desktop.Models"
+        xmlns:models1="clr-namespace:TPA_Desktop.Core.Models"
         mc:Ignorable="d"
         Title="ViewAllViolationsWindow"
         SizeToContent="WidthAndHeight"
@@ -18,7 +19,7 @@
                 <DataGridTextColumn Header="Violation" Binding="{Binding Title, Mode=TwoWay}" />
                 <DataGridTemplateColumn Header="Violation Time">
                     <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate DataType="models:EmployeeViolation">
+                        <DataTemplate DataType="models1:EmployeeViolation">
                             <DatePicker
                                 SelectedDate="{Binding ViolatedAt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 SelectedDateFormat="Long"
@@ -48,7 +49,7 @@
             </DataGrid.Columns>
 
             <DataGrid.RowDetailsTemplate>
-                <DataTemplate DataType="models:EmployeeViolation">
+                <DataTemplate DataType="models1:EmployeeViolation">
                     <TextBox Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              AcceptsReturn="True"
                              AcceptsTab="True" />

@@ -1,0 +1,19 @@
+﻿<Window x:Class="TPA_Desktop.Views.Teller.TellerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
+        mc:Ignorable="d"
+        Title="Teller"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="20" Width="300">
+        <userControls:Greeting />
+        <Button Content="Transfer Money" Click="HandleTransferMoney" />
+        <Button Content="Deposit Money" Click="HandleDepositMoney" />
+        <Button Content="Payment" Click="HandlePayment" />
+        <Button Content="Withdraw Money" Click="HandleWithdrawMoney" />
+        <Button Content="Transfer to Virtual Account" Click="HandleTransferToVirtualAccount" />
+    </StackPanel>
+</Window>

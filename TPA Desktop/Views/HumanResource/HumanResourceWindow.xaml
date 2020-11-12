@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:humanResource="clr-namespace:TPA_Desktop.Views.HumanResource"
+        xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
         mc:Ignorable="d"
         Title="Human Resource"
         SizeToContent="WidthAndHeight"
@@ -13,13 +14,11 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="{Binding Name, StringFormat=Hello\, {0}.}" />
-        <TextBlock Grid.Row="1" Text="{Binding Role, StringFormat=Logged in as {0}.}" />
-
-        <Grid Grid.Row="2">
+        <userControls:Greeting Grid.Row="0" />
+        
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

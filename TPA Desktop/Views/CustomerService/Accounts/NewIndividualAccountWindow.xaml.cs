@@ -3,14 +3,16 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using TPA_Desktop.Annotations;
-using TPA_Desktop.Facades;
-using TPA_Desktop.Facades.Builders;
-using TPA_Desktop.Facades.Builders.Directors;
-using TPA_Desktop.Models;
+using TPA_Desktop.Core;
+using TPA_Desktop.Core.Builders;
+using TPA_Desktop.Core.Builders.Directors;
+using TPA_Desktop.Core.DefaultImplementations;
+using TPA_Desktop.Core.Facades;
+using TPA_Desktop.Core.Models;
 
 namespace TPA_Desktop.Views.CustomerService.Accounts
 {
-    public partial class NewIndividualAccountWindow : Window
+    public partial class NewIndividualAccountWindow
     {
         public readonly NewIndividualAccountWindowViewModel ViewModel = new NewIndividualAccountWindowViewModel();
         public Customer Customer;
@@ -23,13 +25,10 @@ namespace TPA_Desktop.Views.CustomerService.Accounts
             State = new HandleCustomerState(this);
         }
 
-        private void HandleSubmit(object sender, RoutedEventArgs e)
-        {
-            State.HandleSubmit();
-        }
+        private void HandleSubmit(object sender, RoutedEventArgs e) => State.HandleSubmit();
     }
 
-    public sealed class NewIndividualAccountWindowViewModel : INotifyPropertyChanged
+    public sealed class NewIndividualAccountWindowViewModel : DefaultNotifyPropertyChanged
     {
         private bool _isCustomerValid;
         private int _selectedAccountTypeIndex;
@@ -52,10 +51,7 @@ namespace TPA_Desktop.Views.CustomerService.Accounts
             set
             {
                 _selectedAccountTypeIndex = value;
-                OnPropertyChanged(nameof(AccountLevelVisibility));
-                OnPropertyChanged(nameof(RegularAccountNumberVisibility));
-                OnPropertyChanged(nameof(GuardianAccountNumberVisibility));
-                OnPropertyChanged(nameof(AutomaticRollOverVisibility));
+                OnPropertyChanged();
             }
         }
 
@@ -65,11 +61,7 @@ namespace TPA_Desktop.Views.CustomerService.Accounts
             set
             {
                 _isCustomerValid = value;
-                OnPropertyChanged(nameof(AccountFormVisibility));
-                OnPropertyChanged(nameof(AccountLevelVisibility));
-                OnPropertyChanged(nameof(RegularAccountNumberVisibility));
-                OnPropertyChanged(nameof(GuardianAccountNumberVisibility));
-                OnPropertyChanged(nameof(AutomaticRollOverVisibility));
+                OnPropertyChanged();
             }
         }
 
@@ -98,14 +90,6 @@ namespace TPA_Desktop.Views.CustomerService.Accounts
             && _selectedAccountTypeIndex == 3
                 ? Visibility.Visible
                 : Visibility.Collapsed;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 
     public abstract class NewIndividualAccountWindowState

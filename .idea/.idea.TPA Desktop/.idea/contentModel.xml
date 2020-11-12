@@ -12,8 +12,7 @@
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="database.sql" t="Include" />
-        <e p="Facades" t="Include">
+        <e p="Core" t="Include">
           <e p="Authentication.cs" t="Include" />
           <e p="Builders" t="Include">
             <e p="AccountBuilder.cs" t="Include" />
@@ -23,12 +22,15 @@
             <e p="QueryBuilder.cs" t="Include" />
           </e>
           <e p="Database.cs" t="Include" />
+          <e p="Decorators" t="Include">
+            <e p="QRCodeDecorator.cs" t="Include" />
+          </e>
           <e p="Environment.cs" t="Include" />
           <e p="Factories" t="Include">
             <e p="ViewStrategyFactory.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
-            <e p="IFactory.cs" t="Include" />
+            <e p="IMediator.cs" t="Include" />
             <e p="IStrategy.cs" t="Include" />
           </e>
           <e p="Managers" t="Include">
@@ -41,9 +43,14 @@
             </e>
             <e p="Account.cs" t="Include" />
             <e p="Customer.cs" t="Include" />
+            <e p="CustomerSatisfaction.cs" t="Include" />
+            <e p="DefaultImplementations" t="Include">
+              <e p="DefaultNotifyPropertyChanged.cs" t="Include" />
+            </e>
             <e p="Employee.cs" t="Include" />
             <e p="EmployeePosition.cs" t="Include" />
             <e p="EmployeeViolation.cs" t="Include" />
+            <e p="QrCode.cs" t="Include" />
             <e p="Queue.cs" t="Include" />
           </e>
           <e p="Strategies" t="Include">
@@ -58,6 +65,7 @@
           </e>
           <e p="Validator.cs" t="Include" />
         </e>
+        <e p="database.sql" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="App.g.cs" t="Include" />
@@ -88,6 +96,7 @@
               <e p="LoginWindow.g.cs" t="Include" />
               <e p="QueueingMachine" t="Include">
                 <e p="QueueingMachineWindow.g.cs" t="Include" />
+                <e p="ShowQueueWindow.g.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -134,8 +143,22 @@
           <e p="LoginWindow.xaml" t="Include" />
           <e p="LoginWindow.xaml.cs" t="Include" />
           <e p="QueueingMachine" t="Include">
+            <e p="CustomerSatisfactionWindow.xaml" t="Include" />
+            <e p="CustomerSatisfactionWindow.xaml.cs" t="Include" />
             <e p="QueueingMachineWindow.xaml" t="Include" />
             <e p="QueueingMachineWindow.xaml.cs" t="Include" />
+            <e p="ShowQueueWindow.xaml" t="Include" />
+            <e p="ShowQueueWindow.xaml.cs" t="Include" />
+          </e>
+          <e p="Teller" t="Include">
+            <e p="DepositWindow.xaml" t="Include" />
+            <e p="DepositWindow.xaml.cs" t="Include" />
+            <e p="TellerWindow.xaml" t="Include" />
+            <e p="TellerWindow.xaml.cs" t="Include" />
+          </e>
+          <e p="UserControls" t="Include">
+            <e p="Greeting.xaml" t="Include" />
+            <e p="Greeting.xaml.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -15,6 +15,7 @@
         <TextBlock>Password</TextBlock>
         <PasswordBox x:Name="PasswordBox" />
         <Button Click="HandleLogin">Login</Button>
+        <Button Click="HandleLoginAsQueueingMachine">Login as Queueing Machine</Button>
     </StackPanel>
 
 </Window>

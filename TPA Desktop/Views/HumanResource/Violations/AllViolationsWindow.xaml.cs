@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using TPA_Desktop.Core.Models;
 using TPA_Desktop.Models;
 
 namespace TPA_Desktop.Views.HumanResource.Employees

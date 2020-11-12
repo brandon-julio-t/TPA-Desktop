@@ -3,7 +3,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using TPA_Desktop.Annotations;
-using TPA_Desktop.Facades;
+using TPA_Desktop.Core;
+using TPA_Desktop.Core.Facades;
+using TPA_Desktop.Core.Models;
 using TPA_Desktop.Models;
 
 namespace TPA_Desktop.Views.HumanResource.Employees

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
-using TPA_Desktop.Facades;
+using TPA_Desktop.Core;
+using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Views.HumanResource.Employees;
 
 namespace TPA_Desktop.Views.HumanResource

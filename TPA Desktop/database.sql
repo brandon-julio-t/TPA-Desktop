@@ -1,4 +1,4 @@
-﻿create table [User]
+﻿create table User
 (
     ID           uniqueidentifier not null primary key default newid(),
     FirstName    varchar(50)      not null,
@@ -7,42 +7,42 @@
     DateOfBirth  date             not null,
     RegisteredAt date             not null             default getdate(),
     DeletedAt    date             null,
-    PhoneNumber  varchar(15)      not null
+    PhoneNumber  varchar(15)      not null,
 )
 
-create table [EmployeePosition]
+create table EmployeePosition
 (
     ID   uniqueidentifier not null primary key default newid(),
     Name varchar(50)      not null,
 )
 
-create table [Employee]
+create table Employee
 (
     ID                 uniqueidentifier not null primary key foreign key references [User] (ID) on update cascade on delete cascade,
     EmployeePositionID uniqueidentifier not null foreign key references [EmployeePosition] (ID) on update cascade on delete cascade,
     Email              varchar(50)      not null,
     Password           varchar(255)     not null,
-    Salary             money            not null
+    Salary             money            not null,
 )
 
-create table [EmployeeViolation]
+create table EmployeeViolation
 (
     ID         uniqueidentifier not null primary key default newid(),
     EmployeeID uniqueidentifier not null foreign key references [Employee] (ID) on update cascade on delete cascade,
     Title      varchar(50)      not null,
     Comment    text             not null,
     ViolatedAt datetime2        not null,
-    DeletedAt  datetime2        not null
+    DeletedAt  datetime2        not null,
 )
 
-create table [Customer]
+create table Customer
 (
     ID               uniqueidentifier not null primary key foreign key references [User] (ID) on update cascade on delete cascade,
     IsBusinessOwner  bit              not null,
     MotherMaidenName varchar(50)      not null,
 )
 
-create table [Account]
+create table Account
 (
     CustomerID              uniqueidentifier not null foreign key references [Customer] (ID) on update cascade on delete cascade,
     AccountNumber           char(16)         not null unique,
@@ -83,6 +83,27 @@ create table CustomerServiceQueue
     Number bigint           not null identity,
 )
 
+create table QRCode
+(
+    ID        uniqueidentifier not null primary key default newid(),
+    URL       text             not null,
+    CreatedAt datetime2        not null             default getdate(),
+)
+
+create table CustomerSatisfaction
+(
+    ID          uniqueidentifier not null primary key default newid(),
+    QRCodeID    uniqueidentifier not null foreign key references QRCode (ID) on update cascade on delete cascade,
+    Rating      tinyint          not null,
+    Description text             not null,
+    SubmittedAt datetime2        not null             default getdate(),
+)
+
+create table VirtualAccount
+(
+    
+)
+
 insert into [EmployeePosition] (Name)
 values ('Teller'),
        ('Customer Service'),
@@ -92,8 +113,5 @@ values ('Teller'),
        ('Manager')
 
 select *
-from Queue Q
-         full join CustomerServiceQueue CSQ on Q.ID = CSQ.ID
-         full join TellerQueue TQ on Q.ID = TQ.ID
-where ServiceStartAt IS NULL
-order by CSQ.Number
+from Account A join Customer C on A.CustomerID = C.ID join [User] U on U.ID = C.ID
+where AccountNumber = '8766153557599758'

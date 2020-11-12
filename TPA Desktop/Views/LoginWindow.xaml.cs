@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows;
-using TPA_Desktop.Facades;
-using TPA_Desktop.Factories;
-using TPA_Desktop.Interfaces;
+using TPA_Desktop.Core;
+using TPA_Desktop.Core.Facades;
+using TPA_Desktop.Core.Factories;
+using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Models;
 using TPA_Desktop.Views.QueueingMachine;
 
@@ -23,26 +24,19 @@ namespace TPA_Desktop.Views
 
         private void HandleLogin(object sender, RoutedEventArgs e)
         {
-            if (_viewModel.Email == "Queueing Machine")
-            {
-                new QueueingMachineWindow().Show();
-            }
-            else
-            {
-                var employee = new Employee(_viewModel.Email, PasswordBox.Password);
-                if (employee.Id == Guid.Empty) return;
-                Authentication.Login(employee);
-
-                var viewStrategy = new ViewStrategyFactory(employee).Create() as IStrategy;
-                viewStrategy?.Execute();
-            }
-
+            var employee = new Employee(_viewModel.Email, PasswordBox.Password);
+            if (employee.Id == Guid.Empty) return;
+            Authentication.Login(employee);
+            new ViewStrategyFactory(employee).Create()?.Execute();
             Close();
         }
+
+        private void HandleLoginAsQueueingMachine(object sender, RoutedEventArgs e) =>
+            new QueueingMachineWindow().Show();
     }
 
     public class LoginWindowViewModel
     {
-        public string Email { get; set; } = "skolastika.gabriella@binus.edu";
+        public string Email { get; set; }
     }
 }
