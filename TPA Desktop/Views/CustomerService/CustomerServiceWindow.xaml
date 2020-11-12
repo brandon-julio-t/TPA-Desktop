@@ -11,12 +11,14 @@
         d:DataContext="{d:DesignInstance local:CustomerServiceWindowViewModel}">
     <Grid Margin="20" Width="500">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
@@ -28,8 +30,15 @@
             <TextBlock Text="Logged in as " />
             <TextBlock Text="{Binding Role}" />
         </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="Current queue number: " />
+            <TextBlock Text="{Binding CurrentQueue.Number}" />
+        </StackPanel>
+        
+        <Button Grid.Row="3" Content="Next Queue" Click="HandleNextCustomerQueue" />
 
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="4">
             <TextBlock Text="Account" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -42,33 +51,42 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="5">
             <TextBlock Text="Customer" />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Content="New Customer" Click="HandleRegisterNewCustomer" />
-                <Button Grid.Column="1" Content="Transfer" />
-                <Button Grid.Column="2" Content="Payment" />
-                <Button Grid.Column="3" Content="Deposit" />
+                <Button Grid.Column="1" Content="Update Customer Data" />
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="5">
-            <TextBlock Text="Miscellaneous" />
+        <StackPanel Grid.Row="6">
+            <TextBlock Text="Virtual Account" />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Virtual Account" />
-                <Button Grid.Column="1" Content="Payroll" />
+                <Button Grid.Column="0" Content="Create Virtual Account" />
+                <Button Grid.Column="1" Content="Generate Virtual Accounts From Excel" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7">
+            <TextBlock Text="Payroll" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="New Payroll" />
+                <Button Grid.Column="1" Content="Generate Payrolls From Excel" />
             </Grid>
         </StackPanel>
     </Grid>

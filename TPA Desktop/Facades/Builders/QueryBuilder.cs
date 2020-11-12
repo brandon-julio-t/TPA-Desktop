@@ -36,6 +36,25 @@ namespace TPA_Desktop.Facades.Builders
             return this;
         }
 
+        public bool Insert()
+        {
+            _sql = _sql.Replace("select * from", "insert into");
+            _sql += " default values";
+            
+            try
+            {
+                var command = Database.Command;
+                command.CommandText = _sql;
+                return command.ExecuteNonQuery() > 0;
+            }
+            catch (Exception e)
+            {
+                HandleException(e, "inserting default values");
+            }
+
+            return false;
+        }
+
         public bool Insert(Dictionary<string, object> dictionary)
         {
             _sql = _sql.Replace("select * from", "insert into");
@@ -53,7 +72,7 @@ namespace TPA_Desktop.Facades.Builders
             foreach (var column in dictionary.Keys)
             {
                 var value = dictionary[column];
-                _sql += $"'{value}'";
+                _sql += value == null ? "null" : $"'{value}'";
                 if (column != dictionary.Keys.Last()) _sql += ", ";
             }
 
@@ -88,7 +107,8 @@ namespace TPA_Desktop.Facades.Builders
             {
                 var column = pair.Key;
                 var value = pair.Value;
-                tempSql += $"[{column}] = '{value}'";
+                var columnValue = value == null ? "null" : $"'{value}'";
+                tempSql += $"[{column}] = {columnValue}";
                 if (!pair.Equals(dictionary.Last())) tempSql += ", ";
             }
 
@@ -136,16 +156,14 @@ namespace TPA_Desktop.Facades.Builders
         public QueryBuilder Where(string column, string value)
         {
             _sql += _hasUsedWhere ? " and " : " where ";
-            _sql += $"[{column}] = '{value}'";
+            _sql += value == null ? $"{column} is null" : $"{column} = '{value}'";
             _hasUsedWhere = true;
             return this;
         }
 
-        public QueryBuilder OrWhere(string column, string value)
+        public QueryBuilder OrderBy(string column, string order = "asc")
         {
-            _sql += _hasUsedWhere ? " or " : " where ";
-            _sql += $"[{column}] = '{value}'";
-            _hasUsedWhere = true;
+            _sql += $" order by {column} {order}";
             return this;
         }
 
@@ -167,8 +185,9 @@ namespace TPA_Desktop.Facades.Builders
 
         private void HandleException(Exception e, string eventName)
         {
-            var debug = Environment.IsDevelopment ? $"SQL: {_sql}." : "";
+            var debug = Environment.IsDevelopment ? $"\nSQL: {_sql}\n{e.StackTrace}" : "";
             MessageBox.Show($"QueryBuilder error while {eventName}: {e.Message} {debug}".Trim());
+            throw e; // Catch in Database.Transaction
         }
     }
 }

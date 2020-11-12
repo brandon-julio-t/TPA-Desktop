@@ -1,12 +1,15 @@
 ﻿using System;
-using TPA_Desktop.Models;
-using TPA_Desktop.Views.CustomerService.Accounts;
 
 namespace TPA_Desktop.Facades.Builders.Directors
 {
     public class AccountBuilderDirector
     {
         private readonly string _level;
+
+        public AccountBuilderDirector(string level)
+        {
+            _level = level;
+        }
 
         private decimal MaximumWithdrawalAmountByLevel
         {
@@ -53,8 +56,6 @@ namespace TPA_Desktop.Facades.Builders.Directors
             }
         }
 
-        public AccountBuilderDirector(string level) => _level = level;
-
         public void MakeRegularAccount(AccountBuilder builder)
         {
             builder.Reset();
@@ -69,7 +70,7 @@ namespace TPA_Desktop.Facades.Builders.Directors
             builder.SetUseAutomaticRollOver(false);
         }
 
-        public void MakeStudentAccount(AccountBuilder builder, long guardianAccountNumber)
+        public void MakeStudentAccount(AccountBuilder builder, string guardianAccountNumber)
         {
             builder.Reset();
             builder.SetAdministrationFee(5_000);
@@ -89,7 +90,7 @@ namespace TPA_Desktop.Facades.Builders.Directors
             builder.Reset();
             builder.SetAdministrationFee(0);
             builder.SetBalance(0);
-            builder.SetInterest(0.1 + InterestByLevel);
+            builder.SetInterest(0.1);
             builder.SetMaximumTransferAmount(MaximumTransferAmountByLevel);
             builder.SetMaximumWithdrawalAmount(MaximumWithdrawalAmountByLevel);
             builder.SetMinimumSavingAmount(0);

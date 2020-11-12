@@ -16,13 +16,16 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name" />
@@ -42,15 +45,33 @@
                   Visibility="{Binding AccountFormVisibility}"
                   ItemsSource="{Binding AccountTypes}"
                   ItemStringFormat="{}{0} Account"
-                  SelectedIndex="{Binding SelectedAccountTypeIndex, Mode=TwoWay}"
-                  />
+                  SelectedIndex="{Binding SelectedAccountTypeIndex, Mode=TwoWay}" />
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Text="Account Level" Visibility="{Binding AccountLevelVisibility}" />
-        <ComboBox Grid.Row="5" Grid.Column="1"
+        <TextBlock Grid.Row="5" Grid.Column="0"
+                   Text="Regular Account Number"
+                   Visibility="{Binding RegularAccountNumberVisibility}" />
+        <TextBox Grid.Row="5" Grid.Column="1"
+                 Text="{Binding RegularAccountNumber, Mode=TwoWay}"
+                 Visibility="{Binding RegularAccountNumberVisibility}" />
+
+        <TextBlock Grid.Row="6" Grid.Column="0"
+                   Text="Guardian Account Number"
+                   Visibility="{Binding GuardianAccountNumberVisibility}" />
+        <TextBox Grid.Row="6" Grid.Column="1"
+                 Text="{Binding GuardianAccountNumber, Mode=TwoWay}"
+                 Visibility="{Binding GuardianAccountNumberVisibility}" />
+
+        <CheckBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                  Content="Automatic Roll Over (ARO)"
+                  IsChecked="{Binding UseAutomaticRollOver, Mode=TwoWay}"
+                  Visibility="{Binding AutomaticRollOverVisibility}" />
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Account Level" Visibility="{Binding AccountLevelVisibility}" />
+        <ComboBox Grid.Row="8" Grid.Column="1"
                   Visibility="{Binding AccountLevelVisibility}"
                   ItemsSource="{Binding AccountLevels}"
-                  SelectedIndex="{Binding SelectedAccountLevelIndex, Mode=TwoWay}"/>
-        
-        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
+                  SelectedIndex="{Binding SelectedAccountLevelIndex, Mode=TwoWay}" />
+
+        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
     </Grid>
 </Window>

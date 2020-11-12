@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using TPA_Desktop.Facades;
 using TPA_Desktop.Facades.Builders;
 using TPA_Desktop.Models.Abstract;
 
@@ -9,8 +8,6 @@ namespace TPA_Desktop.Models
 {
     public class EmployeePosition : BaseModel
     {
-        public string Name { get; }
-
         public EmployeePosition(Guid id, string name)
         {
             Id = id;
@@ -43,6 +40,8 @@ namespace TPA_Desktop.Models
             }
         }
 
+        public string Name { get; }
+
         public static EmployeePosition[] GetAllEmployeePositions()
         {
             try
@@ -73,8 +72,19 @@ namespace TPA_Desktop.Models
             return Array.Empty<EmployeePosition>();
         }
 
-        public override bool Save() => false;
-        public override bool Delete() => false;
-        public override string ToString() => Name;
+        public override bool Save()
+        {
+            return false;
+        }
+
+        public override bool Delete()
+        {
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

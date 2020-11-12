@@ -4,6 +4,7 @@ using TPA_Desktop.Facades;
 using TPA_Desktop.Factories;
 using TPA_Desktop.Interfaces;
 using TPA_Desktop.Models;
+using TPA_Desktop.Views.QueueingMachine;
 
 namespace TPA_Desktop.Views
 {
@@ -22,15 +23,20 @@ namespace TPA_Desktop.Views
 
         private void HandleLogin(object sender, RoutedEventArgs e)
         {
-            var employee = new Employee(_viewModel.Email, PasswordBox.Password);
+            if (_viewModel.Email == "Queueing Machine")
+            {
+                new QueueingMachineWindow().Show();
+            }
+            else
+            {
+                var employee = new Employee(_viewModel.Email, PasswordBox.Password);
+                if (employee.Id == Guid.Empty) return;
+                Authentication.Login(employee);
 
-            if (employee.Id == Guid.Empty) return;
+                var viewStrategy = new ViewStrategyFactory(employee).Create() as IStrategy;
+                viewStrategy?.Execute();
+            }
 
-            Authentication.Login(employee);
-            
-            var viewStrategy = new ViewStrategyFactory(employee).Create() as IStrategy;
-            viewStrategy?.Execute();
-            
             Close();
         }
     }

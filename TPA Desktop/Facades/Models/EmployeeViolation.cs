@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
-using TPA_Desktop.Facades;
 using TPA_Desktop.Facades.Builders;
 using TPA_Desktop.Models.Abstract;
 
@@ -10,12 +9,6 @@ namespace TPA_Desktop.Models
 {
     public class EmployeeViolation : BaseModel
     {
-        public DateTime ViolatedAt { get; set; }
-        public DateTime? DeletedAt { get; set; }
-        public Employee Employee { get; set; }
-        public string Comment { get; set; }
-        public string Title { get; set; }
-
         public EmployeeViolation(Employee employee)
         {
             Id = Guid.NewGuid();
@@ -34,6 +27,12 @@ namespace TPA_Desktop.Models
             Employee = employee;
             IsSaved = true;
         }
+
+        public DateTime ViolatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public Employee Employee { get; set; }
+        public string Comment { get; set; }
+        public string Title { get; set; }
 
         public static IEnumerable<EmployeeViolation> All()
         {
@@ -97,6 +96,9 @@ namespace TPA_Desktop.Models
                 : queryBuilderViolation.Insert(data);
         }
 
-        public override bool Delete() => QueryBuilder.Table("EmployeeViolation").Delete(Id);
+        public override bool Delete()
+        {
+            return QueryBuilder.Table("EmployeeViolation").Delete(Id);
+        }
     }
 }

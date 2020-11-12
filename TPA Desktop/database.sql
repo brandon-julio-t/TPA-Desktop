@@ -41,27 +41,46 @@ create table [Customer]
     IsBusinessOwner  bit              not null,
     MotherMaidenName varchar(50)      not null,
 )
-alter table [Account]
-    add UseAutomaticRollOver bit
+
 create table [Account]
 (
     CustomerID              uniqueidentifier not null foreign key references [Customer] (ID) on update cascade on delete cascade,
-    AccountNumber           bigint           not null unique,
+    AccountNumber           char(16)         not null unique,
     Balance                 money            not null,
     Interest                real             not null,
     MaximumWithdrawalAmount money            not null,
     MaximumTransferAmount   money            not null,
-    GuardianAccountNumber   bigint           null,
+    GuardianAccountNumber   char(16)         null,
     SupportForeignCurrency  bit              not null,
     Name                    varchar(50)      not null,
-    BlockedAt               datetime2        not null,
+    BlockedAt               datetime2        null,
     CreatedAt               datetime2        not null,
-    ClosedAt                datetime2        not null,
+    ClosedAt                datetime2        null,
     AdministrationFee       money            not null,
     MinimumSavingAmount     money            not null,
     UseAutomaticRollOver    bit              not null,
-    
+
     primary key (CustomerID, AccountNumber)
+)
+
+create table Queue
+(
+    ID             uniqueidentifier not null primary key default newid(),
+    QueuedAt       datetime2        not null             default getdate(),
+    ServiceStartAt datetime2        null,
+    ServedAt       datetime2        null,
+)
+
+create table TellerQueue
+(
+    ID     uniqueidentifier primary key not null foreign key references Queue (ID),
+    Number bigint                       not null identity,
+)
+
+create table CustomerServiceQueue
+(
+    ID     uniqueidentifier not null primary key foreign key references Queue (ID),
+    Number bigint           not null identity,
 )
 
 insert into [EmployeePosition] (Name)
@@ -72,20 +91,9 @@ values ('Teller'),
        ('Human Resource'),
        ('Manager')
 
-drop table [EmployeePosition]
-drop table [Customer]
-drop table [Employee]
-drop table [User]
-
-select U.ID,
-       FirstName,
-       LastName,
-       Gender,
-       DateOfBirth,
-       RegisteredAt,
-       DeletedAt,
-       PhoneNumber,
-       IsBusinessOwner,
-       MotherMaidenName
-from [User] U
-         join Customer C on U.ID = C.ID
+select *
+from Queue Q
+         full join CustomerServiceQueue CSQ on Q.ID = CSQ.ID
+         full join TellerQueue TQ on Q.ID = TQ.ID
+where ServiceStartAt IS NULL
+order by CSQ.Number

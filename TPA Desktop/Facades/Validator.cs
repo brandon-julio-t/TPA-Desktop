@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 
@@ -6,14 +8,6 @@ namespace TPA_Desktop.Facades
 {
     public class Validator
     {
-        public bool IsValid { get; private set; }
-
-        private List<bool> Options { get; }
-        private string Value { get; }
-        private object Object { get; }
-        private string FieldName { get; }
-
-
         private Validator(string fieldName)
         {
             FieldName = fieldName;
@@ -36,6 +30,18 @@ namespace TPA_Desktop.Facades
             Value = value;
         }
 
+        public Validator(string fieldName, SqlDataReader reader) : this(fieldName)
+        {
+            Reader = reader;
+        }
+
+    public bool IsValid { get; private set; }
+
+        private List<bool> Options { get; }
+        private string Value { get; }
+        private object Object { get; }
+        private string FieldName { get; }
+        private SqlDataReader Reader { get; }
         private bool IsObject { get; }
 
         public Validator NotEmpty()
@@ -74,9 +80,27 @@ namespace TPA_Desktop.Facades
         public Validator In(params object[] values)
         {
             if (!IsValid) return this;
-            
+
             IsValid = values.Contains(IsObject ? Object : Value);
             if (!IsValid) MessageBox.Show($"{FieldName} must be any of {values}.");
+
+            return this;
+        }
+
+        public Validator Exists()
+        {
+            if (!IsValid) return this;
+
+            if (Reader == null)
+            {
+                IsValid = false;
+                MessageBox.Show("Wrong validation usage.");
+                return this;
+            }
+            
+            IsValid = Reader.Read() && Reader.HasRows;
+            if (!Reader.IsClosed) Reader.Close();
+            if (!IsValid) MessageBox.Show($"{FieldName} doesn't exists.");
             
             return this;
         }

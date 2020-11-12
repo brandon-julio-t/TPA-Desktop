@@ -26,9 +26,9 @@ namespace TPA_Desktop.Facades
 
         public static bool Transaction(Func<bool> query)
         {
-            var transaction = _connection.BeginTransaction();
+            var transaction = Connection.BeginTransaction();
 
-            Command.Connection = _connection;
+            Command.Connection = Connection;
             Command.Transaction = transaction;
 
             try

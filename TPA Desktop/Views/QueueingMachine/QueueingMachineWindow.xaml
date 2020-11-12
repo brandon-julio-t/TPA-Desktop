@@ -1,0 +1,20 @@
+﻿<Window x:Class="TPA_Desktop.Views.QueueingMachine.QueueingMachineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TPA_Desktop.Views.QueueingMachine"
+        mc:Ignorable="d"
+        Title="QueueingMachineWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <Grid Height="500" Width="500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0" Content="Teller" Click="HandleTellerQueue" />
+        <Button Grid.Column="1" Content="Customer Service" Click="HandleCustomerServiceQueue" />
+    </Grid>
+</Window>

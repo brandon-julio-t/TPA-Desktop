@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TPA_Desktop.Facades.Strategies.Views;
 using TPA_Desktop.Interfaces;
 using TPA_Desktop.Models;
 using TPA_Desktop.Strategies.Views;
@@ -9,7 +10,10 @@ namespace TPA_Desktop.Factories
     {
         private readonly Employee _employee;
 
-        public ViewStrategyFactory(Employee employee) => _employee = employee;
+        public ViewStrategyFactory(Employee employee)
+        {
+            _employee = employee;
+        }
 
         public object Create()
         {

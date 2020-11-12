@@ -10,11 +10,6 @@ namespace TPA_Desktop.Models
 {
     public class Employee : User
     {
-        public EmployeePosition EmployeePosition { get; set; }
-        public decimal Salary { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-
         public Employee()
         {
         }
@@ -68,6 +63,11 @@ namespace TPA_Desktop.Models
             EmployeePosition = new EmployeePosition(reader.GetGuid(11), reader.GetString(12));
             IsSaved = true;
         }
+
+        public EmployeePosition EmployeePosition { get; set; }
+        public decimal Salary { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         public static IEnumerable<Employee> All()
         {

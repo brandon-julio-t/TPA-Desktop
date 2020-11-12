@@ -10,9 +10,6 @@ namespace TPA_Desktop.Models
 {
     public class Customer : User
     {
-        public bool IsBusinessOwner { get; set; }
-        public string MotherMaidenName { get; set; }
-
         public Customer()
         {
         }
@@ -51,6 +48,9 @@ namespace TPA_Desktop.Models
                 MotherMaidenName = reader.GetString(9);
             }
         }
+
+        public bool IsBusinessOwner { get; set; }
+        public string MotherMaidenName { get; set; }
 
         public new bool Validate()
         {

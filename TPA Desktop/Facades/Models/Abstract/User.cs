@@ -26,11 +26,13 @@ namespace TPA_Desktop.Models.Abstract
             PhoneNumber = reader.GetString(7);
         }
 
-        protected bool Validate() =>
-            new Validator("First Name", FirstName).NotEmpty().IsValid
-            && new Validator("Last Name", LastName).NotEmpty().IsValid
-            && new Validator("Gender", Gender).NotEmpty().In("Male", "Female").IsValid
-            && new Validator("Date Of Birth", DateOfBirth).NotEmpty().IsValid
-            && new Validator("Phone Number", PhoneNumber).NotEmpty().Numeric().IsValid;
+        protected bool Validate()
+        {
+            return new Validator("First Name", FirstName).NotEmpty().IsValid
+                   && new Validator("Last Name", LastName).NotEmpty().IsValid
+                   && new Validator("Gender", Gender).NotEmpty().In("Male", "Female").IsValid
+                   && new Validator("Date Of Birth", DateOfBirth).NotEmpty().IsValid
+                   && new Validator("Phone Number", PhoneNumber).NotEmpty().Numeric().IsValid;
+        }
     }
 }
