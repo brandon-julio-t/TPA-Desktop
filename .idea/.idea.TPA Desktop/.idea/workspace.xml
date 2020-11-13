@@ -13,30 +13,15 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760d4621-b2da-4b79-bf1d-13d1e28ac865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Core/Facades/Helpers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/CreateVirtualAccountWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/GenerateVirtualAccountsFromExcelWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/GenerateVirtualAccountsFromExcelWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Builders/QueryBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Builders/QueryBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Facades/Validator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Facades/Validator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Models/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Models/VirtualAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Models/VirtualAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/CreateVirtualAccountStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/CreateVirtualAccountStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/GenerateVirtualAccountsFromExcelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/GenerateVirtualAccountsFromExcelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/Employees/ManageEmployeesWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/Employees/ManageEmployeesWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/Employees/ManageEmployeesWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/Employees/ManageEmployeesWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA Desktop/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/packages.config" afterDir="false" />
-    </list>
+    <list default="true" id="760d4621-b2da-4b79-bf1d-13d1e28ac865" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +53,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F286A4A5-CBAF-4A06-AD5C-3478E8C3C384/42/0cca81ac/RouteItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F286A4A5-CBAF-4A06-AD5C-3478E8C3C384/7c/f6261b2e/RoutedEventHandlerInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/b2/39abe61e/CallerMemberNameAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bandu/OneDrive - Bina Nusantara University (2)/TPA/TPA Desktop/TPA Desktop/Core/Strategies/CustomerService/GenerateVirtualAccountsFromExcelStrategy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/54/06b4b211/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E442C838-0168-4992-AE9E-1F79DFEE8095/f1/6a71b1ea/DotEnv.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/808A782E-B93A-4039-AD4E-344A67668503/ae/e5bda7f1/DataTableCollection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -204,6 +190,7 @@
       <workItem from="1605232960340" duration="231000" />
       <workItem from="1605233420299" duration="57000" />
       <workItem from="1605234412507" duration="17995000" />
+      <workItem from="1605275258505" duration="149000" />
     </task>
     <task id="LOCAL-00001" summary="Insert employee success">
       <created>1605009609508</created>
@@ -240,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605210467317</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="generate virtual accounts from excel">
+      <created>1605295751921</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605295751921</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +262,8 @@
     <MESSAGE value="did a lot  (i remember doing customer service view, create customer, and create bank account)" />
     <MESSAGE value="customer queue" />
     <MESSAGE value="am sleepy" />
-    <option name="LAST_COMMIT_MESSAGE" value="am sleepy" />
+    <MESSAGE value="generate virtual accounts from excel" />
+    <option name="LAST_COMMIT_MESSAGE" value="generate virtual accounts from excel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="736" y="365" key="#Code_Cleanup_Options" timestamp="1605149781637">
