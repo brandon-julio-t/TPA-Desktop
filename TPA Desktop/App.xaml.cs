@@ -13,9 +13,9 @@ namespace TPA_Desktop
         private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             var debug = Environment.IsDevelopment
-                ? $"from {sender}: {e.Exception.Message}\n{e.Exception.StackTrace}"
+                ? $"\nSource: {sender}\n{e.Exception.StackTrace}"
                 : "";
-            MessageBox.Show($"Fatal error {debug}".Trim());
+            MessageBox.Show($"Fatal error: {e.Exception.Message} {debug}".Trim());
             e.Handled = true;
         }
     }

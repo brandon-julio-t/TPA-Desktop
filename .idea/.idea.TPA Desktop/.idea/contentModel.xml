@@ -13,7 +13,6 @@
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Core" t="Include">
-          <e p="Authentication.cs" t="Include" />
           <e p="Builders" t="Include">
             <e p="AccountBuilder.cs" t="Include" />
             <e p="Directors" t="Include">
@@ -21,11 +20,19 @@
             </e>
             <e p="QueryBuilder.cs" t="Include" />
           </e>
-          <e p="Database.cs" t="Include" />
           <e p="Decorators" t="Include">
             <e p="QRCodeDecorator.cs" t="Include" />
           </e>
-          <e p="Environment.cs" t="Include" />
+          <e p="DefaultImplementations" t="Include">
+            <e p="DefaultNotifyPropertyChanged.cs" t="Include" />
+          </e>
+          <e p="Facades" t="Include">
+            <e p="Authentication.cs" t="Include" />
+            <e p="Database.cs" t="Include" />
+            <e p="Environment.cs" t="Include" />
+            <e p="Helpers.cs" t="Include" />
+            <e p="Validator.cs" t="Include" />
+          </e>
           <e p="Factories" t="Include">
             <e p="ViewStrategyFactory.cs" t="Include" />
           </e>
@@ -37,23 +44,28 @@
             <e p="CustomerQueueManager.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
-            <e p="Abstract" t="Include">
+            <e p="Abstracts" t="Include">
               <e p="BaseModel.cs" t="Include" />
               <e p="User.cs" t="Include" />
             </e>
             <e p="Account.cs" t="Include" />
             <e p="Customer.cs" t="Include" />
             <e p="CustomerSatisfaction.cs" t="Include" />
-            <e p="DefaultImplementations" t="Include">
-              <e p="DefaultNotifyPropertyChanged.cs" t="Include" />
-            </e>
             <e p="Employee.cs" t="Include" />
             <e p="EmployeePosition.cs" t="Include" />
             <e p="EmployeeViolation.cs" t="Include" />
             <e p="QrCode.cs" t="Include" />
             <e p="Queue.cs" t="Include" />
+            <e p="VirtualAccount.cs" t="Include" />
           </e>
           <e p="Strategies" t="Include">
+            <e p="CustomerService" t="Include">
+              <e p="CreateVirtualAccountStrategy.cs" t="Include" />
+              <e p="GenerateVirtualAccountsFromExcelStrategy.cs" t="Include" />
+              <e p="NewIndividualAccountStrategy.cs" t="Include" />
+              <e p="NextCustomerQueueStrategy.cs" t="Include" />
+              <e p="RegisterNewCustomerStrategy.cs" t="Include" />
+            </e>
             <e p="Views" t="Include">
               <e p="CustomerServiceViewStrategy.cs" t="Include" />
               <e p="FinanceViewStrategy.cs" t="Include" />
@@ -63,12 +75,12 @@
               <e p="TellerViewStrategy.cs" t="Include" />
             </e>
           </e>
-          <e p="Validator.cs" t="Include" />
         </e>
         <e p="database.sql" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="App.g.cs" t="Include" />
+            <e p="GeneratedInternalTypeHelper.g.cs" t="Include" />
             <e p="TPA_Desktop_Content.g.cs" t="Include" />
             <e p="Views" t="Include">
               <e p="CustomerService" t="Include">
@@ -81,6 +93,10 @@
                   </e>
                 </e>
                 <e p="CustomerServiceWindow.g.cs" t="Include" />
+                <e p="VirtualAccounts" t="Include">
+                  <e p="CreateVirtualAccountWindow.g.cs" t="Include" />
+                  <e p="GenerateVirtualAccountsFromExcelWindow.g.cs" t="Include" />
+                </e>
               </e>
               <e p="HumanResource" t="Include">
                 <e p="Employees" t="Include">
@@ -95,8 +111,16 @@
               </e>
               <e p="LoginWindow.g.cs" t="Include" />
               <e p="QueueingMachine" t="Include">
+                <e p="CustomerSatisfactionWindow.g.cs" t="Include" />
                 <e p="QueueingMachineWindow.g.cs" t="Include" />
                 <e p="ShowQueueWindow.g.cs" t="Include" />
+              </e>
+              <e p="Teller" t="Include">
+                <e p="DepositWindow.g.cs" t="Include" />
+                <e p="TellerWindow.g.cs" t="Include" />
+              </e>
+              <e p="UserControls" t="Include">
+                <e p="Greeting.g.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -123,6 +147,12 @@
             </e>
             <e p="CustomerServiceWindow.xaml" t="Include" />
             <e p="CustomerServiceWindow.xaml.cs" t="Include" />
+            <e p="VirtualAccounts" t="Include">
+              <e p="CreateVirtualAccountWindow.xaml" t="Include" />
+              <e p="CreateVirtualAccountWindow.xaml.cs" t="Include" />
+              <e p="GenerateVirtualAccountsFromExcelWindow.xaml" t="Include" />
+              <e p="GenerateVirtualAccountsFromExcelWindow.xaml.cs" t="Include" />
+            </e>
           </e>
           <e p="HumanResource" t="Include">
             <e p="Employees" t="Include">

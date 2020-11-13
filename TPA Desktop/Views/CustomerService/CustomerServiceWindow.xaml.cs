@@ -27,36 +27,14 @@ namespace TPA_Desktop.Views.CustomerService
         private void HandleNewIndividualAccount(object sender, RoutedEventArgs e) =>
             _mediator.Notify(sender, "New Individual Account");
 
-        private void HandleNextCustomerQueue(object sender, RoutedEventArgs e)
-        {
-            var previousQueue = ViewModel.CurrentQueue;
-            if (previousQueue != null)
-            {
-                previousQueue.ServedAt = DateTime.Now;
-                previousQueue.Save();
-            }
+        private void HandleNextCustomerQueue(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "Next Customer Queue");
 
-            var currentQueue = QueueManager.Dequeue();
-            if (currentQueue == null)
-            {
-                MessageBox.Show("Customer service queue is empty.");
-                return;
-            }
+        private void CreateVirtualAccount(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "Create Virtual Account");
 
-            ViewModel.CurrentQueue = currentQueue;
-            currentQueue.ServiceStartAt = DateTime.Now;
-            currentQueue.Save();
-        }
-
-        private void CreateVirtualAccount(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void GenerateVirtualAccountsFromExcel(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        private void GenerateVirtualAccountsFromExcel(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "Generate Virtual Accounts From Excel");
     }
 
     public sealed class CustomerServiceWindowViewModel : DefaultNotifyPropertyChanged
@@ -95,7 +73,7 @@ namespace TPA_Desktop.Views.CustomerService
                 case "Next Customer Queue":
                     strategy = new NextCustomerQueueStrategy(_window);
                     break;
-                case "Create Virtual Account": 
+                case "Create Virtual Account":
                     strategy = new CreateVirtualAccountStrategy();
                     break;
                 case "Generate Virtual Accounts From Excel":

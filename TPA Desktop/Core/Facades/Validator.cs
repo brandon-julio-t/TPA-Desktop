@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
@@ -19,25 +20,12 @@ namespace TPA_Desktop.Core.Facades
             IsObject = true;
         }
 
-        public Validator(string fieldName, params bool[] options) : this(fieldName)
-        {
-            Options = options.ToList();
-        }
-
-        public Validator(string fieldName, string value) : this(fieldName)
-        {
-            Value = value;
-        }
-
-        public Validator(string fieldName, SqlDataReader reader) : this(fieldName)
-        {
-            Reader = reader;
-        }
-
-    public bool IsValid { get; private set; }
-
+        public Validator(string fieldName, params bool[] options) : this(fieldName) => Options = options.ToList();
+        public Validator(string fieldName, string value) : this(fieldName) => String = value;
+        public Validator(string fieldName, SqlDataReader reader) : this(fieldName) => Reader = reader;
+        public bool IsValid { get; private set; }
         private List<bool> Options { get; }
-        private string Value { get; }
+        private string String { get; }
         private object Object { get; }
         private string FieldName { get; }
         private SqlDataReader Reader { get; }
@@ -49,7 +37,7 @@ namespace TPA_Desktop.Core.Facades
 
             IsValid = IsObject
                 ? Object != null
-                : !string.IsNullOrEmpty(Value) && !string.IsNullOrWhiteSpace(Value);
+                : !string.IsNullOrEmpty(String) && !string.IsNullOrWhiteSpace(String);
 
             if (!IsValid) MessageBox.Show($"{FieldName} must not be empty.");
 
@@ -60,7 +48,7 @@ namespace TPA_Desktop.Core.Facades
         {
             if (!IsValid) return this;
 
-            IsValid = Value.All(char.IsDigit);
+            IsValid = String.All(char.IsDigit);
             if (!IsValid) MessageBox.Show($"{FieldName} must be numeric.");
 
             return this;
@@ -80,7 +68,7 @@ namespace TPA_Desktop.Core.Facades
         {
             if (!IsValid) return this;
 
-            IsValid = values.Contains(IsObject ? Object : Value);
+            IsValid = values.Contains(IsObject ? Object : String);
             if (!IsValid) MessageBox.Show($"{FieldName} must be any of {values}.");
 
             return this;
@@ -96,20 +84,40 @@ namespace TPA_Desktop.Core.Facades
                 MessageBox.Show("Wrong validation usage.");
                 return this;
             }
-            
+
             IsValid = Reader.Read() && Reader.HasRows;
             if (!Reader.IsClosed) Reader.Close();
             if (!IsValid) MessageBox.Show($"{FieldName} doesn't exists.");
-            
+
             return this;
         }
 
-        public Validator Match(object value)
+        public Validator NoMatch(string fieldName, object value)
         {
             if (!IsValid) return this;
 
-            IsValid = IsObject ? Object.Equals(value) : Value.Equals(value);
-            if (!IsValid) MessageBox.Show($"{FieldName} must match {value}.");
+            IsValid = !(IsObject ? Object.Equals(value) : String.Equals(value));
+            if (!IsValid) MessageBox.Show($"{FieldName} must be different from {fieldName}.");
+
+            return this;
+        }
+
+        public Validator MoreThan(double value)
+        {
+            if (!IsValid) return this;
+
+            switch (Object)
+            {
+                case decimal @decimal:
+                    IsValid = @decimal > (decimal) value;
+                    break;
+                case double @double:
+                    IsValid = @double > value;
+                    break;
+                default:
+                    throw new InvalidOperationException($"{FieldName} is not numeric.");
+            }
+            if (!IsValid) MessageBox.Show($"{FieldName} must be more than {value}.");
 
             return this;
         }

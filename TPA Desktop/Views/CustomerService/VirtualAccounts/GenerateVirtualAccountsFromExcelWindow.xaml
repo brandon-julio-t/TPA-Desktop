@@ -1,0 +1,25 @@
+﻿<Window x:Class="TPA_Desktop.Views.CustomerService.VirtualAccounts.GenerateVirtualAccountsFromExcelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:virtualAccounts="clr-namespace:TPA_Desktop.Views.CustomerService.VirtualAccounts"
+        mc:Ignorable="d"
+        Title="GenerateVirtualAccountsFromExcelWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance virtualAccounts:GenerateVirtualAccountsFromExcelWindowViewModel}">
+    <StackPanel Margin="20" Width="500">
+        <DataGrid ItemsSource="{Binding VirtualAccounts}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Source" Binding="{Binding [0] }" SortMemberPath="Source" />
+                <DataGridTextColumn Header="Destination" Binding="{Binding [1]}" SortMemberPath="Destination" />
+                <DataGridTextColumn Header="Amount" Binding="{Binding [2], StringFormat=C, ConverterCulture=id-ID}"
+                                    SortMemberPath="Amount" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Generate All" Click="HandleGenerateAll" />
+    </StackPanel>
+</Window>

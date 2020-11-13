@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using TPA_Desktop.Core.Builders;
+using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models.Abstracts;
 
 namespace TPA_Desktop.Core.Models
@@ -88,9 +89,7 @@ namespace TPA_Desktop.Core.Models
         {
             if (!IsSaved)
             {
-                var rand = new Random();
-                AccountNumber = string.Join("", Enumerable.Range(0, 16).Select(_ => rand.Next(10)));
-
+                AccountNumber = Helpers.RandomDigitString(16);
                 CreatedAt = DateTime.Now;
             }
 

@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Manage Employees"
         SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterScreen" d:DataContext="{d:DesignInstance employees:ManageEmployeesViewModel}">
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance employees:ManageEmployeesWindowViewModel}">
     <Grid Margin="20">
         <DataGrid SelectedIndex="{Binding SelectedEmployeeIndex, Mode=TwoWay}"
                   ItemsSource="{Binding EmployeeViewModels, Mode=TwoWay}"

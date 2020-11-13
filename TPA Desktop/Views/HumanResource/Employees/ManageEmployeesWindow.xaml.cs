@@ -7,17 +7,17 @@ namespace TPA_Desktop.Views.HumanResource.Employees
 {
     public partial class ManageEmployeesWindow
     {
-        private readonly ManageEmployeesViewModel _viewModel = new ManageEmployeesViewModel();
+        private readonly ManageEmployeesWindowViewModel _windowViewModel = new ManageEmployeesWindowViewModel();
 
         public ManageEmployeesWindow()
         {
             InitializeComponent();
-            DataContext = _viewModel;
+            DataContext = _windowViewModel;
         }
 
         private void HandleUpdate(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(_viewModel.SelectedEmployee.Save()
+            MessageBox.Show(_windowViewModel.SelectedEmployee.Save()
                 ? "Employee updated."
                 : "An error occurred when saving employee.");
         }
@@ -25,45 +25,41 @@ namespace TPA_Desktop.Views.HumanResource.Employees
         private void HandleGenderChange(object sender, RoutedEventArgs e)
         {
             if (sender is RadioButton rb)
-                _viewModel.SelectedEmployee.Gender = rb.Content.ToString();
+                _windowViewModel.SelectedEmployee.Gender = rb.Content.ToString();
         }
 
         private void HandleDateOfBirthChange(object sender, SelectionChangedEventArgs e)
         {
             if (sender is DatePicker dp && dp.SelectedDate.HasValue)
-                _viewModel.SelectedEmployee.DateOfBirth = dp.SelectedDate.Value;
+                _windowViewModel.SelectedEmployee.DateOfBirth = dp.SelectedDate.Value;
         }
 
         private void HandleAddViolation(object sender, RoutedEventArgs e)
         {
-            new AddViolationWindow(_viewModel.SelectedEmployee).Show();
+            new AddViolationWindow(_windowViewModel.SelectedEmployee).Show();
         }
     }
 
-    public class ManageEmployeesViewModel
+    public class ManageEmployeesWindowViewModel
     {
-        public ManageEmployeesViewModel()
+        public EmployeeViewModel[] EmployeeViewModels { get; set; }
+        public EmployeeViewModel SelectedEmployeeViewModel => EmployeeViewModels[SelectedEmployeeIndex];
+        public Employee SelectedEmployee => SelectedEmployeeViewModel.Employee;
+        public int SelectedEmployeeIndex { get; set; }
+
+        public ManageEmployeesWindowViewModel()
         {
             EmployeeViewModels = Employee
                 .All()
                 .Select(employee => new EmployeeViewModel(employee))
                 .ToArray();
         }
-
-        public EmployeeViewModel[] EmployeeViewModels { get; set; }
-        public EmployeeViewModel SelectedEmployeeViewModel => EmployeeViewModels[SelectedEmployeeIndex];
-        public Employee SelectedEmployee => SelectedEmployeeViewModel.Employee;
-        public int SelectedEmployeeIndex { get; set; }
     }
 
     public class EmployeeViewModel
     {
-        public EmployeeViewModel(Employee employee)
-        {
-            Employee = employee;
-        }
-
         public Employee Employee { get; set; }
+        public EmployeeViewModel(Employee employee) => Employee = employee;
 
         public bool IsMale
         {

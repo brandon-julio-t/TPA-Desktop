@@ -101,7 +101,14 @@ create table CustomerSatisfaction
 
 create table VirtualAccount
 (
-    
+    ID                       uniqueidentifier not null primary key default newid(),
+    SourceAccountNumber      char(16)         not null,
+    DestinationAccountNumber char(16)         not null,
+    VirtualAccountNumber     char(16)         not null unique,
+    Amount                   money            not null,
+    CreatedAt                datetime2        not null             default getdate(),
+    ExpiredAt                datetime2        not null             default dateadd(day, 3, getdate()),
+    PaidAt                   datetime2        null,
 )
 
 insert into [EmployeePosition] (Name)
@@ -111,7 +118,9 @@ values ('Teller'),
        ('Finance'),
        ('Human Resource'),
        ('Manager')
+       
+insert into VirtualAccount (SourceAccountNumber, DestinationAccountNumber, VirtualAccountNumber, Amount) 
+values ('4950789700544279', '6064720346376137', '6064720346376138', 1)
 
-select *
-from Account A join Customer C on A.CustomerID = C.ID join [User] U on U.ID = C.ID
-where AccountNumber = '8766153557599758'
+select AccountNumber from Account
+select SourceAccountNumber, DestinationAccountNumber, Amount from VirtualAccount
