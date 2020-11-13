@@ -10,15 +10,10 @@
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance humanResource:HumanResourceWindowViewModel}">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <StackPanel Margin="20">
+        <userControls:Greeting />
 
-        <userControls:Greeting Grid.Row="0" />
-        
-        <Grid Grid.Row="1">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -29,5 +24,7 @@
             <Button Grid.Column="1" Click="HandleManageEmployees">Manage Employees</Button>
             <Button Grid.Column="2" Click="ViewAllViolations">View All Violations</Button>
         </Grid>
-    </Grid>
+
+        <userControls:Logout />
+    </StackPanel>
 </Window>

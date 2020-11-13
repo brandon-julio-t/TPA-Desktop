@@ -105,7 +105,6 @@
         <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\NextCustomerQueueStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
         <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs" />
         <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs" />
@@ -152,19 +151,25 @@
           <DependentUpon>CustomerSatisfactionWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\QueueingMachine\QueueingMachineWindow.xaml.cs">
-          <DependentUpon>QueueingMachineWindow.xaml</DependentUpon>
+            <DependentUpon>QueueingMachineWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\QueueingMachine\ShowQueueWindow.xaml.cs">
-          <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
+            <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Teller\DepositWindow.xaml.cs">
-          <DependentUpon>DepositWindow.xaml</DependentUpon>
+            <DependentUpon>DepositWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Teller\TellerWindow.xaml.cs">
-          <DependentUpon>TellerWindow.xaml</DependentUpon>
+            <DependentUpon>TellerWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\UserControls\CustomerQueue.xaml.cs">
+            <DependentUpon>CustomerQueue.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\UserControls\Greeting.xaml.cs">
-          <DependentUpon>Greeting.xaml</DependentUpon>
+            <DependentUpon>Greeting.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\UserControls\Logout.xaml.cs">
+            <DependentUpon>Logout.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -205,7 +210,9 @@
       <Page Include="Views\QueueingMachine\ShowQueueWindow.xaml" />
       <Page Include="Views\Teller\DepositWindow.xaml" />
       <Page Include="Views\Teller\TellerWindow.xaml" />
+        <Page Include="Views\UserControls\CustomerQueue.xaml"/>
       <Page Include="Views\UserControls\Greeting.xaml" />
+        <Page Include="Views\UserControls\Logout.xaml"/>
     </ItemGroup>
     <ItemGroup>
       <Content Include="database.sql" />

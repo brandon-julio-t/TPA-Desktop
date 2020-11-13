@@ -63,7 +63,6 @@
               <e p="CreateVirtualAccountStrategy.cs" t="Include" />
               <e p="GenerateVirtualAccountsFromExcelStrategy.cs" t="Include" />
               <e p="NewIndividualAccountStrategy.cs" t="Include" />
-              <e p="NextCustomerQueueStrategy.cs" t="Include" />
               <e p="RegisterNewCustomerStrategy.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
@@ -187,8 +186,12 @@
             <e p="TellerWindow.xaml.cs" t="Include" />
           </e>
           <e p="UserControls" t="Include">
+            <e p="CustomerQueue.xaml" t="Include" />
+            <e p="CustomerQueue.xaml.cs" t="Include" />
             <e p="Greeting.xaml" t="Include" />
             <e p="Greeting.xaml.cs" t="Include" />
+            <e p="Logout.xaml" t="Include" />
+            <e p="Logout.xaml.cs" t="Include" />
           </e>
         </e>
       </e>

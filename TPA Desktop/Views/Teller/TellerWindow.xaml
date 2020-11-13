@@ -8,12 +8,28 @@
         Title="Teller"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
-    <StackPanel Margin="20" Width="300">
+    <StackPanel Margin="20" Width="500">
         <userControls:Greeting />
-        <Button Content="Transfer Money" Click="HandleTransferMoney" />
-        <Button Content="Deposit Money" Click="HandleDepositMoney" />
-        <Button Content="Payment" Click="HandlePayment" />
-        <Button Content="Withdraw Money" Click="HandleWithdrawMoney" />
-        <Button Content="Transfer to Virtual Account" Click="HandleTransferToVirtualAccount" />
+        <userControls:CustomerQueue QueueTableName="TellerQueue" />
+        <Grid Height="100" Margin="0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button Content="Transfer Money" Click="HandleTransferMoney" />
+            <Button Grid.Row="0" Grid.Column="1" Content="Deposit Money" Click="HandleDepositMoney" />
+            <Button Grid.Row="0" Grid.Column="2" Content="Payment" Click="HandlePayment" />
+            <Button Grid.Row="1" Grid.Column="0" Content="Withdraw Money" Click="HandleWithdrawMoney" />
+            <Button Grid.Row="1" Grid.Column="1" Content="Transfer to Virtual Account"
+                    Click="HandleTransferToVirtualAccount" />
+        </Grid>
+        <userControls:Logout />
     </StackPanel>
 </Window>

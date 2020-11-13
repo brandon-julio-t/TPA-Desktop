@@ -21,7 +21,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760d4621-b2da-4b79-bf1d-13d1e28ac865" name="Default Changelist" comment="" />
+    <list default="true" id="760d4621-b2da-4b79-bf1d-13d1e28ac865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/UserControls/CustomerQueue.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/UserControls/Logout.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPA Desktop/Views/UserControls/Logout.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPA Desktop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Managers/CustomerQueueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Core/Managers/CustomerQueueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/NextCustomerQueueStrategy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/TPA Desktop.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPA Desktop/Views/Teller/TellerWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA Desktop/Views/Teller/TellerWindow.xaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +72,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/808A782E-B93A-4039-AD4E-344A67668503/e9/696b482b/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F32505C5-59F6-4436-9659-51ACD16EAF13/67/951afbe0/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/be/5d802294/Convert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F286A4A5-CBAF-4A06-AD5C-3478E8C3C384/55/8737522a/UIElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3BCDABCE-AB43-41BA-8F8D-B5A06E9A7C18/c2/0ca81757/DataObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E442C838-0168-4992-AE9E-1F79DFEE8095/dd/f0eeb428/EnvReader.cs" root0="SKIP_HIGHLIGHTING" />
@@ -69,13 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Strategies/Teller/DepositStrategy.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Strategies/Teller/TransferDeposit.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Strategies/Teller/PaymentStrategy.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Strategies/Teller/WithdrawStrategy.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Strategies/Teller/TransferVirtualAccountStrategy.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Models/Customer.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Facades/Models/Abstract/BaseModel.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Builders/AccountBuilder.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Views/Teller/DepositWindow.xaml" />
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Models/Account.cs" />
@@ -89,7 +95,6 @@
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Models/EmployeePosition.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Models/EmployeeViolation.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Validator.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml" />
         <option value="$PROJECT_DIR$/TPA Desktop/Facades/Authentication.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Views/HumanResource/HumanResourceWindow.xaml.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Core/Authentication.cs" />
@@ -101,7 +106,6 @@
         <option value="$PROJECT_DIR$/TPA Desktop/Core/Models/Abstract/BaseModel.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Core/DefaultImplementations/DefaultNotifyPropertyChanged.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Core/Builders/QueryBuilder.cs" />
-        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/CreateVirtualAccount.xaml" />
         <option value="$PROJECT_DIR$/TPA Desktop/Core/Strategies/CustomerService/CreateVirtualAccountStrategy.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/CreateVirtualAccount.xaml.cs" />
@@ -120,6 +124,15 @@
         <option value="$PROJECT_DIR$/TPA Desktop/database.sql" />
         <option value="$PROJECT_DIR$/TPA Desktop/Core/Models/VirtualAccount.cs" />
         <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/VirtualAccounts/GenerateVirtualAccountsFromExcelWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Core/Interfaces/IHasQueueManager.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/CustomerService/CustomerServiceWindow.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/UserControls/CustomerQueue.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Core/Managers/CustomerQueueManager.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/UserControls/CustomerQueue.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/UserControls/Logout.xaml" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/UserControls/Logout.xaml.cs" />
+        <option value="$PROJECT_DIR$/TPA Desktop/Views/Teller/TellerWindow.xaml" />
       </list>
     </option>
   </component>
@@ -190,7 +203,7 @@
       <workItem from="1605232960340" duration="231000" />
       <workItem from="1605233420299" duration="57000" />
       <workItem from="1605234412507" duration="17995000" />
-      <workItem from="1605275258505" duration="149000" />
+      <workItem from="1605275258505" duration="3082000" />
     </task>
     <task id="LOCAL-00001" summary="Insert employee success">
       <created>1605009609508</created>
@@ -234,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605295751921</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="preparation to submit">
+      <created>1605296120713</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605296120713</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,13 +283,18 @@
     <MESSAGE value="customer queue" />
     <MESSAGE value="am sleepy" />
     <MESSAGE value="generate virtual accounts from excel" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate virtual accounts from excel" />
+    <MESSAGE value="preparation to submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="preparation to submit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="736" y="365" key="#Code_Cleanup_Options" timestamp="1605149781637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="365" key="#Code_Cleanup_Options/0.0.1920.1040@0.0.1920.1040" timestamp="1605149781637" />
+    <state x="552" y="178" key="#Deployment" timestamp="1605296137141">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1605296137141" />
     <state x="708" y="344" key="#Notifications" timestamp="1605117266041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,22 +315,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="364" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1605167755901" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605261417711">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1605299285842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605261417711" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1605261417711">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605299285842" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1605299285842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605261417711" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1605261417711">
+    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605299285842" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1605299285842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605261417711" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1605261417711">
+    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605299285842" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1605299285842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605261417711" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605299285842" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1605261417711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -406,10 +431,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="832" y="364" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605001353751" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1605258643972">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605299605179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605258643972" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605299605179" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605257953562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

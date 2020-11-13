@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TPA_Desktop.Annotations;
+﻿using TPA_Desktop.Annotations;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Models;
 
@@ -8,9 +6,7 @@ namespace TPA_Desktop.Core.Managers
 {
     public class CustomerQueueManager
     {
-        private string QueueTable { get; }
-
-        public CustomerQueueManager(string queueTable) => QueueTable = queueTable;
+        public string QueueTable { get; set; }
 
         [CanBeNull]
         public static Queue Enqueue(string queueTable)
@@ -29,7 +25,9 @@ namespace TPA_Desktop.Core.Managers
                 .Where("ServiceStartAt", null)
                 .OrderBy("Number")
                 .Get())
+            {
                 return !reader.Read() || !reader.HasRows ? null : new Queue(reader, QueueTable);
+            }
         }
     }
 }
