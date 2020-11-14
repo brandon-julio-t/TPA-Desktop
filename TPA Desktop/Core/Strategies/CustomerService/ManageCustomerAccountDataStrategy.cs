@@ -3,11 +3,11 @@ using TPA_Desktop.Views.Departments.CustomerService.Customers;
 
 namespace TPA_Desktop.Core.Strategies.CustomerService
 {
-    public class RegisterNewCustomerStrategy : IStrategy
+    public class ManageCustomerAccountDataStrategy : IStrategy
     {
         public void Execute()
         {
-            new NewCustomerWindow().Show();
+            new ManageCustomerAccountDataWindow().Show();
         }
     }
 }

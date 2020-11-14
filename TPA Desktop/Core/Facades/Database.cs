@@ -9,7 +9,7 @@ namespace TPA_Desktop.Core.Facades
         private static SqlConnection _connection;
         private static SqlCommand _command;
 
-        public static SqlConnection Connection
+        private static SqlConnection Connection
         {
             get
             {
@@ -42,11 +42,16 @@ namespace TPA_Desktop.Core.Facades
                 try
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"Error while doing transaction. Any changes are rolled back. {e1.Message}");
+                    var debug = Environment.IsDevelopment ? $"\n{e1.StackTrace}" : "";
+                    MessageBox.Show($"Error while doing transaction. Any changes are rolled back.\n{e1.Message} {debug}"
+                        .Trim());
+                    if (Environment.IsDevelopment) throw;
                 }
                 catch (Exception e2)
                 {
-                    MessageBox.Show($"An error occured while rolling back transaction. {e2.Message}");
+                    var debug = Environment.IsDevelopment ? $"\n{e2.StackTrace}" : "";
+                    MessageBox.Show($"An error occured while rolling back transaction.\n{e2.Message} {debug}".Trim());
+                    if (Environment.IsDevelopment) throw;
                 }
             }
 

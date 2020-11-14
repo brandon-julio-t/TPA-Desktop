@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using TPA_Desktop.Core;
 using TPA_Desktop.Core.Facades;
 
 namespace TPA_Desktop
@@ -16,7 +15,11 @@ namespace TPA_Desktop
                 ? $"\nSource: {sender}\n{e.Exception.StackTrace}"
                 : "";
             MessageBox.Show($"Fatal error: {e.Exception.Message} {debug}".Trim());
-            e.Handled = true;
+
+            if (!Environment.IsDevelopment)
+                e.Handled = true;
+            else
+                throw e.Exception;
         }
     }
 }

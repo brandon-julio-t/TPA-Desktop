@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Facades;
@@ -11,24 +10,59 @@ namespace TPA_Desktop.Core.Models
 {
     public class Account : BaseModel
     {
-        public Customer Owner { get; set; }
-        public DateTime? BlockedAt { get; set; }
-        public DateTime? ClosedAt { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public bool SupportForeignCurrency { get; set; }
-        public bool UseAutomaticRollOver { get; set; }
-        public decimal AdministrationFee { get; set; }
-        public decimal Balance { get; set; }
-        public decimal MaximumTransferAmount { get; set; }
-        public decimal MaximumWithdrawalAmount { get; set; }
-        public decimal MinimumSavingAmount { get; set; }
-        public double Interest { get; set; }
-        public string AccountNumber { get; set; }
-        public string GuardianAccountNumber { get; set; }
-        public string Name { get; set; }
-
         public Account()
         {
+        }
+
+        public Account(string accountNumber)
+        {
+            string firstName;
+            string lastName;
+            DateTime dateOfBirth;
+            string motherMaidenName;
+
+            using (var reader = QueryBuilder
+                .Table("Account")
+                .Join("Customer", "Account.CustomerID", "=", "Customer.ID")
+                .Join("User", "Customer.ID", "=", "[User].ID")
+                .Where("AccountNumber", accountNumber)
+                .Select(
+                    "AccountNumber",
+                    "Balance",
+                    "Interest",
+                    "MaximumWithdrawalAmount",
+                    "MaximumTransferAmount",
+                    "GuardianAccountNumber",
+                    "SupportForeignCurrency",
+                    "Name",
+                    "BlockedAt",
+                    "CreatedAt",
+                    "ClosedAt",
+                    "AdministrationFee",
+                    "MinimumSavingAmount",
+                    "UseAutomaticRollOver",
+                    "FirstName",
+                    "LastName",
+                    "DateOfBirth",
+                    "MotherMaidenName"
+                ).Get())
+            {
+                if (!reader.Read() || !reader.HasRows)
+                {
+                    MessageBox.Show("Account doesn't exist.");
+                    Id = Guid.Empty;
+                    return;
+                }
+
+                PopulateAccountProperties(reader);
+                firstName = reader.GetString(14);
+                lastName = reader.GetString(15);
+                dateOfBirth = reader.GetDateTime(16);
+                motherMaidenName = reader.GetString(17);
+                IsSaved = true;
+            }
+
+            Owner = new Customer(firstName, lastName, dateOfBirth, motherMaidenName);
         }
 
         public Account(Customer customer, string accountNumber)
@@ -66,6 +100,56 @@ namespace TPA_Desktop.Core.Models
                 IsSaved = true;
             }
         }
+
+        public Account(Customer customer)
+        {
+            using (var reader = QueryBuilder
+                .Table("Account")
+                .Where("CustomerID", customer.Id.ToString())
+                .Select(
+                    "AccountNumber",
+                    "Balance",
+                    "Interest",
+                    "MaximumWithdrawalAmount",
+                    "MaximumTransferAmount",
+                    "GuardianAccountNumber",
+                    "SupportForeignCurrency",
+                    "Name",
+                    "BlockedAt",
+                    "CreatedAt",
+                    "ClosedAt",
+                    "AdministrationFee",
+                    "MinimumSavingAmount",
+                    "UseAutomaticRollOver"
+                ).Get())
+            {
+                if (!reader.Read() || !reader.HasRows)
+                {
+                    Id = Guid.Empty;
+                    return;
+                }
+
+                PopulateAccountProperties(reader);
+                Owner = customer;
+                IsSaved = true;
+            }
+        }
+
+        public Customer Owner { get; set; }
+        public DateTime? BlockedAt { get; set; }
+        public DateTime? ClosedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public bool SupportForeignCurrency { get; set; }
+        public bool UseAutomaticRollOver { get; set; }
+        public decimal AdministrationFee { get; set; }
+        public decimal Balance { get; set; }
+        public decimal MaximumTransferAmount { get; set; }
+        public decimal MaximumWithdrawalAmount { get; set; }
+        public decimal MinimumSavingAmount { get; set; }
+        public double Interest { get; set; }
+        public string AccountNumber { get; set; }
+        public string GuardianAccountNumber { get; set; }
+        public string Name { get; set; }
 
         private void PopulateAccountProperties(IDataRecord reader)
         {
@@ -107,12 +191,42 @@ namespace TPA_Desktop.Core.Models
                 {nameof(MinimumSavingAmount), MinimumSavingAmount},
                 {nameof(Name), Name},
                 {nameof(SupportForeignCurrency), SupportForeignCurrency},
-                {nameof(UseAutomaticRollOver), UseAutomaticRollOver}
+                {nameof(UseAutomaticRollOver), UseAutomaticRollOver},
+                {nameof(BlockedAt), BlockedAt},
+                {nameof(ClosedAt), ClosedAt}
             };
 
             var queryBuilderAccount = QueryBuilder.Table("Account");
             return IsSaved
-                ? queryBuilderAccount.Where("AccountNumber", AccountNumber).Update(data)
+                ? Database.Transaction(
+                    () =>
+                        queryBuilderAccount.Where("AccountNumber", AccountNumber).Update(data)
+                        &&
+                        QueryBuilder
+                            .Table("Customer")
+                            .Where("ID", Owner.Id.ToString())
+                            .Update(
+                                new Dictionary<string, object>
+                                {
+                                    {"IsBusinessOwner", Owner.IsBusinessOwner},
+                                    {"MotherMaidenName", Owner.MotherMaidenName}
+                                }
+                            )
+                        &&
+                        QueryBuilder
+                            .Table("User")
+                            .Where("ID", Owner.Id.ToString())
+                            .Update(
+                                new Dictionary<string, object>
+                                {
+                                    {"FirstName", Owner.FirstName},
+                                    {"LastName", Owner.LastName},
+                                    {"Gender", Owner.Gender},
+                                    {"DateOfBirth", Owner.DateOfBirth},
+                                    {"PhoneNumber", Owner.PhoneNumber}
+                                }
+                            )
+                )
                 : queryBuilderAccount.Insert(data);
         }
 

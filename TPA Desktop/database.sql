@@ -1,4 +1,4 @@
-﻿create table User
+﻿create table [User]
 (
     ID           uniqueidentifier not null primary key default newid(),
     FirstName    varchar(50)      not null,
@@ -118,9 +118,34 @@ values ('Teller'),
        ('Finance'),
        ('Human Resource'),
        ('Manager')
-       
-insert into VirtualAccount (SourceAccountNumber, DestinationAccountNumber, VirtualAccountNumber, Amount) 
+
+insert into VirtualAccount (SourceAccountNumber, DestinationAccountNumber, VirtualAccountNumber, Amount)
 values ('4950789700544279', '6064720346376137', '6064720346376138', 1)
 
-select AccountNumber from Account
-select SourceAccountNumber, DestinationAccountNumber, Amount from VirtualAccount
+select Email, Password, EP.Name
+from Employee E
+         join EmployeePosition EP on EP.ID = E.EmployeePositionID
+
+select FirstName,
+       LastName,
+       DateOfBirth,
+       MotherMaidenName,
+       AccountNumber,
+       Balance,
+       IsBusinessOwner,
+       Gender,
+       BlockedAt,
+       ClosedAt
+from Account A
+         join Customer C on C.ID = A.CustomerID
+         join [User] U on C.ID = U.ID
+update Account
+set ClosedAt = null
+where AccountNumber in ('4950789700544279', '8766153557599758')
+select *
+from Account
+where CustomerID = '549365e9-f3e7-4576-b2ea-4594a3223940'
+select *
+from [User] U
+         join Customer C on U.ID = C.ID
+

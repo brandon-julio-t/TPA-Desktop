@@ -39,7 +39,7 @@ namespace TPA_Desktop.Core.Models
         {
             using (var reader = QueryBuilder
                 .Table("EmployeeViolation")
-                .Join("Employee", "EmployeeViolation.EmployeeID", "=", "Employee.UserID")
+                .Join("Employee", "EmployeeViolation.EmployeeID", "=", "Employee.ID")
                 .Join("EmployeePosition", "Employee.EmployeePositionID", "=", "EmployeePosition.ID")
                 .Join("User", "[User].ID", "=", "Employee.ID")
                 .Select(

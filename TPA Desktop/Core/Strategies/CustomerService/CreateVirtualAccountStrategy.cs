@@ -1,10 +1,13 @@
 ﻿using TPA_Desktop.Core.Interfaces;
-using TPA_Desktop.Views.CustomerService.VirtualAccounts;
+using TPA_Desktop.Views.Departments.CustomerService.VirtualAccounts;
 
 namespace TPA_Desktop.Core.Strategies.CustomerService
 {
-    public class CreateVirtualAccountStrategy :IStrategy
+    public class CreateVirtualAccountStrategy : IStrategy
     {
-        public void Execute() => new CreateVirtualAccountWindow().Show();
+        public void Execute()
+        {
+            new CreateVirtualAccountWindow().Show();
+        }
     }
 }

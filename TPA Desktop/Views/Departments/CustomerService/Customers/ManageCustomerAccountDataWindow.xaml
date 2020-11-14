@@ -1,0 +1,63 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.CustomerService.Customers.ManageCustomerAccountDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:customers="clr-namespace:TPA_Desktop.Views.Departments.CustomerService.Customers"
+        mc:Ignorable="d"
+        Title="UpdateIndividualCustomerDataWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance customers:ManageCustomerAccountDataWindowViewModel}">
+    <Grid Margin="20">
+        <DataGrid ItemsSource="{Binding CustomerAccounts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedCustomerAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name"
+                                    Binding="{Binding Account.Owner.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Last Name"
+                                    Binding="{Binding Account.Owner.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTemplateColumn Header="Date of Birth" SortMemberPath="Customer.DateOfBirth" CanUserSort="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="customers:CustomerAccountViewModel">
+                            <DatePicker
+                                SelectedDate="{Binding Account.Owner.DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Gender" SortMemberPath="Customer.Gender" CanUserSort="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="customers:CustomerAccountViewModel">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton Content="Male"
+                                             IsChecked="{Binding IsMale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <RadioButton Content="Female"
+                                             IsChecked="{Binding IsFemale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Phone Number"
+                                    Binding="{Binding Account.Owner.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Mother Maiden Name"
+                                    Binding="{Binding Account.Owner.MotherMaidenName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="Business Owner"
+                                        Binding="{Binding Account.Owner.IsBusinessOwner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="Block"
+                                        Binding="{Binding IsBlocked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Update" Click="HandleUpdate" />
+                                <Button Content="Close" Click="HandleClose" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

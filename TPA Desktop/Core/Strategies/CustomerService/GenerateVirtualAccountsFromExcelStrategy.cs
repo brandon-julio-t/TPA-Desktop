@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
 using TPA_Desktop.Core.Interfaces;
-using TPA_Desktop.Views.CustomerService.VirtualAccounts;
+using TPA_Desktop.Views.Departments.CustomerService.VirtualAccounts;
 
 namespace TPA_Desktop.Core.Strategies.CustomerService
 {

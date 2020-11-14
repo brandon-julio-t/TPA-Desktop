@@ -59,6 +59,38 @@ namespace TPA_Desktop.Core.Models
                    && new Validator("Mother's Maiden Name", MotherMaidenName).NotEmpty().IsValid;
         }
 
+        public static IEnumerable<Customer> All()
+        {
+            using (var reader = QueryBuilder
+                .Table("Customer")
+                .Join("User", "[User].ID", "=", "Customer.ID")
+                .Select(
+                    "Customer.ID",
+                    "FirstName",
+                    "LastName",
+                    "Gender",
+                    "DateOfBirth",
+                    "RegisteredAt",
+                    "DeletedAt",
+                    "PhoneNumber",
+                    "IsBusinessOwner",
+                    "MotherMaidenName"
+                ).Get())
+            {
+                var customers = new List<Customer>();
+                while (reader.Read())
+                {
+                    var customer = new Customer();
+                    customer.PopulateUserProperties(reader);
+                    customer.IsBusinessOwner = reader.GetBoolean(8);
+                    customer.MotherMaidenName = reader.GetString(9);
+                    customers.Add(customer);
+                }
+
+                return customers.ToArray();
+            }
+        }
+
         public override bool Save()
         {
             var userData = new Dictionary<string, object>

@@ -1,0 +1,61 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.HumanResource.Employees.ManageEmployeesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:employees="clr-namespace:TPA_Desktop.Views.Departments.HumanResource.Employees"
+        mc:Ignorable="d"
+        Title="Manage Employees"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance employees:ManageEmployeesWindowViewModel}">
+    <Grid Margin="20">
+        <DataGrid SelectedIndex="{Binding SelectedEmployeeIndex, Mode=TwoWay}"
+                  ItemsSource="{Binding EmployeeViewModels, Mode=TwoWay}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding Employee.FirstName, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Employee.LastName, Mode=TwoWay}" />
+                <DataGridTemplateColumn Header="Gender">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="employees:EmployeeViewModel">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton IsChecked="{Binding IsMale, Mode=TwoWay}"
+                                             Click="HandleGenderChange"
+                                             Content="Male" />
+                                <RadioButton IsChecked="{Binding IsFemale, Mode=TwoWay}"
+                                             Click="HandleGenderChange"
+                                             Content="Female" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding Employee.Email, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Employee.PhoneNumber, Mode=TwoWay}" />
+                <DataGridTemplateColumn Header="Date of Birth">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="employees:EmployeeViewModel">
+                            <DatePicker SelectedDate="{Binding Employee.DateOfBirth, Mode=TwoWay}"
+                                        SelectedDateChanged="HandleDateOfBirthChange"
+                                        BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Salary"
+                                    Binding="{Binding Employee.Salary, ConverterCulture=id-ID, StringFormat=C, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Registered At"
+                                    Binding="{Binding Employee.RegisteredAt, StringFormat=D, Mode=TwoWay}" />
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="employees:EmployeeViewModel">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Click="HandleUpdate" Content="Update" />
+                                <Button Click="HandleAddViolation" Content="Add Violation" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

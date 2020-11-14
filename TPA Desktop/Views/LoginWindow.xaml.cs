@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
-using TPA_Desktop.Core;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Factories;
-using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Models;
-using TPA_Desktop.Views.QueueingMachine;
+using TPA_Desktop.Views.Departments.QueueingMachine;
 
 namespace TPA_Desktop.Views
 {
@@ -26,13 +24,18 @@ namespace TPA_Desktop.Views
         {
             var employee = new Employee(_viewModel.Email, PasswordBox.Password);
             if (employee.Id == Guid.Empty) return;
+
             Authentication.Login(employee);
+
             new ViewStrategyFactory(employee).Create()?.Execute();
             Close();
         }
 
-        private void HandleLoginAsQueueingMachine(object sender, RoutedEventArgs e) =>
+        private void HandleLoginAsQueueingMachine(object sender, RoutedEventArgs e)
+        {
             new QueueingMachineWindow().Show();
+            Close();
+        }
     }
 
     public class LoginWindowViewModel
