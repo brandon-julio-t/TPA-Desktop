@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Transactions;
 using System.Windows;
 
 namespace TPA_Desktop.Core.Facades
@@ -26,33 +27,19 @@ namespace TPA_Desktop.Core.Facades
 
         public static bool Transaction(Func<bool> query)
         {
-            var transaction = Connection.BeginTransaction();
-
-            Command.Connection = Connection;
-            Command.Transaction = transaction;
-
             try
             {
-                var result = query.Invoke();
-                transaction.Commit();
-                return result;
+                using (var scope = new TransactionScope())
+                {
+                    var result = query.Invoke();
+                    scope.Complete();
+                    return result;
+                }
             }
-            catch (Exception e1)
+            catch (TransactionAbortedException e)
             {
-                try
-                {
-                    transaction.Rollback();
-                    var debug = Environment.IsDevelopment ? $"\n{e1.StackTrace}" : "";
-                    MessageBox.Show($"Error while doing transaction. Any changes are rolled back.\n{e1.Message} {debug}"
-                        .Trim());
-                    if (Environment.IsDevelopment) throw;
-                }
-                catch (Exception e2)
-                {
-                    var debug = Environment.IsDevelopment ? $"\n{e2.StackTrace}" : "";
-                    MessageBox.Show($"An error occured while rolling back transaction.\n{e2.Message} {debug}".Trim());
-                    if (Environment.IsDevelopment) throw;
-                }
+                var debug = Environment.IsDevelopment ? $"\n{e.StackTrace}" : "";
+                MessageBox.Show($"Error while doing transaction. Any changes are rolled back.\n{e.Message} {debug}");
             }
 
             return false;

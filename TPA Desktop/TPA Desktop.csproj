@@ -55,6 +55,7 @@
         <Reference Include="System.IO.Compression" />
         <Reference Include="System.IO.Compression.FileSystem" />
         <Reference Include="System.Numerics" />
+        <Reference Include="System.Transactions"/>
         <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -93,24 +94,27 @@
         <Compile Include="Core\Interfaces\IStrategy.cs" />
         <Compile Include="Core\Managers\CustomerQueueManager.cs" />
         <Compile Include="Core\Models\Abstracts\BaseModel.cs" />
-        <Compile Include="Core\Models\Abstracts\User.cs" />
-        <Compile Include="Core\Models\Account.cs" />
-        <Compile Include="Core\Models\Customer.cs" />
-        <Compile Include="Core\Models\CustomerSatisfaction.cs" />
-        <Compile Include="Core\Models\Employee.cs" />
-        <Compile Include="Core\Models\EmployeePosition.cs" />
-        <Compile Include="Core\Models\EmployeeViolation.cs" />
-        <Compile Include="Core\Models\QrCode.cs" />
-        <Compile Include="Core\Models\Queue.cs" />
-        <Compile Include="Core\Models\VirtualAccount.cs" />
-        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
+        <Compile Include="Core\Models\Abstracts\User.cs"/>
+        <Compile Include="Core\Models\Account.cs"/>
+        <Compile Include="Core\Models\Customer.cs"/>
+        <Compile Include="Core\Models\CustomerSatisfaction.cs"/>
+        <Compile Include="Core\Models\Employee.cs"/>
+        <Compile Include="Core\Models\EmployeePosition.cs"/>
+        <Compile Include="Core\Models\EmployeeViolation.cs"/>
+        <Compile Include="Core\Models\PaymentType.cs"/>
+        <Compile Include="Core\Models\QrCode.cs"/>
+        <Compile Include="Core\Models\Queue.cs"/>
+        <Compile Include="Core\Models\Transaction.cs"/>
+        <Compile Include="Core\Models\TransactionType.cs"/>
+        <Compile Include="Core\Models\VirtualAccount.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs"/>
         <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
@@ -160,11 +164,17 @@
         <Compile Include="Views\Departments\Teller\DepositWithdrawWindow.xaml.cs">
             <DependentUpon>DepositWithdrawWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\Departments\Teller\PaymentWindow.xaml.cs">
+            <DependentUpon>PaymentWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\Teller\TellerWindow.xaml.cs">
             <DependentUpon>TellerWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Teller\TransferMoneyWindow.xaml.cs">
             <DependentUpon>TransferMoneyWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml.cs">
+            <DependentUpon>TransferVirtualAccountWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\LoginWindow.xaml.cs">
             <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -217,8 +227,10 @@
         <Page Include="Views\Departments\QueueingMachine\QueueingMachineWindow.xaml"/>
         <Page Include="Views\Departments\QueueingMachine\ShowQueueWindow.xaml"/>
         <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\PaymentWindow.xaml"/>
         <Page Include="Views\Departments\Teller\TellerWindow.xaml"/>
         <Page Include="Views\Departments\Teller\TransferMoneyWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml"/>
         <Page Include="Views\LoginWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

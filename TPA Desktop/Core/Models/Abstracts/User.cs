@@ -14,7 +14,7 @@ namespace TPA_Desktop.Core.Models.Abstracts
         public DateTime? DeletedAt { get; set; }
         public string PhoneNumber { get; set; }
 
-        protected void PopulateUserProperties(IDataRecord reader)
+        protected void PopulateProperties(IDataRecord reader)
         {
             Id = reader.GetGuid(0);
             FirstName = reader.GetString(1);

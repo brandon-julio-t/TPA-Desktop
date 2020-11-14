@@ -168,7 +168,9 @@ namespace TPA_Desktop.Views.Departments.CustomerService.Accounts
 
             var account = builder.GetResult();
             account.Owner = Window.Customer;
-            MessageBox.Show(account.Save() ? "Account created." : "An error occurred while creating account.");
+            MessageBox.Show(account.Save()
+                ? $"Account created.\nAccount Number: {account.AccountNumber}"
+                : "An error occurred while creating account.");
         }
 
         private bool Validate()

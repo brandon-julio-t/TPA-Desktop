@@ -43,7 +43,7 @@ namespace TPA_Desktop.Core.Models
                     return;
                 }
 
-                PopulateUserProperties(reader);
+                PopulateProperties(reader);
                 IsBusinessOwner = reader.GetBoolean(8);
                 MotherMaidenName = reader.GetString(9);
             }
@@ -81,7 +81,7 @@ namespace TPA_Desktop.Core.Models
                 while (reader.Read())
                 {
                     var customer = new Customer();
-                    customer.PopulateUserProperties(reader);
+                    customer.PopulateProperties(reader);
                     customer.IsBusinessOwner = reader.GetBoolean(8);
                     customer.MotherMaidenName = reader.GetString(9);
                     customers.Add(customer);

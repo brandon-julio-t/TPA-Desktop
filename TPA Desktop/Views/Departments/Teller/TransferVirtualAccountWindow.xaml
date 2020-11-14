@@ -1,0 +1,28 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Teller.TransferVirtualAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TPA_Desktop.Views.Departments.Teller"
+        mc:Ignorable="d"
+        Title="TransferVirtualAccountWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance local:TransferVirtualAccountWindowViewModel}">
+    <Grid Margin="20" Width="500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Virtual Account Number" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding VirtualAccountNumber, Mode=TwoWay}" />
+
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Transfer" Click="HandleTransfer" />
+    </Grid>
+</Window>

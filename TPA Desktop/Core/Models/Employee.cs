@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
-using TPA_Desktop.Core;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
@@ -47,7 +46,7 @@ namespace TPA_Desktop.Models
                     return;
                 }
 
-                PopulateUserProperties(reader);
+                PopulateProperties(reader);
                 Email = reader.GetString(8);
                 Password = reader.GetString(9);
                 Salary = reader.GetDecimal(10);
@@ -58,7 +57,7 @@ namespace TPA_Desktop.Models
 
         public Employee(IDataRecord reader)
         {
-            PopulateUserProperties(reader);
+            PopulateProperties(reader);
             Email = reader.GetString(8);
             Password = reader.GetString(9);
             Salary = reader.GetDecimal(10);

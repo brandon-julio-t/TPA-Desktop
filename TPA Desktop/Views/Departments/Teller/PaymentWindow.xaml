@@ -1,0 +1,39 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Teller.PaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TPA_Desktop.Views.Departments.Teller"
+        mc:Ignorable="d"
+        Title="PaymentWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance local:PaymentWindowViewModel}">
+    <Grid Margin="20" Width="500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Amount" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Transaction.Amount, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Payment Type" />
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding PaymentTypes, Mode=TwoWay}"
+                  SelectedItem="{Binding Transaction.PaymentType, Mode=TwoWay}" />
+
+        <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                  Content="Credit"
+                  IsChecked="{Binding IsCredit, Mode=TwoWay}" />
+
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
+    </Grid>
+</Window>

@@ -1,4 +1,14 @@
-﻿create table [User]
+﻿use master
+go
+
+drop database [TPA Desktop]
+go
+
+create database [TPA Desktop]
+use [TPA Desktop]
+go
+
+create table [User]
 (
     ID           uniqueidentifier not null primary key default newid(),
     FirstName    varchar(50)      not null,
@@ -15,6 +25,14 @@ create table EmployeePosition
     ID   uniqueidentifier not null primary key default newid(),
     Name varchar(50)      not null,
 )
+
+insert into EmployeePosition (Name)
+values ('Teller'),
+       ('Customer Service'),
+       ('Security and Maintenance'),
+       ('Finance'),
+       ('Human Resource'),
+       ('Manager')
 
 create table Employee
 (
@@ -111,20 +129,58 @@ create table VirtualAccount
     PaidAt                   datetime2        null,
 )
 
-insert into [EmployeePosition] (Name)
-values ('Teller'),
-       ('Customer Service'),
-       ('Security and Maintenance'),
-       ('Finance'),
-       ('Human Resource'),
-       ('Manager')
+alter table VirtualAccount
+    add constraint fk_source
+        foreign key (SourceAccountNumber) references Account (AccountNumber)
 
-insert into VirtualAccount (SourceAccountNumber, DestinationAccountNumber, VirtualAccountNumber, Amount)
-values ('4950789700544279', '6064720346376137', '6064720346376138', 1)
+alter table VirtualAccount
+    add constraint fk_destination
+        foreign key (DestinationAccountNumber) references Account (AccountNumber)
+
+create table TransactionType
+(
+    ID   uniqueidentifier not null primary key default newid(),
+    Name varchar(25)      not null unique,
+)
+
+insert into TransactionType (Name)
+values ('Payment'),
+       ('Withdraw'),
+       ('Deposit'),
+       ('Transfer')
+
+create table PaymentType
+(
+    ID   uniqueidentifier not null primary key default newid(),
+    Name varchar(25)      not null unique,
+)
+
+insert into PaymentType (Name)
+values ('Pulse'),
+       ('Electric Pulse'),
+       ('Insurance')
+
+create table [Transaction]
+(
+    ID                uniqueidentifier not null default newid(),
+    AccountNumber     char(16)         not null foreign key references Account (AccountNumber),
+    CustomerID        uniqueidentifier not null foreign key references Customer (ID),
+    PaymentTypeID     uniqueidentifier null foreign key references PaymentType (ID),
+    TransactionTypeID uniqueidentifier not null foreign key references TransactionType (ID),
+    Date              datetime2        not null,
+    Amount            money            not null,
+
+    primary key (ID, CustomerID)
+)
 
 select Email, Password, EP.Name
 from Employee E
          join EmployeePosition EP on EP.ID = E.EmployeePositionID
+
+select *
+from [Transaction] T
+         join PaymentType PT on T.PaymentTypeID = PT.ID
+         join TransactionType TT on TT.ID = T.TransactionTypeID
 
 select FirstName,
        LastName,
@@ -139,13 +195,21 @@ select FirstName,
 from Account A
          join Customer C on C.ID = A.CustomerID
          join [User] U on C.ID = U.ID
-update Account
-set ClosedAt = null
-where AccountNumber in ('4950789700544279', '8766153557599758')
-select *
-from Account
-where CustomerID = '549365e9-f3e7-4576-b2ea-4594a3223940'
-select *
-from [User] U
-         join Customer C on U.ID = C.ID
 
+select SourceAccountNumber,
+       DestinationAccountNumber,
+       VirtualAccountNumber,
+       Amount,
+       PaidAt,
+       A.Balance,
+       A2.Balance,
+       FirstName,
+       LastName,
+       DateOfBirth,
+       MotherMaidenName
+from VirtualAccount VA
+         join Account A on VA.SourceAccountNumber = A.AccountNumber
+         join Account A2 on VA.DestinationAccountNumber = A2.AccountNumber
+         join Customer C on C.ID = A.CustomerID
+         join [User] U on C.ID = U.ID
+order by VA.CreatedAt desc

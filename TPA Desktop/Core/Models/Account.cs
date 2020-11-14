@@ -54,7 +54,7 @@ namespace TPA_Desktop.Core.Models
                     return;
                 }
 
-                PopulateAccountProperties(reader);
+                PopulateProperties(reader);
                 firstName = reader.GetString(14);
                 lastName = reader.GetString(15);
                 dateOfBirth = reader.GetDateTime(16);
@@ -95,7 +95,7 @@ namespace TPA_Desktop.Core.Models
                     return;
                 }
 
-                PopulateAccountProperties(reader);
+                PopulateProperties(reader);
                 Owner = customer;
                 IsSaved = true;
             }
@@ -129,7 +129,7 @@ namespace TPA_Desktop.Core.Models
                     return;
                 }
 
-                PopulateAccountProperties(reader);
+                PopulateProperties(reader);
                 Owner = customer;
                 IsSaved = true;
             }
@@ -151,7 +151,7 @@ namespace TPA_Desktop.Core.Models
         public string GuardianAccountNumber { get; set; }
         public string Name { get; set; }
 
-        private void PopulateAccountProperties(IDataRecord reader)
+        private void PopulateProperties(IDataRecord reader)
         {
             AccountNumber = reader.GetString(0);
             Balance = reader.GetDecimal(1);

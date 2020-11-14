@@ -16,6 +16,7 @@ namespace TPA_Desktop.Views.Departments.Teller
         }
 
         public Customer Customer { get; set; }
+
         public Account Account { get; set; }
 
         private void HandleTransferMoney(object sender, RoutedEventArgs e)
@@ -69,12 +70,16 @@ namespace TPA_Desktop.Views.Departments.Teller
                         case "Deposit":
                             window = new DepositWithdrawWindow(_tellerWindow, "Deposit");
                             break;
-                        case "Payment": throw new NotImplementedException();
+                        case "Payment":
+                            window = new PaymentWindow(_tellerWindow);
+                            break;
                         case "Withdraw":
                             window = new DepositWithdrawWindow(_tellerWindow, "Withdraw");
                             break;
-                        case "Transfer Virtual Account": throw new NotImplementedException();
-                        default: throw new InvalidOperationException();
+                        case "Transfer Virtual Account":
+                            window = new TransferVirtualAccountWindow(_tellerWindow);
+                            break;
+                        default: throw new InvalidOperationException($"Teller cannot handle {@event}.");
                     }
 
                     window.Show();
