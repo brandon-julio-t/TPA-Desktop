@@ -1,13 +1,11 @@
-﻿using System.Windows.Controls;
-using TPA_Desktop.Core;
-using TPA_Desktop.Core.Facades;
+﻿using TPA_Desktop.Core.Facades;
 
 namespace TPA_Desktop.Views.UserControls
 {
     public partial class Greeting
     {
         private readonly GreetingViewModel _viewModel = new GreetingViewModel();
-        
+
         public Greeting()
         {
             InitializeComponent();

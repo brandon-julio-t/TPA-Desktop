@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using TPA_Desktop.Annotations;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Models.Abstracts;
+using TPA_Desktop.Properties;
 
 namespace TPA_Desktop.Core.Models
 {

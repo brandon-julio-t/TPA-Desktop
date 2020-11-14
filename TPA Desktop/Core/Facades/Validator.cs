@@ -48,7 +48,23 @@ namespace TPA_Desktop.Core.Facades
         {
             if (!IsValid) return this;
 
-            IsValid = String.All(char.IsDigit);
+            if (IsObject)
+            {
+                try
+                {
+                    var unused = Convert.ToDecimal(Object);
+                    IsValid = true;
+                }
+                catch (Exception)
+                {
+                    IsValid = false;
+                }
+            }
+            else
+            {
+                IsValid = String.All(char.IsDigit);
+            }
+
             if (!IsValid) MessageBox.Show($"{FieldName} must be numeric.");
 
             return this;
@@ -117,6 +133,7 @@ namespace TPA_Desktop.Core.Facades
                 default:
                     throw new InvalidOperationException($"{FieldName} is not numeric.");
             }
+
             if (!IsValid) MessageBox.Show($"{FieldName} must be more than {value}.");
 
             return this;

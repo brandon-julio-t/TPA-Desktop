@@ -4,7 +4,6 @@ using System.Data;
 using System.Windows;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Models.Abstracts;
-using TPA_Desktop.Models;
 
 namespace TPA_Desktop.Core.Models
 {

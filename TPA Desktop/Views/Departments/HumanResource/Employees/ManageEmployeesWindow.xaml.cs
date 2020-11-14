@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using TPA_Desktop.Models;
+using TPA_Desktop.Core.Models;
 using TPA_Desktop.Views.Departments.HumanResource.Violations;
 
 namespace TPA_Desktop.Views.Departments.HumanResource.Employees

@@ -3,7 +3,7 @@ using TPA_Desktop.Core.Managers;
 
 namespace TPA_Desktop.Views.Departments.QueueingMachine
 {
-    public partial class QueueingMachineWindow : Window
+    public partial class QueueingMachineWindow
     {
         public QueueingMachineWindow()
         {
@@ -20,7 +20,7 @@ namespace TPA_Desktop.Views.Departments.QueueingMachine
             HandleEnqueue("CustomerServiceQueue");
         }
 
-        private void HandleEnqueue(string queueTable)
+        private static void HandleEnqueue(string queueTable)
         {
             var queue = CustomerQueueManager.Enqueue(queueTable);
 

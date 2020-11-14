@@ -5,7 +5,7 @@ using TPA_Desktop.Views.Departments.HumanResource.Violations;
 
 namespace TPA_Desktop.Views.Departments.HumanResource
 {
-    public partial class HumanResourceWindow : Window
+    public partial class HumanResourceWindow
     {
         private readonly HumanResourceWindowViewModel _viewModel = new HumanResourceWindowViewModel();
 

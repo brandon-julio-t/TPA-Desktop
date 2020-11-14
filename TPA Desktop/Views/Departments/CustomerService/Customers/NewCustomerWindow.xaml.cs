@@ -4,7 +4,7 @@ using TPA_Desktop.Core.Models;
 
 namespace TPA_Desktop.Views.Departments.CustomerService.Customers
 {
-    public partial class NewCustomerWindow : Window
+    public partial class NewCustomerWindow
     {
         private readonly NewCustomerWindowViewModel _viewModel = new NewCustomerWindowViewModel();
 

@@ -1,6 +1,6 @@
-﻿using TPA_Desktop.Annotations;
-using TPA_Desktop.Core.Builders;
+﻿using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Properties;
 
 namespace TPA_Desktop.Core.Managers
 {

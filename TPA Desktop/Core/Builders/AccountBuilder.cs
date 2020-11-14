@@ -1,5 +1,4 @@
 ﻿using TPA_Desktop.Core.Models;
-using TPA_Desktop.Models;
 
 namespace TPA_Desktop.Core.Builders
 {

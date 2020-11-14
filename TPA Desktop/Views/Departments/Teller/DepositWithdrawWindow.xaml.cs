@@ -3,6 +3,7 @@ using System.Windows;
 using TPA_Desktop.Core.DefaultImplementations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Interfaces;
+using TPA_Desktop.Core.Models;
 
 namespace TPA_Desktop.Views.Departments.Teller
 {
@@ -19,6 +20,7 @@ namespace TPA_Desktop.Views.Departments.Teller
 
             InitializeComponent();
             Title = activityName;
+            _viewModel.Transaction = new Transaction(activityName);
             DataContext = _viewModel;
 
             _activityName = activityName;
@@ -29,27 +31,38 @@ namespace TPA_Desktop.Views.Departments.Teller
         {
             if (!_viewModel.Validate()) return;
 
-            var account = _customerAccountStore.Account;
-            account.Balance += Convert.ToDecimal(_viewModel.DepositAmount) * (_activityName == "Deposit" ? 1 : -1);
+            var transactionSuccess = Database.Transaction(
+                () =>
+                {
+                    var account = _customerAccountStore.Account;
+                    account.Balance += Convert.ToDecimal(_viewModel.Transaction.Amount) *
+                                       (_activityName == "Deposit" ? 1 : -1);
 
-            if (!account.Save())
-            {
-                MessageBox.Show("Balance update failed.");
-                return;
-            }
+                    _viewModel.Transaction.Account = account;
 
-            MessageBox.Show("Balance updated.");
-            Close();
+                    return account.Save() && _viewModel.Transaction.Save();
+                }
+            );
+
+            MessageBox.Show(transactionSuccess
+                ? $"{_activityName} success."
+                : $"An error occurred while doing {_activityName}");
+
+            if (transactionSuccess) Close();
         }
     }
 
     public sealed class DepositWindowViewModel : DefaultNotifyPropertyChanged
     {
-        public string DepositAmount { get; set; }
+        public Transaction Transaction { get; set; }
 
         public bool Validate()
         {
-            return new Validator("Deposit Amount", DepositAmount).NotEmpty().Numeric().IsValid;
+            return new Validator("Deposit Amount", Transaction.Amount)
+                .NotEmpty()
+                .Numeric()
+                .MoreThan(0)
+                .IsValid;
         }
     }
 }

@@ -13,11 +13,7 @@ namespace TPA_Desktop
         {
             var debug = Environment.IsDevelopment ? $"\nSource: {sender}\n{e.Exception.StackTrace}" : "";
             MessageBox.Show($"An error occurred: {e.Exception.Message} {debug}".Trim());
-
-            if (!Environment.IsDevelopment)
-                e.Handled = true;
-            else
-                throw e.Exception;
+            e.Handled = true;
         }
     }
 }

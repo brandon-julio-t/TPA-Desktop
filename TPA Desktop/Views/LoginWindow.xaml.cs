@@ -2,7 +2,7 @@
 using System.Windows;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Factories;
-using TPA_Desktop.Models;
+using TPA_Desktop.Core.Models;
 using TPA_Desktop.Views.Departments.QueueingMachine;
 
 namespace TPA_Desktop.Views

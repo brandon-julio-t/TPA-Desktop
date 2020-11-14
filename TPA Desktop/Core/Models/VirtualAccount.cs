@@ -89,5 +89,35 @@ namespace TPA_Desktop.Core.Models
         {
             return false;
         }
+
+        public bool Validate(Account account)
+        {
+            if (ExpiredAt <= DateTime.Now)
+            {
+                MessageBox.Show("Virtual account is expired.");
+                return false;
+            }
+
+            if (PaidAt != null)
+            {
+                MessageBox.Show("Virtual account is paid.");
+                return false;
+            }
+
+            if (account.AccountNumber != SourceAccountNumber)
+            {
+                MessageBox.Show(
+                    "Customer's account number and the virtual account's source account number doesn't match.");
+                return false;
+            }
+
+            if (account.Balance < Amount)
+            {
+                MessageBox.Show("Insufficient customer account balance.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

@@ -1,0 +1,21 @@
+﻿1. Decorator: QRCodeDecorator
+2. Builders:
+    - AccountBuilder
+    - QueryBuilder
+    - Validator
+3. Facades:
+    - Authentication
+    - Database
+    - Environment
+    - Helpers
+    - Validator
+4. Factory
+    - ViewStrategyFactory
+5. Strategy
+    - CustomerService
+    - Views
+6. Mediator
+    - CustomerServiceMediator
+    - TellerMediator
+7. State
+    - VerifyCustomer

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using TPA_Desktop.Core.Interfaces;
+using TPA_Desktop.Core.Models;
 using TPA_Desktop.Core.Strategies.Views;
-using TPA_Desktop.Models;
 
 namespace TPA_Desktop.Core.Factories
 {

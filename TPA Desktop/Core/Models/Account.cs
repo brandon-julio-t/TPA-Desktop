@@ -230,6 +230,16 @@ namespace TPA_Desktop.Core.Models
                 : queryBuilderAccount.Insert(data);
         }
 
+        public void IncreaseBalance(decimal amount)
+        {
+            Balance += amount;
+        }
+
+        public void ReduceBalance(decimal amount)
+        {
+            Balance -= amount;
+        }
+
         public override bool Delete()
         {
             throw new NotImplementedException();

@@ -78,12 +78,12 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Core\Builders\AccountBuilder.cs" />
-        <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs" />
-        <Compile Include="Core\Builders\QueryBuilder.cs" />
-        <Compile Include="Core\Decorators\QRCodeDecorator.cs" />
-        <Compile Include="Core\DefaultImplementations\DefaultNotifyPropertyChanged.cs" />
-        <Compile Include="Core\Facades\Authentication.cs" />
+        <Compile Include="Core\Builders\AccountBuilder.cs"/>
+        <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs"/>
+        <Compile Include="Core\Builders\QueryBuilder.cs"/>
+        <Compile Include="Core\Decorators\QRCodeDecorator.cs"/>
+        <Compile Include="Core\DefaultImplementations\DefaultNotifyPropertyChanged.cs"/>
+        <Compile Include="Core\Facades\Authentication.cs"/>
         <Compile Include="Core\Facades\Database.cs"/>
         <Compile Include="Core\Facades\Environment.cs"/>
         <Compile Include="Core\Facades\Helpers.cs"/>
@@ -243,6 +243,7 @@
     <ItemGroup>
         <Content Include="database.sql"/>
         <Content Include="Design Patterns.txt"/>
+        <Content Include="Dummy Virtual Accounts.xlsx"/>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Views\Departments\Manager"/>

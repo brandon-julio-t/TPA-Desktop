@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Deposit Amount" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DepositAmount, Mode=TwoWay}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Transaction.Amount, Mode=TwoWay}" />
 
         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
     </Grid>

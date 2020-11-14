@@ -2,10 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using TPA_Desktop.Annotations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
-using TPA_Desktop.Models;
+using TPA_Desktop.Properties;
 
 namespace TPA_Desktop.Views.Departments.HumanResource.Employees
 {

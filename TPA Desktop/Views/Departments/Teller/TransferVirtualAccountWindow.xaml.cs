@@ -23,31 +23,7 @@ namespace TPA_Desktop.Views.Departments.Teller
             if (!_viewModel.Validate()) return;
 
             var virtualAccount = new VirtualAccount(_viewModel.VirtualAccountNumber);
-
-            if (virtualAccount.ExpiredAt <= DateTime.Now)
-            {
-                MessageBox.Show("Virtual account is expired.");
-                return;
-            }
-
-            if (virtualAccount.PaidAt != null)
-            {
-                MessageBox.Show("Virtual account is paid.");
-                return;
-            }
-
-            if (_customerAccountStore.Account.AccountNumber != virtualAccount.SourceAccountNumber)
-            {
-                MessageBox.Show(
-                    "Customer's account number and the virtual account's source account number doesn't match.");
-                return;
-            }
-
-            if (_customerAccountStore.Account.Balance < virtualAccount.Amount)
-            {
-                MessageBox.Show("Insufficient customer account balance.");
-                return;
-            }
+            if (!virtualAccount.Validate(_customerAccountStore.Account)) return;
 
             var transactionSuccess = Database.Transaction(
                 () =>
@@ -59,7 +35,14 @@ namespace TPA_Desktop.Views.Departments.Teller
 
                     virtualAccount.PaidAt = DateTime.Now;
 
-                    return _customerAccountStore.Account.Save() && destinationAccount.Save() && virtualAccount.Save();
+                    return _customerAccountStore.Account.Save() &&
+                           destinationAccount.Save() &&
+                           virtualAccount.Save() &&
+                           new Transaction("Transfer Virtual Account")
+                           {
+                               Account = _customerAccountStore.Account,
+                               Amount = virtualAccount.Amount
+                           }.Save();
                 }
             );
 
