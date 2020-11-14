@@ -84,16 +84,16 @@
         <Compile Include="Core\Decorators\QRCodeDecorator.cs" />
         <Compile Include="Core\DefaultImplementations\DefaultNotifyPropertyChanged.cs" />
         <Compile Include="Core\Facades\Authentication.cs" />
-        <Compile Include="Core\Facades\Database.cs" />
-        <Compile Include="Core\Facades\Environment.cs" />
-        <Compile Include="Core\Facades\Helpers.cs" />
-        <Compile Include="Core\Facades\Validator.cs" />
-        <Compile Include="Core\Factories\ViewStrategyFactory.cs" />
+        <Compile Include="Core\Facades\Database.cs"/>
+        <Compile Include="Core\Facades\Environment.cs"/>
+        <Compile Include="Core\Facades\Helpers.cs"/>
+        <Compile Include="Core\Facades\Validator.cs"/>
+        <Compile Include="Core\Factories\ViewStrategyFactory.cs"/>
         <Compile Include="Core\Interfaces\ICustomerAccountStore.cs"/>
-        <Compile Include="Core\Interfaces\IMediator.cs" />
-        <Compile Include="Core\Interfaces\IStrategy.cs" />
-        <Compile Include="Core\Managers\CustomerQueueManager.cs" />
-        <Compile Include="Core\Models\Abstracts\BaseModel.cs" />
+        <Compile Include="Core\Interfaces\IMediator.cs"/>
+        <Compile Include="Core\Interfaces\IStrategy.cs"/>
+        <Compile Include="Core\Managers\CustomerQueueManager.cs"/>
+        <Compile Include="Core\Models\Abstracts\BaseModel.cs"/>
         <Compile Include="Core\Models\Abstracts\User.cs"/>
         <Compile Include="Core\Models\Account.cs"/>
         <Compile Include="Core\Models\Customer.cs"/>
@@ -242,6 +242,7 @@
     </ItemGroup>
     <ItemGroup>
         <Content Include="database.sql"/>
+        <Content Include="Design Patterns.txt"/>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Views\Departments\Manager"/>
