@@ -48,10 +48,7 @@ namespace TPA_Desktop.Views.Departments.CustomerService.VirtualAccounts
                 var result = reader.AsDataSet(
                     new ExcelDataSetConfiguration
                     {
-                        ConfigureDataTable = _ => new ExcelDataTableConfiguration
-                        {
-                            UseHeaderRow = true
-                        }
+                        ConfigureDataTable = _ => new ExcelDataTableConfiguration {UseHeaderRow = true}
                     }
                 );
                 VirtualAccounts = result.Tables[0].DefaultView;

@@ -234,3 +234,8 @@ from VirtualAccount VA
          join [User] U on C.ID = U.ID
 where SourceAccountNumber = '8766153557599758'
 order by VA.CreatedAt desc
+
+
+select FirstName, LastName, Email, Gender, DateOfBirth, Salary, PhoneNumber
+from Employee E
+         join [User] U on U.ID = E.ID

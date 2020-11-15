@@ -17,7 +17,6 @@ namespace TPA_Desktop.Views.Departments.QueueingMachine
 
         private void HandleOpenQrCode(object sender, RoutedEventArgs e)
         {
-            _viewModel.QrCode.Save();
             new CustomerSatisfactionWindow(_viewModel.QrCode).Show();
             Close();
         }
@@ -29,6 +28,7 @@ namespace TPA_Desktop.Views.Departments.QueueingMachine
         {
             Queue = queue;
             QrCode = new QrCode(Queue);
+            QrCode.Save();
         }
 
         public Queue Queue { get; set; }

@@ -241,12 +241,18 @@
         <Page Include="Views\VerifyCustomerWindow.xaml"/>
     </ItemGroup>
     <ItemGroup>
-        <Content Include="database.sql"/>
-        <Content Include="Design Patterns.txt"/>
-        <Content Include="Dummy Virtual Accounts.xlsx"/>
+        <Folder Include="Views\Departments\Manager"/>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Views\Departments\Manager"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 2 - Credit Card Monthly Payment.docx"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 3 - Customer Queue.docx"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 4 - Request Credit Card.docx"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 5 - Teller Service.docx"/>
+        <Content Include="Miscellaneous\Analysis\TPA Desktop.vpp"/>
+        <Content Include="Miscellaneous\database.sql"/>
+        <Content Include="Miscellaneous\Design Patterns.txt"/>
+        <Content Include="Miscellaneous\Dummy Virtual Accounts.xlsx"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>

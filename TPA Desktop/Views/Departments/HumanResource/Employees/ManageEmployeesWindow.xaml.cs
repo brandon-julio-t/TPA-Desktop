@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using TPA_Desktop.Core.Models;
 using TPA_Desktop.Views.Departments.HumanResource.Violations;
 
@@ -21,18 +20,6 @@ namespace TPA_Desktop.Views.Departments.HumanResource.Employees
             MessageBox.Show(_windowViewModel.SelectedEmployee.Save()
                 ? "Employee updated."
                 : "An error occurred when saving employee.");
-        }
-
-        private void HandleGenderChange(object sender, RoutedEventArgs e)
-        {
-            if (sender is RadioButton rb)
-                _windowViewModel.SelectedEmployee.Gender = rb.Content.ToString();
-        }
-
-        private void HandleDateOfBirthChange(object sender, SelectionChangedEventArgs e)
-        {
-            if (sender is DatePicker dp && dp.SelectedDate.HasValue)
-                _windowViewModel.SelectedEmployee.DateOfBirth = dp.SelectedDate.Value;
         }
 
         private void HandleAddViolation(object sender, RoutedEventArgs e)

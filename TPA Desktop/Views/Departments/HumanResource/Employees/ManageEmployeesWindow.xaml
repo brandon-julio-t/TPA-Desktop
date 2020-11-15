@@ -10,41 +10,38 @@
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance employees:ManageEmployeesWindowViewModel}">
     <Grid Margin="20">
-        <DataGrid SelectedIndex="{Binding SelectedEmployeeIndex, Mode=TwoWay}"
-                  ItemsSource="{Binding EmployeeViewModels, Mode=TwoWay}"
+        <DataGrid SelectedIndex="{Binding SelectedEmployeeIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding EmployeeViewModels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="First Name" Binding="{Binding Employee.FirstName, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Last Name" Binding="{Binding Employee.LastName, Mode=TwoWay}" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding Employee.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Employee.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTemplateColumn Header="Gender">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="employees:EmployeeViewModel">
                             <StackPanel Orientation="Horizontal">
-                                <RadioButton IsChecked="{Binding IsMale, Mode=TwoWay}"
-                                             Click="HandleGenderChange"
+                                <RadioButton IsChecked="{Binding IsMale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                              Content="Male" />
-                                <RadioButton IsChecked="{Binding IsFemale, Mode=TwoWay}"
-                                             Click="HandleGenderChange"
+                                <RadioButton IsChecked="{Binding IsFemale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                              Content="Female" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Email" Binding="{Binding Employee.Email, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding Employee.PhoneNumber, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Employee.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Employee.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTemplateColumn Header="Date of Birth">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="employees:EmployeeViewModel">
-                            <DatePicker SelectedDate="{Binding Employee.DateOfBirth, Mode=TwoWay}"
-                                        SelectedDateChanged="HandleDateOfBirthChange"
+                            <DatePicker SelectedDate="{Binding Employee.DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         BorderThickness="0" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Salary"
-                                    Binding="{Binding Employee.Salary, ConverterCulture=id-ID, StringFormat=C, Mode=TwoWay}" />
+                                    Binding="{Binding Employee.Salary, ConverterCulture=id-ID, StringFormat=C, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn Header="Registered At"
-                                    Binding="{Binding Employee.RegisteredAt, StringFormat=D, Mode=TwoWay}" />
+                                    Binding="{Binding Employee.RegisteredAt, StringFormat=D, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTemplateColumn Header="Actions">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="employees:EmployeeViewModel">
