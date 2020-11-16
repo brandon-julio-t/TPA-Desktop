@@ -1,11 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using TPA_Desktop.Core.Builders;
 
 namespace TPA_Desktop.Core.Models
 {
     public class PaymentType
     {
+        public PaymentType()
+        {
+        }
+
+        public PaymentType(Guid id)
+        {
+            using (var reader = QueryBuilder
+                .Table("PaymentType")
+                .Where("ID", id.ToString())
+                .Select("ID", "Name")
+                .Get())
+            {
+                if (!reader.Read() || !reader.HasRows)
+                {
+                    MessageBox.Show("Payment type doesn't exists");
+                    Id = Guid.Empty;
+                    return;
+                }
+
+                Id = reader.GetGuid(0);
+                Name = reader.GetString(1);
+            }
+        }
+
         public Guid Id { get; set; }
         public string Name { get; set; }
 

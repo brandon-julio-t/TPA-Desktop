@@ -239,3 +239,17 @@ order by VA.CreatedAt desc
 select FirstName, LastName, Email, Gender, DateOfBirth, Salary, PhoneNumber
 from Employee E
          join [User] U on U.ID = E.ID
+
+select count(T.PaymentTypeID), count(T.TransactionTypeID)
+from [Transaction] T
+
+select TT.Name, count(T.TransactionTypeID)
+from [Transaction] T
+         join TransactionType TT on T.TransactionTypeID = TT.ID
+group by TT.Name
+
+select TT.Name, count(T.PaymentTypeID)
+from [Transaction] T
+         join PaymentType TT on T.PaymentTypeID = TT.ID
+group by TT.Name
+

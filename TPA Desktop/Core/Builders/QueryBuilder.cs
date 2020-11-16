@@ -10,14 +10,14 @@ namespace TPA_Desktop.Core.Builders
 {
     public class QueryBuilder
     {
-        private bool HasUsedWhere { get; set; }
-        private string Sql { get; set; }
-
         private QueryBuilder(string table)
         {
             Sql = $"select * from [{table}]";
             HasUsedWhere = false;
         }
+
+        private bool HasUsedWhere { get; set; }
+        private string Sql { get; set; }
 
         public static QueryBuilder Table(string table) => new QueryBuilder(table);
 
@@ -149,6 +149,12 @@ namespace TPA_Desktop.Core.Builders
         public QueryBuilder Join(string table, string column1, string comparator, string column2)
         {
             Sql += $" join [{table}] on {column1} {comparator} {column2}";
+            return this;
+        }
+
+        public QueryBuilder FullJoin(string table, string column1, string comparator, string column2)
+        {
+            Sql += $" full join [{table}] on {column1} {comparator} {column2}";
             return this;
         }
 

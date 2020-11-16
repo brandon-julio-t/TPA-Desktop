@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using System;
 using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Core.Models;
 using TPA_Desktop.Core.Strategies.Views;
@@ -22,8 +22,8 @@ namespace TPA_Desktop.Core.Factories
                 case "Security and Maintenance": return new SecurityAndMaintenanceViewStrategy();
                 case "Teller": return new TellerViewStrategy();
                 default:
-                    MessageBox.Show($"View doesn't exist for employee position: {_employee.EmployeePosition.Name}");
-                    return null;
+                    throw new InvalidOperationException(
+                        $"View doesn't exist for employee position: {_employee.EmployeePosition.Name}");
             }
         }
     }

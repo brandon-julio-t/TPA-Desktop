@@ -35,23 +35,27 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa">
-          <HintPath>..\packages\ExcelDataReader.3.7.0-develop00310\lib\net45\ExcelDataReader.dll</HintPath>
-          <Private>True</Private>
+            <HintPath>..\packages\ExcelDataReader.3.7.0-develop00310\lib\net45\ExcelDataReader.dll</HintPath>
+            <Private>True</Private>
         </Reference>
         <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa">
-          <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0-develop00310\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
-          <Private>True</Private>
+            <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0-develop00310\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+            <Private>True</Private>
         </Reference>
-        <Reference Include="mscorlib" />
+        <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+            <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+            <Private>True</Private>
+        </Reference>
+        <Reference Include="mscorlib"/>
         <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
-          <Private>True</Private>
+            <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
+            <Private>True</Private>
         </Reference>
-        <Reference Include="System" />
-        <Reference Include="System.ComponentModel.Composition" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Drawing" />
+        <Reference Include="System"/>
+        <Reference Include="System.ComponentModel.Composition"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Drawing"/>
         <Reference Include="System.IO.Compression" />
         <Reference Include="System.IO.Compression.FileSystem" />
         <Reference Include="System.Numerics" />
@@ -152,6 +156,9 @@
         <Compile Include="Views\Departments\HumanResource\Violations\AllViolationsWindow.xaml.cs">
             <DependentUpon>AllViolationsWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\Departments\Manager\ManagerWindow.xaml.cs">
+            <DependentUpon>ManagerWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\QueueingMachine\CustomerSatisfactionWindow.xaml.cs">
             <DependentUpon>CustomerSatisfactionWindow.xaml</DependentUpon>
         </Compile>
@@ -223,6 +230,7 @@
         <Page Include="Views\Departments\HumanResource\HumanResourceWindow.xaml"/>
         <Page Include="Views\Departments\HumanResource\Violations\AddViolationWindow.xaml"/>
         <Page Include="Views\Departments\HumanResource\Violations\AllViolationsWindow.xaml"/>
+        <Page Include="Views\Departments\Manager\ManagerWindow.xaml"/>
         <Page Include="Views\Departments\QueueingMachine\CustomerSatisfactionWindow.xaml"/>
         <Page Include="Views\Departments\QueueingMachine\QueueingMachineWindow.xaml"/>
         <Page Include="Views\Departments\QueueingMachine\ShowQueueWindow.xaml"/>
@@ -239,9 +247,6 @@
         <Page Include="Views\UserControls\Greeting.xaml"/>
         <Page Include="Views\UserControls\Logout.xaml"/>
         <Page Include="Views\VerifyCustomerWindow.xaml"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Views\Departments\Manager"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx"/>

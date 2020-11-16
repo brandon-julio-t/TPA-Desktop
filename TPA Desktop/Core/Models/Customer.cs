@@ -14,6 +14,38 @@ namespace TPA_Desktop.Core.Models
         {
         }
 
+        public Customer(Guid id)
+        {
+            using (var reader = QueryBuilder
+                .Table("Customer")
+                .Join("User", "[User].ID", "=", "Customer.ID")
+                .Where("Customer.ID", id.ToString())
+                .Select(
+                    "Customer.ID",
+                    "FirstName",
+                    "LastName",
+                    "Gender",
+                    "DateOfBirth",
+                    "RegisteredAt",
+                    "DeletedAt",
+                    "PhoneNumber",
+                    "IsBusinessOwner",
+                    "MotherMaidenName"
+                ).Get())
+            {
+                if (!reader.Read() || !reader.HasRows)
+                {
+                    MessageBox.Show("Customer doesn't exist.");
+                    Id = Guid.Empty;
+                    return;
+                }
+
+                PopulateProperties(reader);
+                IsBusinessOwner = reader.GetBoolean(8);
+                MotherMaidenName = reader.GetString(9);
+            }
+        }
+
         public Customer(string firstName, string lastName, DateTime dateOfBirth, string motherMaidenName)
         {
             using (var reader = QueryBuilder
