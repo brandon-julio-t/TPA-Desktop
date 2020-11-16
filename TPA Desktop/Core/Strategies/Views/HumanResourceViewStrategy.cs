@@ -1,5 +1,5 @@
 ﻿using TPA_Desktop.Core.Interfaces;
-using TPA_Desktop.Views.Departments.HumanResource;
+using TPA_Desktop.Views.Departments.Human_Resource;
 
 namespace TPA_Desktop.Core.Strategies.Views
 {

@@ -1,0 +1,50 @@
+﻿<Window x:Class="TPA_Desktop.Views.Shared.VerifyCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:shared="clr-namespace:TPA_Desktop.Views.Shared"
+        mc:Ignorable="d"
+        Title="Verify Customer"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance shared:VerifyCustomerWindowViewModel}">
+    <Grid>
+        <Grid Margin="20" Width="500">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Date of Birth" />
+            <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Mother's Maiden Name" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding MotherMaidenName, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0"
+                       Text="Account Number"
+                       Visibility="{Binding AccountNumberVisibility}" />
+            <TextBox Grid.Row="4" Grid.Column="1"
+                     Text="{Binding AccountNumber, Mode=TwoWay}"
+                     Visibility="{Binding AccountNumberVisibility}" />
+
+            <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
+        </Grid>
+    </Grid>
+</Window>

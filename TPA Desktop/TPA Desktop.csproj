@@ -56,15 +56,15 @@
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Drawing"/>
-        <Reference Include="System.IO.Compression" />
-        <Reference Include="System.IO.Compression.FileSystem" />
-        <Reference Include="System.Numerics" />
+        <Reference Include="System.IO.Compression"/>
+        <Reference Include="System.IO.Compression.FileSystem"/>
+        <Reference Include="System.Numerics"/>
         <Reference Include="System.Transactions"/>
-        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml"/>
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
         </Reference>
-        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Xml.Linq"/>
         <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
           <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
           <Private>True</Private>
@@ -86,7 +86,7 @@
         <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs"/>
         <Compile Include="Core\Builders\QueryBuilder.cs"/>
         <Compile Include="Core\Decorators\QRCodeDecorator.cs"/>
-        <Compile Include="Core\DefaultImplementations\DefaultNotifyPropertyChanged.cs"/>
+        <Compile Include="Core\Default Implementations\DefaultNotifyPropertyChanged.cs"/>
         <Compile Include="Core\Facades\Authentication.cs"/>
         <Compile Include="Core\Facades\Database.cs"/>
         <Compile Include="Core\Facades\Environment.cs"/>
@@ -123,49 +123,52 @@
         <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
         <Compile Include="Properties\Annotations.cs"/>
-        <Compile Include="Views\Departments\CustomerService\Accounts\NewIndividualAccountWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml.cs">
             <DependentUpon>NewIndividualAccountWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\CustomerService\CustomerServiceWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml.cs">
             <DependentUpon>CustomerServiceWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\CustomerService\Customers\ManageCustomerAccountDataWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml.cs">
             <DependentUpon>ManageCustomerAccountDataWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\CustomerService\Customers\NewCustomerWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml.cs">
             <DependentUpon>NewCustomerWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\CustomerService\VirtualAccounts\CreateVirtualAccountWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml.cs">
             <DependentUpon>CreateVirtualAccountWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\CustomerService\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml.cs">
+        <Compile Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml.cs">
             <DependentUpon>GenerateVirtualAccountsFromExcelWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\HumanResource\Employees\ManageEmployeesWindow.xaml.cs">
+        <Compile Include="Views\Departments\Finance Team\FinanceWindow.xaml.cs">
+            <DependentUpon>FinanceWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml.cs">
             <DependentUpon>ManageEmployeesWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\HumanResource\Employees\NewEmployeeWindow.xaml.cs">
+        <Compile Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml.cs">
             <DependentUpon>NewEmployeeWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\HumanResource\HumanResourceWindow.xaml.cs">
+        <Compile Include="Views\Departments\Human Resource\HumanResourceWindow.xaml.cs">
             <DependentUpon>HumanResourceWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\HumanResource\Violations\AddViolationWindow.xaml.cs">
+        <Compile Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml.cs">
             <DependentUpon>AddViolationWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\HumanResource\Violations\AllViolationsWindow.xaml.cs">
+        <Compile Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml.cs">
             <DependentUpon>AllViolationsWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Manager\ManagerWindow.xaml.cs">
             <DependentUpon>ManagerWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\QueueingMachine\CustomerSatisfactionWindow.xaml.cs">
+        <Compile Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml.cs">
             <DependentUpon>CustomerSatisfactionWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\QueueingMachine\QueueingMachineWindow.xaml.cs">
+        <Compile Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml.cs">
             <DependentUpon>QueueingMachineWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\Departments\QueueingMachine\ShowQueueWindow.xaml.cs">
+        <Compile Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml.cs">
             <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Teller\DepositWithdrawWindow.xaml.cs">
@@ -187,6 +190,12 @@
             <DependentUpon>LoginWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="Views\Shared\TransactionsWindow.xaml.cs">
+            <DependentUpon>TransactionsWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Shared\VerifyCustomerWindow.xaml.cs">
+            <DependentUpon>VerifyCustomerWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\UserControls\CustomerQueue.xaml.cs">
             <DependentUpon>CustomerQueue.xaml</DependentUpon>
         </Compile>
@@ -195,9 +204,6 @@
         </Compile>
         <Compile Include="Views\UserControls\Logout.xaml.cs">
             <DependentUpon>Logout.xaml</DependentUpon>
-        </Compile>
-        <Compile Include="Views\VerifyCustomerWindow.xaml.cs">
-            <DependentUpon>VerifyCustomerWindow.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -219,21 +225,22 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-        <Page Include="Views\Departments\CustomerService\Accounts\NewIndividualAccountWindow.xaml"/>
-        <Page Include="Views\Departments\CustomerService\CustomerServiceWindow.xaml"/>
-        <Page Include="Views\Departments\CustomerService\Customers\ManageCustomerAccountDataWindow.xaml"/>
-        <Page Include="Views\Departments\CustomerService\Customers\NewCustomerWindow.xaml"/>
-        <Page Include="Views\Departments\CustomerService\VirtualAccounts\CreateVirtualAccountWindow.xaml"/>
-        <Page Include="Views\Departments\CustomerService\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml"/>
-        <Page Include="Views\Departments\HumanResource\Employees\ManageEmployeesWindow.xaml"/>
-        <Page Include="Views\Departments\HumanResource\Employees\NewEmployeeWindow.xaml"/>
-        <Page Include="Views\Departments\HumanResource\HumanResourceWindow.xaml"/>
-        <Page Include="Views\Departments\HumanResource\Violations\AddViolationWindow.xaml"/>
-        <Page Include="Views\Departments\HumanResource\Violations\AllViolationsWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml"/>
+        <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml"/>
         <Page Include="Views\Departments\Manager\ManagerWindow.xaml"/>
-        <Page Include="Views\Departments\QueueingMachine\CustomerSatisfactionWindow.xaml"/>
-        <Page Include="Views\Departments\QueueingMachine\QueueingMachineWindow.xaml"/>
-        <Page Include="Views\Departments\QueueingMachine\ShowQueueWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml"/>
         <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml"/>
         <Page Include="Views\Departments\Teller\PaymentWindow.xaml"/>
         <Page Include="Views\Departments\Teller\TellerWindow.xaml"/>
@@ -243,10 +250,11 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
+        <Page Include="Views\Shared\TransactionsWindow.xaml"/>
+        <Page Include="Views\Shared\VerifyCustomerWindow.xaml"/>
         <Page Include="Views\UserControls\CustomerQueue.xaml"/>
         <Page Include="Views\UserControls\Greeting.xaml"/>
         <Page Include="Views\UserControls\Logout.xaml"/>
-        <Page Include="Views\VerifyCustomerWindow.xaml"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx"/>

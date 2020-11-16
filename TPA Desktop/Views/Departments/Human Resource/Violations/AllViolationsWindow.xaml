@@ -1,0 +1,59 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Human_Resource.Violations.AllViolationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:models="clr-namespace:TPA_Desktop.Core.Models"
+        xmlns:violations="clr-namespace:TPA_Desktop.Views.Departments.Human_Resource.Violations"
+        mc:Ignorable="d"
+        Title="All Violations"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen" d:DataContext="{d:DesignInstance violations:AllViolationsViewModel}">
+    <Grid Margin="20">
+        <DataGrid x:Name="DataGridViolations"
+                  SelectedIndex="{Binding SelectedViolationIndex, Mode=TwoWay}"
+                  ItemsSource="{Binding EmployeeViolations, Mode=TwoWay}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Violation" Binding="{Binding Title, Mode=TwoWay}" />
+                <DataGridTemplateColumn Header="Violation Time">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="models:EmployeeViolation">
+                            <DatePicker
+                                SelectedDate="{Binding ViolatedAt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedDateFormat="Long"
+                                BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="First Name" Binding="{Binding Employee.FirstName, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Employee.LastName, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Employee.Email, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Employee.PhoneNumber, Mode=TwoWay}" />
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="0" Click="HandleUpdate" Content="Update" />
+                                <Button Grid.Column="1" Click="HandleDelete" Content="Delete" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate DataType="models:EmployeeViolation">
+                    <TextBox Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             AcceptsReturn="True"
+                             AcceptsTab="True" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+    </Grid>
+</Window>

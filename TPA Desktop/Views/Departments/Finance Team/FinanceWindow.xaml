@@ -1,24 +1,24 @@
-﻿<Window x:Class="TPA_Desktop.Views.Departments.Manager.ManagerWindow"
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Finance_Team.FinanceWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
         mc:Ignorable="d"
-        Title="Manager"
+        Title="FinanceWindow"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
     <StackPanel Margin="20">
         <userControls:Greeting />
-
+        
         <Grid Margin="0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             
-            <Button Content="View Transactions" Click="HandleViewTransactions" />
+            <Button Content="View Transaction" Click="HandleViewTransactions" />
         </Grid>
-
+        
         <userControls:Logout />
     </StackPanel>
 </Window>

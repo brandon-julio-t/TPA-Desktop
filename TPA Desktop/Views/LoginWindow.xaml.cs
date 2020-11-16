@@ -3,7 +3,7 @@ using System.Windows;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Factories;
 using TPA_Desktop.Core.Models;
-using TPA_Desktop.Views.Departments.QueueingMachine;
+using TPA_Desktop.Views.Departments.Queueing_Machine;
 
 namespace TPA_Desktop.Views
 {

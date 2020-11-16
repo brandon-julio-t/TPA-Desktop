@@ -2,6 +2,7 @@
 using System.Windows;
 using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Views.Shared;
 
 namespace TPA_Desktop.Views.Departments.Teller
 {

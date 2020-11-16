@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using TPA_Desktop.Core.DefaultImplementations;
+using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Managers;
 using TPA_Desktop.Core.Models;
 

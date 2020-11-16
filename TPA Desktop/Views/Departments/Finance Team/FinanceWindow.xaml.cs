@@ -1,11 +1,11 @@
 ﻿using System.Windows;
 using TPA_Desktop.Views.Shared;
 
-namespace TPA_Desktop.Views.Departments.Manager
+namespace TPA_Desktop.Views.Departments.Finance_Team
 {
-    public partial class ManagerWindow
+    public partial class FinanceWindow
     {
-        public ManagerWindow()
+        public FinanceWindow()
         {
             InitializeComponent();
         }

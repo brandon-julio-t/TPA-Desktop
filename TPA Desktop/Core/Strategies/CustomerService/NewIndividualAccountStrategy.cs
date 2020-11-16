@@ -1,5 +1,5 @@
 ﻿using TPA_Desktop.Core.Interfaces;
-using TPA_Desktop.Views.Departments.CustomerService.Accounts;
+using TPA_Desktop.Views.Departments.Customer_Service.Accounts;
 
 namespace TPA_Desktop.Core.Strategies.CustomerService
 {
