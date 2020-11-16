@@ -38,10 +38,6 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Salary"
-                                    Binding="{Binding Employee.Salary, ConverterCulture=id-ID, StringFormat=C, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <DataGridTextColumn Header="Registered At"
-                                    Binding="{Binding Employee.RegisteredAt, StringFormat=D, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTemplateColumn Header="Actions">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="employees:EmployeeViewModel">

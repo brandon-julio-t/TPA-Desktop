@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:virtualAccounts="clr-namespace:TPA_Desktop.Views.Departments.CustomerService.VirtualAccounts"
         mc:Ignorable="d"
-        Title="GenerateVirtualAccountsFromExcelWindow"
+        Title="Generate Virtual Accounts From Excel"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance virtualAccounts:GenerateVirtualAccountsFromExcelWindowViewModel}">

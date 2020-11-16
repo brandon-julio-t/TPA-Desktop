@@ -10,10 +10,20 @@
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance manager:ManagerWindowViewModel}">
-    <StackPanel Margin="20" Width="500">
+    <StackPanel Margin="20">
         <userControls:Greeting />
 
-        <DataGrid ItemsSource="{Binding Transactions, Mode=TwoWay}" />
+        <DataGrid Margin="0,20"
+                  ItemsSource="{Binding Transactions}"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=D}" />
+                <DataGridTextColumn Header="Transaction Type" Binding="{Binding TransactionType}" />
+                <DataGridTextColumn Header="Payment Type" Binding="{Binding PaymentType}" />
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat=C, ConverterCulture=id-ID}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Generate Transactions Report" Click="HandleGenerateTransactionsReport" />
 
         <userControls:Logout />
