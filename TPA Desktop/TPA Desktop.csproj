@@ -66,11 +66,11 @@
         </Reference>
         <Reference Include="System.Xml.Linq"/>
         <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-          <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
-          <Private>True</Private>
+            <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+            <Private>True</Private>
         </Reference>
-        <Reference Include="WindowsBase" />
-        <Reference Include="PresentationCore" />
+        <Reference Include="WindowsBase"/>
+        <Reference Include="PresentationCore"/>
         <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
@@ -171,6 +171,9 @@
         <Compile Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml.cs">
             <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml.cs">
+            <DependentUpon>SecurityAndMaintenanceWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\Teller\DepositWithdrawWindow.xaml.cs">
             <DependentUpon>DepositWithdrawWindow.xaml</DependentUpon>
         </Compile>
@@ -196,13 +199,13 @@
         <Compile Include="Views\Shared\VerifyCustomerWindow.xaml.cs">
             <DependentUpon>VerifyCustomerWindow.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\UserControls\CustomerQueue.xaml.cs">
+        <Compile Include="Views\User Controls\CustomerQueue.xaml.cs">
             <DependentUpon>CustomerQueue.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\UserControls\Greeting.xaml.cs">
+        <Compile Include="Views\User Controls\Greeting.xaml.cs">
             <DependentUpon>Greeting.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\UserControls\Logout.xaml.cs">
+        <Compile Include="Views\User Controls\Logout.xaml.cs">
             <DependentUpon>Logout.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
@@ -241,6 +244,7 @@
         <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml"/>
         <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml"/>
         <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml"/>
+        <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml"/>
         <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml"/>
         <Page Include="Views\Departments\Teller\PaymentWindow.xaml"/>
         <Page Include="Views\Departments\Teller\TellerWindow.xaml"/>
@@ -252,9 +256,9 @@
         </Page>
         <Page Include="Views\Shared\TransactionsWindow.xaml"/>
         <Page Include="Views\Shared\VerifyCustomerWindow.xaml"/>
-        <Page Include="Views\UserControls\CustomerQueue.xaml"/>
-        <Page Include="Views\UserControls\Greeting.xaml"/>
-        <Page Include="Views\UserControls\Logout.xaml"/>
+        <Page Include="Views\User Controls\CustomerQueue.xaml"/>
+        <Page Include="Views\User Controls\Greeting.xaml"/>
+        <Page Include="Views\User Controls\Logout.xaml"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx"/>

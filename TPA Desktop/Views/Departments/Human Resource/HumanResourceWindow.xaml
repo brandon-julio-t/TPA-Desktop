@@ -3,15 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
         xmlns:humanResource="clr-namespace:TPA_Desktop.Views.Departments.Human_Resource"
+        xmlns:userControls1="clr-namespace:TPA_Desktop.Views.User_Controls"
         mc:Ignorable="d"
         Title="Human Resource"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance humanResource:HumanResourceWindowViewModel}">
     <StackPanel Margin="20">
-        <userControls:Greeting />
+        <userControls1:Greeting />
 
         <Grid Margin="0,20" Height="100">
             <Grid.ColumnDefinitions>
@@ -25,6 +25,6 @@
             <Button Grid.Column="2" Click="ViewAllViolations">View All Violations</Button>
         </Grid>
 
-        <userControls:Logout />
+        <userControls1:Logout />
     </StackPanel>
 </Window>

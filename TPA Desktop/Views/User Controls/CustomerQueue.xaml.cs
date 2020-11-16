@@ -4,7 +4,7 @@ using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Managers;
 using TPA_Desktop.Core.Models;
 
-namespace TPA_Desktop.Views.UserControls
+namespace TPA_Desktop.Views.User_Controls
 {
     public partial class CustomerQueue
     {

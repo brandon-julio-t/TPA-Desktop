@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TPA_Desktop.Views.UserControls
+namespace TPA_Desktop.Views.User_Controls
 {
     public partial class Logout
     {

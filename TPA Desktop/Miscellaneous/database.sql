@@ -235,6 +235,10 @@ from VirtualAccount VA
 where SourceAccountNumber = '8766153557599758'
 order by VA.CreatedAt desc
 
+select U.FirstName, U.LastName, BlockedAt
+from Account A
+         join Customer C on A.CustomerID = C.ID
+         join [User] U on C.ID = U.ID
 
 select FirstName, LastName, Email, Gender, DateOfBirth, Salary, PhoneNumber
 from Employee E

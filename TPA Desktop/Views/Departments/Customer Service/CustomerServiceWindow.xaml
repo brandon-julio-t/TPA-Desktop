@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:userControls="clr-namespace:TPA_Desktop.Views.UserControls"
+        xmlns:userControls1="clr-namespace:TPA_Desktop.Views.User_Controls"
         mc:Ignorable="d"
         Title="Customer Service"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
     <StackPanel Margin="20" Width="500">
-        <userControls:Greeting />
-        <userControls:CustomerQueue QueueTableName="CustomerServiceQueue" />
+        <userControls1:Greeting />
+        <userControls1:CustomerQueue QueueTableName="CustomerServiceQueue" />
 
         <Grid Margin="0,20">
             <Grid.ColumnDefinitions>
@@ -48,6 +48,6 @@
             <Button Grid.Row="7" Grid.Column="1" Content="Generate Payrolls From Excel" />
         </Grid>
 
-        <userControls:Logout />
+        <userControls1:Logout />
     </StackPanel>
 </Window>
