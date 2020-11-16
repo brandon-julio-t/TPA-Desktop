@@ -11,10 +11,6 @@ namespace TPA_Desktop.Core.Models
     public class Queue : BaseModel
     {
         private readonly string _queueTable;
-        public DateTime QueuedAt { get; set; }
-        public DateTime? ServedAt { get; set; }
-        public DateTime? ServiceStartAt { get; set; }
-        public long Number { get; set; }
 
         public Queue(string queueTable) => _queueTable = queueTable;
 
@@ -54,6 +50,11 @@ namespace TPA_Desktop.Core.Models
             IsSaved = true;
         }
 
+        public DateTime QueuedAt { get; set; }
+        public DateTime? ServedAt { get; set; }
+        public DateTime? ServiceStartAt { get; set; }
+        public long Number { get; set; }
+
         public override bool Save()
         {
             if (IsSaved)
@@ -71,11 +72,7 @@ namespace TPA_Desktop.Core.Models
 
             return Database.Transaction(() =>
             {
-                var data = new Dictionary<string, object>
-                {
-                    {"ID", Id}
-                };
-
+                var data = new Dictionary<string, object> {{"ID", Id}};
                 return QueryBuilder.Table("Queue").Insert(data) && QueryBuilder.Table(_queueTable).Insert(data);
             });
         }

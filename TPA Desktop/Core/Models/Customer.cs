@@ -52,13 +52,6 @@ namespace TPA_Desktop.Core.Models
         public bool IsBusinessOwner { get; set; }
         public string MotherMaidenName { get; set; }
 
-        public new bool Validate()
-        {
-            return base.Validate()
-                   && new Validator("Is Business Owner", IsBusinessOwner as object).NotEmpty().IsValid
-                   && new Validator("Mother's Maiden Name", MotherMaidenName).NotEmpty().IsValid;
-        }
-
         public static IEnumerable<Customer> All()
         {
             using (var reader = QueryBuilder

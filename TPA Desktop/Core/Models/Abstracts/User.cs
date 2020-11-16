@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using TPA_Desktop.Core.Facades;
 
 namespace TPA_Desktop.Core.Models.Abstracts
 {
@@ -24,15 +23,6 @@ namespace TPA_Desktop.Core.Models.Abstracts
             RegisteredAt = reader.GetDateTime(5);
             DeletedAt = reader.IsDBNull(6) ? (DateTime?) null : reader.GetDateTime(6);
             PhoneNumber = reader.GetString(7);
-        }
-
-        protected bool Validate()
-        {
-            return new Validator("First Name", FirstName).NotEmpty().IsValid
-                   && new Validator("Last Name", LastName).NotEmpty().IsValid
-                   && new Validator("Gender", Gender).NotEmpty().In("Male", "Female").IsValid
-                   && new Validator("Date Of Birth", DateOfBirth).NotEmpty().IsValid
-                   && new Validator("Phone Number", PhoneNumber).NotEmpty().Numeric().IsValid;
         }
     }
 }
