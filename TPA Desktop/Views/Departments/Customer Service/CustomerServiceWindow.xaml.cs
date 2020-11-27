@@ -38,33 +38,28 @@ namespace TPA_Desktop.Views.Departments.Customer_Service
         {
             _mediator.Notify(sender, "Manage Customer Account Data");
         }
+
+        private void HandleRequestCreditCard(object sender, RoutedEventArgs e)
+        {
+            _mediator.Notify(sender, "Request Credit Card");
+        }
     }
 
     public class CustomerServiceWindowMediator : IMediator
     {
         public void Notify(object sender, string @event)
         {
-            IStrategy strategy;
-
-            switch (@event)
+            IStrategy strategy = @event switch
             {
-                case "Register New Customer":
-                    strategy = new RegisterNewCustomerStrategy();
-                    break;
-                case "New Individual Account":
-                    strategy = new NewIndividualAccountStrategy();
-                    break;
-                case "Create Virtual Account":
-                    strategy = new CreateVirtualAccountStrategy();
-                    break;
-                case "Generate Virtual Accounts From Excel":
-                    strategy = new GenerateVirtualAccountsFromExcelStrategy();
-                    break;
-                case "Manage Customer Account Data":
-                    strategy = new ManageCustomerAccountDataStrategy();
-                    break;
-                default: throw new InvalidOperationException();
-            }
+                "Register New Customer" => new RegisterNewCustomerStrategy(),
+                "New Individual Account" => new NewIndividualAccountStrategy(),
+                "Account" => new NewIndividualAccountStrategy(),
+                "Create Virtual Account" => new CreateVirtualAccountStrategy(),
+                "Generate Virtual Accounts From Excel" => new GenerateVirtualAccountsFromExcelStrategy(),
+                "Manage Customer Account Data" => new ManageCustomerAccountDataStrategy(),
+                "Request Credit Card" => new RequestCreditCardStrategy(),
+                _ => throw new InvalidOperationException($"{@event} is not supported.")
+            };
 
             strategy.Execute();
         }

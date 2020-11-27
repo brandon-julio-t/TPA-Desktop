@@ -19,7 +19,10 @@ namespace TPA_Desktop.Core.Builders
         private bool HasUsedWhere { get; set; }
         private string Sql { get; set; }
 
-        public static QueryBuilder Table(string table) => new QueryBuilder(table);
+        public static QueryBuilder Table(string table)
+        {
+            return new QueryBuilder(table);
+        }
 
         public QueryBuilder Select(params string[] columns)
         {

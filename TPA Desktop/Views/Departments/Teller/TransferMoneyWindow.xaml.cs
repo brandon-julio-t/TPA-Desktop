@@ -47,16 +47,18 @@ namespace TPA_Desktop.Views.Departments.Teller
         public Transaction Transaction { get; set; }
         public string DestinationAccountNumber { get; set; }
 
-        public bool Validate() =>
-            new Validator("Destination Account Number", DestinationAccountNumber)
-                .NotEmpty()
-                .Numeric()
-                .IsValid
-            &&
-            new Validator("Amount", Transaction.Amount)
-                .NotEmpty()
-                .Numeric()
-                .MoreThan(0)
-                .IsValid;
+        public bool Validate()
+        {
+            return new Validator("Destination Account Number", DestinationAccountNumber)
+                       .NotEmpty()
+                       .Numeric()
+                       .IsValid
+                   &&
+                   new Validator("Amount", Transaction.Amount)
+                       .NotEmpty()
+                       .Numeric()
+                       .MoreThan(0)
+                       .IsValid;
+        }
     }
 }

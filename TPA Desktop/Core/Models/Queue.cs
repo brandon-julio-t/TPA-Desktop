@@ -12,7 +12,10 @@ namespace TPA_Desktop.Core.Models
     {
         private readonly string _queueTable;
 
-        public Queue(string queueTable) => _queueTable = queueTable;
+        public Queue(string queueTable)
+        {
+            _queueTable = queueTable;
+        }
 
         public Queue(Guid id, string queueTable)
         {
@@ -77,6 +80,9 @@ namespace TPA_Desktop.Core.Models
             });
         }
 
-        public override bool Delete() => false; // cannot delete
+        public override bool Delete()
+        {
+            return false; // cannot delete
+        }
     }
 }

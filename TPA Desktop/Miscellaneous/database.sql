@@ -163,26 +163,57 @@ create table [Transaction]
 
 create table [DebitCard]
 (
-    ID            uniqueidentifier not null default newid(),
+    ID            uniqueidentifier not null primary key default newid(),
     AccountNumber char(16)         not null foreign key references [Account] (AccountNumber),
 )
 
 create table [ExpenseRequestType]
 (
-    ID   uniqueidentifier not null default newid(),
-    Name varchar(25)      not null unique,
+    ID   uniqueidentifier primary key not null default newid(),
+    Name varchar(25)                  not null unique,
 )
 
 create table [ExpenseRequest]
 (
-    ID                   uniqueidentifier not null default newid(),
+    ID                   uniqueidentifier not null primary key default newid(),
     ExpenseRequestTypeID uniqueidentifier not null foreign key references [ExpenseRequestType] (ID),
+)
+
+create table [CreditCardCompany]
+(
+    ID          uniqueidentifier not null primary key default newid(),
+    Email       varchar(50)      not null unique,
+    Name        varchar(25)      not null unique,
+    PhoneNumber char(12)         not null unique,
+    Address     varchar(255)     not null
+)
+
+create table [CreditCard]
+(
+    ID                  uniqueidentifier not null primary key default newid(),
+    CreditCardCompanyID uniqueidentifier not null foreign key references [CreditCardCompany] (ID)
+)
+
+create table [DocumentType]
+(
+    ID   uniqueidentifier not null primary key default newid(),
+    Name varchar(50)      not null unique,
+)
+
+create table [Document]
+(
+    ID         uniqueidentifier not null primary key default newid(),
+    Value      money            not null,
+    Comment    varchar(255)     not null,
+    DocumentId varchar(255)     not null unique,
 )
 
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DML                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 
+select *
+from CreditCardCompany
 insert into EmployeePosition (Name)
 values ('Teller'),
        ('Customer Service'),
@@ -205,6 +236,19 @@ values ('Pulse'),
 
 insert into ExpenseRequestType (Name)
 values ('Credit Card')
+
+select *
+from CreditCardCompany
+insert into CreditCardCompany (Email, Name, PhoneNumber, Address)
+values ('support@visa.com', 'Visa', '081212341234', 'Visa Street'),
+       ('support@mastercard.com', 'Master Card', '081257294812', 'Master Card Street'),
+       ('support@citibank.com', 'Citibank', '081746285943', 'Citibank Street'),
+       ('support@americanexpress.com', 'American Express', '081763458903', 'American Express Street'),
+       ('support@bankofamerica.com', 'Bank of America', '081827634551', 'Bank of America Street')
+
+insert into DocumentType (Name)
+values ('Guarantee'),
+       ('Gross income per month')
 
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DQL                                                        |

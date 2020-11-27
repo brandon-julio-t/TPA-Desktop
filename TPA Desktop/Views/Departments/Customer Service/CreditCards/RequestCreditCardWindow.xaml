@@ -1,0 +1,54 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Customer_Service.CreditCards.RequestCreditCardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:creditCards="clr-namespace:TPA_Desktop.Views.Departments.Customer_Service.CreditCards"
+        mc:Ignorable="d"
+        Title="RequestCreditCard"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance creditCards:RequestCreditCardWindowViewModel}">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Document ID" />
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Text="{Binding Document.DocumentId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Document Type" />
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding DocumentTypes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedDocumentType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Document Value" />
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Text="{Binding Document.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Document Comment" />
+        <TextBox Grid.Row="3" Grid.Column="1"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 Height="100"
+                 Text="{Binding Document.Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Credit Card Company" />
+        <ComboBox Grid.Row="4" Grid.Column="1"
+                  ItemsSource="{Binding CreditCardCompanies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedCreditCardCompany, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Submit" Click="HandleSubmit" />
+    </Grid>
+</Window>

@@ -20,9 +20,21 @@ namespace TPA_Desktop.Core.Facades
             IsObject = true;
         }
 
-        public Validator(string fieldName, params bool[] options) : this(fieldName) => Options = options.ToList();
-        public Validator(string fieldName, string value) : this(fieldName) => String = value;
-        public Validator(string fieldName, SqlDataReader reader) : this(fieldName) => Reader = reader;
+        public Validator(string fieldName, params bool[] options) : this(fieldName)
+        {
+            Options = options.ToList();
+        }
+
+        public Validator(string fieldName, string value) : this(fieldName)
+        {
+            String = value;
+        }
+
+        public Validator(string fieldName, SqlDataReader reader) : this(fieldName)
+        {
+            Reader = reader;
+        }
+
         public bool IsValid { get; private set; }
         private List<bool> Options { get; }
         private string String { get; }
@@ -49,7 +61,6 @@ namespace TPA_Desktop.Core.Facades
             if (!IsValid) return this;
 
             if (IsObject)
-            {
                 try
                 {
                     var unused = Convert.ToDecimal(Object);
@@ -59,11 +70,8 @@ namespace TPA_Desktop.Core.Facades
                 {
                     IsValid = false;
                 }
-            }
             else
-            {
                 IsValid = String.All(char.IsDigit);
-            }
 
             if (!IsValid) MessageBox.Show($"{FieldName} must be numeric.");
 

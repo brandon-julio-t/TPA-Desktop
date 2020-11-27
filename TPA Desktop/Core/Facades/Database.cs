@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Transactions;
-using System.Windows;
 
 namespace TPA_Desktop.Core.Facades
 {
@@ -34,7 +33,8 @@ namespace TPA_Desktop.Core.Facades
             catch (TransactionAbortedException e)
             {
                 var debug = Environment.IsDevelopment ? $"\n{e.StackTrace}" : "";
-                throw new TransactionException($"Error while doing transaction. Any changes are rolled back.\n{e.Message} {debug}");
+                throw new TransactionException(
+                    $"Error while doing transaction. Any changes are rolled back.\n{e.Message} {debug}");
             }
         }
     }

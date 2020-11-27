@@ -8,7 +8,9 @@ namespace TPA_Desktop.Core.Default_Implementations
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        public void OnPropertyChanged(string propertyName = "") =>
+        public void OnPropertyChanged(string propertyName = "")
+        {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

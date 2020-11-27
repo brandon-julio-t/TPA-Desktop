@@ -6,7 +6,7 @@ using TPA_Desktop.Core.Models;
 
 namespace TPA_Desktop.Core.Repositories
 {
-    public class DebitCardRepository : IRepository<DebitCard>
+    public class DebitCardRepository : ICrudRepository<DebitCard>
     {
         public DebitCard FindById(Guid id)
         {
@@ -14,6 +14,11 @@ namespace TPA_Desktop.Core.Repositories
         }
 
         public DebitCard[] FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(DebitCard entity)
         {
             throw new NotImplementedException();
         }

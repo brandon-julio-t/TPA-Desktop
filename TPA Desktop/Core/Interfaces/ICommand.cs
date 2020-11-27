@@ -2,8 +2,8 @@ using TPA_Desktop.Core.Models;
 
 namespace TPA_Desktop.Core.Interfaces
 {
-    public interface ICommand<out T>
+    public interface ICommand
     {
-        DebitCard? Execute();
+        void Execute();
     }
 }

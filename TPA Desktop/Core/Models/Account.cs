@@ -5,7 +5,6 @@ using System.Windows;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models.Abstracts;
-using TPA_Desktop.Properties;
 
 namespace TPA_Desktop.Core.Models
 {
@@ -145,7 +144,7 @@ namespace TPA_Desktop.Core.Models
         public bool UseAutomaticRollOver { get; set; }
         public decimal AdministrationFee { get; set; }
         public decimal Balance { get; set; }
-        public decimal MaximumTransferAmount { get; set; }    
+        public decimal MaximumTransferAmount { get; set; }
         public decimal MaximumWithdrawalAmount { get; set; }
         public decimal MinimumSavingAmount { get; set; }
         public double Interest { get; set; }

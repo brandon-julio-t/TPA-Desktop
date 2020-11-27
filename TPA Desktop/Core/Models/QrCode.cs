@@ -7,14 +7,14 @@ namespace TPA_Desktop.Core.Models
 {
     public class QrCode : BaseModel
     {
-        public string Url { get; set; }
-        public DateTime CreatedAt { get; set; }
-        
         public QrCode(BaseModel queue)
         {
             Url = $"https://www.kongbubank.com/customers/satisfaction/submit/{queue.Id}";
         }
-        
+
+        public string Url { get; set; }
+        public DateTime CreatedAt { get; set; }
+
         public override bool Save()
         {
             return QueryBuilder

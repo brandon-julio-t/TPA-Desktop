@@ -15,7 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
-            
+
             <Button Content="View Transactions" Click="HandleViewTransactions" />
         </Grid>
 

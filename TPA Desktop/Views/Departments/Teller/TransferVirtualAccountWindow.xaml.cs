@@ -54,7 +54,7 @@ namespace TPA_Desktop.Views.Departments.Teller
 
     public class TransferVirtualAccountWindowViewModel
     {
-        public string VirtualAccountNumber { get; set; }
+        public string? VirtualAccountNumber { get; set; }
 
         public bool Validate()
         {

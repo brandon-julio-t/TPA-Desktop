@@ -5,6 +5,9 @@ namespace TPA_Desktop.Core.Strategies.Views
 {
     public class ManagerViewStrategy : IStrategy
     {
-        public void Execute() => new ManagerWindow().Show();
+        public void Execute()
+        {
+            new ManagerWindow().Show();
+        }
     }
 }

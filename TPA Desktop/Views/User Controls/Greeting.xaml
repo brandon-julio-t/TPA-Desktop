@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:TPA_Desktop.Views.User_Controls"
              mc:Ignorable="d"
-             d:DesignHeight="300" 
-             d:DesignWidth="300" 
+             d:DesignHeight="300"
+             d:DesignWidth="300"
              d:DataContext="{d:DesignInstance userControls:GreetingViewModel}">
     <StackPanel>
         <TextBlock Text="{Binding Name, StringFormat=Hello\, {0}.}" />

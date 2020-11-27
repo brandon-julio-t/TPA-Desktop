@@ -1,3 +1,4 @@
+using System;
 using TPA_Desktop.Core.Models.Abstracts;
 
 namespace TPA_Desktop.Core.Models
@@ -10,15 +11,15 @@ namespace TPA_Desktop.Core.Models
         {
             Account = account;
         }
-        
+
         public override bool Save()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override bool Delete()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

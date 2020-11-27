@@ -5,6 +5,9 @@ namespace TPA_Desktop.Core.Strategies.Views
 {
     public class FinanceViewStrategy : IStrategy
     {
-        public void Execute() => new FinanceWindow().Show();
+        public void Execute()
+        {
+            new FinanceWindow().Show();
+        }
     }
 }

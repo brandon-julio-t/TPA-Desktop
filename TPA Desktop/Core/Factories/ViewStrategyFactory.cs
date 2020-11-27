@@ -9,7 +9,10 @@ namespace TPA_Desktop.Core.Factories
     {
         private readonly Employee _employee;
 
-        public ViewStrategyFactory(Employee employee) => _employee = employee;
+        public ViewStrategyFactory(Employee employee)
+        {
+            _employee = employee;
+        }
 
         public IStrategy Create()
         {

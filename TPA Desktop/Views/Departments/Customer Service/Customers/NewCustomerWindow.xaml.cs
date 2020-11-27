@@ -2,7 +2,6 @@
 using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
-using TPA_Desktop.Core.Models.Abstracts;
 
 namespace TPA_Desktop.Views.Departments.Customer_Service.Customers
 {
