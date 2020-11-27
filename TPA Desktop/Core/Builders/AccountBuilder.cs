@@ -10,6 +10,7 @@ namespace TPA_Desktop.Core.Builders
         public void SetBalance(decimal value) => _account.Balance = value;
         public void SetGuardianAccountNumber(string value) => _account.GuardianAccountNumber = value;
         public void SetInterest(double value) => _account.Interest = value;
+        public void SetLevel(string level) => _account.Level = level;
         public void SetMaximumTransferAmount(decimal value) => _account.MaximumTransferAmount = value;
         public void SetMaximumWithdrawalAmount(decimal value) => _account.MaximumWithdrawalAmount = value;
         public void SetMinimumSavingAmount(decimal value) => _account.MinimumSavingAmount = value;

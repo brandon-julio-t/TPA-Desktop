@@ -27,13 +27,13 @@ create table [User]
     PhoneNumber  varchar(15)      not null,
 )
 
-create table EmployeePosition
+create table [EmployeePosition]
 (
     ID   uniqueidentifier not null primary key default newid(),
     Name varchar(50)      not null,
 )
 
-create table Employee
+create table [Employee]
 (
     ID                 uniqueidentifier not null primary key foreign key references [User] (ID) on update cascade on delete cascade,
     EmployeePositionID uniqueidentifier not null foreign key references [EmployeePosition] (ID) on update cascade on delete cascade,
@@ -42,7 +42,7 @@ create table Employee
     Salary             money            not null,
 )
 
-create table EmployeeViolation
+create table [EmployeeViolation]
 (
     ID         uniqueidentifier not null primary key default newid(),
     EmployeeID uniqueidentifier not null foreign key references [Employee] (ID) on update cascade on delete cascade,
@@ -52,14 +52,14 @@ create table EmployeeViolation
     DeletedAt  datetime2        not null,
 )
 
-create table Customer
+create table [Customer]
 (
     ID               uniqueidentifier not null primary key foreign key references [User] (ID) on update cascade on delete cascade,
     IsBusinessOwner  bit              not null,
     MotherMaidenName varchar(50)      not null,
 )
 
-create table Account
+create table [Account]
 (
     CustomerID              uniqueidentifier not null foreign key references [Customer] (ID) on update cascade on delete cascade,
     AccountNumber           char(16)         not null unique,
@@ -80,7 +80,7 @@ create table Account
     primary key (CustomerID, AccountNumber)
 )
 
-create table Queue
+create table [Queue]
 (
     ID             uniqueidentifier not null primary key default newid(),
     QueuedAt       datetime2        not null             default getdate(),
@@ -88,35 +88,35 @@ create table Queue
     ServedAt       datetime2        null,
 )
 
-create table TellerQueue
+create table [TellerQueue]
 (
-    ID     uniqueidentifier primary key not null foreign key references Queue (ID),
+    ID     uniqueidentifier primary key not null foreign key references [Queue] (ID),
     Number bigint                       not null identity,
 )
 
-create table CustomerServiceQueue
+create table [CustomerServiceQueue]
 (
-    ID     uniqueidentifier not null primary key foreign key references Queue (ID),
+    ID     uniqueidentifier not null primary key foreign key references [Queue] (ID),
     Number bigint           not null identity,
 )
 
-create table QRCode
+create table [QRCode]
 (
     ID        uniqueidentifier not null primary key default newid(),
     URL       text             not null,
     CreatedAt datetime2        not null             default getdate(),
 )
 
-create table CustomerSatisfaction
+create table [CustomerSatisfaction]
 (
     ID          uniqueidentifier not null primary key default newid(),
-    QRCodeID    uniqueidentifier not null foreign key references QRCode (ID) on update cascade on delete cascade,
+    QRCodeID    uniqueidentifier not null foreign key references [QRCode] (ID) on update cascade on delete cascade,
     Rating      tinyint          not null,
     Description text             not null,
     SubmittedAt datetime2        not null             default getdate(),
 )
 
-create table VirtualAccount
+create table [VirtualAccount]
 (
     ID                       uniqueidentifier not null primary key default newid(),
     SourceAccountNumber      char(16)         not null,
@@ -128,21 +128,21 @@ create table VirtualAccount
     PaidAt                   datetime2        null,
 )
 
-alter table VirtualAccount
+alter table [VirtualAccount]
     add constraint fk_source
-        foreign key (SourceAccountNumber) references Account (AccountNumber)
+        foreign key (SourceAccountNumber) references [Account] (AccountNumber)
 
-alter table VirtualAccount
+alter table [VirtualAccount]
     add constraint fk_destination
-        foreign key (DestinationAccountNumber) references Account (AccountNumber)
+        foreign key (DestinationAccountNumber) references [Account] (AccountNumber)
 
-create table TransactionType
+create table [TransactionType]
 (
     ID   uniqueidentifier not null primary key default newid(),
     Name varchar(25)      not null unique,
 )
 
-create table PaymentType
+create table [PaymentType]
 (
     ID   uniqueidentifier not null primary key default newid(),
     Name varchar(25)      not null unique,
@@ -151,14 +151,32 @@ create table PaymentType
 create table [Transaction]
 (
     ID                uniqueidentifier not null default newid(),
-    AccountNumber     char(16)         not null foreign key references Account (AccountNumber),
-    CustomerID        uniqueidentifier not null foreign key references Customer (ID),
-    PaymentTypeID     uniqueidentifier null foreign key references PaymentType (ID),
-    TransactionTypeID uniqueidentifier not null foreign key references TransactionType (ID),
+    AccountNumber     char(16)         not null foreign key references [Account] (AccountNumber),
+    CustomerID        uniqueidentifier not null foreign key references [Customer] (ID),
+    PaymentTypeID     uniqueidentifier null foreign key references [PaymentType] (ID),
+    TransactionTypeID uniqueidentifier not null foreign key references [TransactionType] (ID),
     Date              datetime2        not null,
     Amount            money            not null,
 
     primary key (ID, CustomerID)
+)
+
+create table [DebitCard]
+(
+    ID            uniqueidentifier not null default newid(),
+    AccountNumber char(16)         not null foreign key references [Account] (AccountNumber),
+)
+
+create table [ExpenseRequestType]
+(
+    ID   uniqueidentifier not null default newid(),
+    Name varchar(25)      not null unique,
+)
+
+create table [ExpenseRequest]
+(
+    ID                   uniqueidentifier not null default newid(),
+    ExpenseRequestTypeID uniqueidentifier not null foreign key references [ExpenseRequestType] (ID),
 )
 
 /*--------------------------------------------------------------------------------------------------------------------*
@@ -192,8 +210,7 @@ values ('Pulse'),
 select Email, Password, EP.Name, U.Gender
 from Employee E
          join EmployeePosition EP on EP.ID = E.EmployeePositionID
-join [User] U on E.ID = u.ID 
-    
+         join [User] U on E.ID = u.ID
 
 select AccountNumber, Name, Date, Amount
 from [Transaction] T
@@ -259,4 +276,11 @@ from [Transaction] T
          join PaymentType TT on T.PaymentTypeID = TT.ID
 group by TT.Name
 
-select * from Customer C JOIN [User] U on U.ID = C.ID
+select *
+from Customer C
+         JOIN [User] U on U.ID = C.ID
+
+select *
+from DebitCard DC
+         full join Account A
+                   on DC.AccountNumber = A.AccountNumber

@@ -5,6 +5,7 @@ using TPA_Desktop.Core.Builders.Directors;
 using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Core.Repositories;
 
 namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
 {
@@ -168,7 +169,18 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
 
             var account = builder.GetResult();
             account.Owner = Window.Customer;
-            MessageBox.Show(account.Save()
+            account.DebitCard = new DebitCard(account);
+
+            var success =
+                Database.Transaction(() =>
+                {
+                    if (Window.ViewModel.SelectedAccountType == "Student" ||
+                        Window.ViewModel.SelectedAccountType == "Deposit")
+                        return account.Save();
+                    return account.Save() && new DebitCardRepository().Save(account.DebitCard);
+                });
+
+            MessageBox.Show(success
                 ? $"Account created.\nAccount Number: {account.AccountNumber}"
                 : "An error occurred while creating account.");
         }

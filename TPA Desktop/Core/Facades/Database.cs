@@ -34,10 +34,8 @@ namespace TPA_Desktop.Core.Facades
             catch (TransactionAbortedException e)
             {
                 var debug = Environment.IsDevelopment ? $"\n{e.StackTrace}" : "";
-                MessageBox.Show($"Error while doing transaction. Any changes are rolled back.\n{e.Message} {debug}");
+                throw new TransactionException($"Error while doing transaction. Any changes are rolled back.\n{e.Message} {debug}");
             }
-
-            return false;
         }
     }
 }

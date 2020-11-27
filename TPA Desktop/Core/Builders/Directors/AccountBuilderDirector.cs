@@ -68,6 +68,7 @@ namespace TPA_Desktop.Core.Builders.Directors
             builder.SetName("Regular");
             builder.SetSupportForeignCurrency(false);
             builder.SetUseAutomaticRollOver(false);
+            builder.SetLevel(_level);
         }
 
         public void MakeStudentAccount(AccountBuilder builder, string guardianAccountNumber)
@@ -83,6 +84,7 @@ namespace TPA_Desktop.Core.Builders.Directors
             builder.SetName("Student");
             builder.SetSupportForeignCurrency(false);
             builder.SetUseAutomaticRollOver(false);
+            builder.SetLevel(_level);
         }
 
         public void MakeSavingAccount(AccountBuilder builder)
@@ -97,6 +99,7 @@ namespace TPA_Desktop.Core.Builders.Directors
             builder.SetName("Saving");
             builder.SetSupportForeignCurrency(false);
             builder.SetUseAutomaticRollOver(false);
+            builder.SetLevel(_level);
         }
 
         public void MakeDepositAccount(AccountBuilder builder, bool useAutomaticRollOver)
@@ -111,6 +114,7 @@ namespace TPA_Desktop.Core.Builders.Directors
             builder.SetName("Deposit");
             builder.SetSupportForeignCurrency(true);
             builder.SetUseAutomaticRollOver(useAutomaticRollOver);
+            builder.SetLevel(_level);
         }
 
         public void MakeBusinessAccount(AccountBuilder builder)
