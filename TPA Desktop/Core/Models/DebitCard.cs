@@ -4,7 +4,7 @@ namespace TPA_Desktop.Core.Models
 {
     public class DebitCard : BaseModel
     {
-        public Account Account;
+        public readonly Account Account;
 
         public DebitCard(Account account)
         {
