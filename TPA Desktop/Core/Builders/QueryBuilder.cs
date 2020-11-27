@@ -35,26 +35,7 @@ namespace TPA_Desktop.Core.Builders
             return this;
         }
 
-        public bool Insert()
-        {
-            try
-            {
-                Sql = Sql.Replace("select * from", "insert into");
-                Sql += " default values";
-
-                var command = Database.Command;
-                command.CommandText = Sql;
-                return command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception e)
-            {
-                HandleException(e, "inserting default values");
-            }
-
-            return false;
-        }
-
-        public bool Insert(Dictionary<string, object> dictionary)
+        public bool Insert(Dictionary<string, object> data)
         {
             try
             {
@@ -62,19 +43,19 @@ namespace TPA_Desktop.Core.Builders
 
                 Sql += " (";
 
-                foreach (var key in dictionary.Keys)
+                foreach (var key in data.Keys)
                 {
                     Sql += key;
-                    if (key != dictionary.Keys.Last()) Sql += ", ";
+                    if (key != data.Keys.Last()) Sql += ", ";
                 }
 
                 Sql += ") values (";
 
-                foreach (var column in dictionary.Keys)
+                foreach (var column in data.Keys)
                 {
-                    var value = dictionary[column];
+                    var value = data[column];
                     Sql += value == null ? "null" : $"'{value}'";
-                    if (column != dictionary.Keys.Last()) Sql += ", ";
+                    if (column != data.Keys.Last()) Sql += ", ";
                 }
 
                 Sql += ")";
@@ -91,7 +72,7 @@ namespace TPA_Desktop.Core.Builders
             return false;
         }
 
-        public bool Update(Dictionary<string, object> dictionary)
+        public bool Update(Dictionary<string, object> data)
         {
             try
             {
@@ -104,13 +85,13 @@ namespace TPA_Desktop.Core.Builders
                 var tempSql = $"update {tableName}";
                 tempSql += " set ";
 
-                foreach (var pair in dictionary)
+                foreach (var pair in data)
                 {
                     var column = pair.Key;
                     var value = pair.Value;
                     var columnValue = value == null ? "null" : $"'{value}'";
                     tempSql += $"[{column}] = {columnValue}";
-                    if (!pair.Equals(dictionary.Last())) tempSql += ", ";
+                    if (!pair.Equals(data.Last())) tempSql += ", ";
                 }
 
                 Sql = $"{tempSql} {condition}";
@@ -149,12 +130,6 @@ namespace TPA_Desktop.Core.Builders
         public QueryBuilder Join(string table, string column1, string comparator, string column2)
         {
             Sql += $" join [{table}] on {column1} {comparator} {column2}";
-            return this;
-        }
-
-        public QueryBuilder FullJoin(string table, string column1, string comparator, string column2)
-        {
-            Sql += $" full join [{table}] on {column1} {comparator} {column2}";
             return this;
         }
 

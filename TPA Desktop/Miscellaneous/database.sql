@@ -189,9 +189,11 @@ values ('Pulse'),
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 
-select Email, Password, EP.Name
+select Email, Password, EP.Name, U.Gender
 from Employee E
          join EmployeePosition EP on EP.ID = E.EmployeePositionID
+join [User] U on E.ID = u.ID 
+    
 
 select AccountNumber, Name, Date, Amount
 from [Transaction] T
@@ -232,10 +234,10 @@ from VirtualAccount VA
          join Account A2 on VA.DestinationAccountNumber = A2.AccountNumber
          join Customer C on C.ID = A.CustomerID
          join [User] U on C.ID = U.ID
-where SourceAccountNumber = '8766153557599758'
+where PaidAt is null
 order by VA.CreatedAt desc
 
-select U.FirstName, U.LastName, BlockedAt
+select U.FirstName, U.LastName, BlockedAt, AccountNumber, Balance
 from Account A
          join Customer C on A.CustomerID = C.ID
          join [User] U on C.ID = U.ID
@@ -257,3 +259,4 @@ from [Transaction] T
          join PaymentType TT on T.PaymentTypeID = TT.ID
 group by TT.Name
 
+select * from Customer C JOIN [User] U on U.ID = C.ID

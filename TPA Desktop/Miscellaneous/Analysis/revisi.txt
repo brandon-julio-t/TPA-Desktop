@@ -1,0 +1,63 @@
+use case
+========
+[x] include aro/non-aro
+[x] datang kapan lain hari create saving
+[x] include bikin kartu bisnis 4-4nya
+[x] langsung tembak deposit 1.000.000
+[X] HOC
+[X] langsung kebikin hoc
+[x] qrcode extend
+[x] extend manage repair
+[x] extends update salary
+[x] request salary ke finance
+[x] finance ga pake hapus
+[x] manage ga guna, langsung aja ke view
+[X] atm bisa deposit dkk
+[X] satzinger: perfect technology assumption
+[ ] tembak 1-1
+[x] use case jangan mengacu ke orang
+[x] bukan interaksi orang dengan orang, tapi yg trigger sistemnya
+
+activity
+========
+[x] validasi business account di system
+[x] sistem ngecek pembayaran customer dalam 21 hari
+[x] pisahin generate queue & looping queue
+[x] queue gaada di use case diagram
+[x] bikin activity yg ada di use case
+[x] request cc: tingal submit ga perlu collect
+[x] teller service gaada di use case
+
+fully developed use case description
+====================================
+[x] actor yang megang sistemnya aja
+[x] flow of events yang megang sistemnya aja (customer ga usah, queueing machine)
+[x] request credit card kejauhan (sampai nunggu approval, udah bukan satu use case/unit lagi )
+[x] 4: ATM harusnya gaada, harusnya customer gaada
+[x] 5: customer harusnya gaada (ga pengaruh ke sistem)
+
+sequence diagram
+================
+[x] reply message (garis putus2, boleh cuman text)
+[x] standarnya pakai method
+[x] panah kanan jangan hanya text, biasakan pakai method
+[x] kondisi alt jangan coding amat, general aja
+[x] customer queue???
+[x] kalau value yang direturn notasinya reply message
+[x] maintenance: ga perlu inspect equipment condition
+
+class diagram
+=============
+[x] queue -> queue manager: 1-1
+[x] queue manager -> queue: 1..*
+[x] class diagram smw class masukin kecuali view
+
+etc
+pas awal bikin akun bisa pilih bayar credit card via virtual account/auto debet
+activity & use cas desc. tambahin ke use case diagram
+
+program
+[x] qrcodenya dimasukin lagi ke pc
+[x] generate transaksi bulan ini (yang bermakna)
+[x] visualisasi bebas
+[x] giro: transfer uang gede banget

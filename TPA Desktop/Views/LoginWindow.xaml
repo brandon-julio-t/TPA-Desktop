@@ -8,7 +8,7 @@
         Title="Login"
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
-        d:DataContext="{d:DesignInstance views:LoginWindowViewModel}">
+        d:DataContext="{d:DesdataignInstance views:LoginWindowViewModel}">
 
     <StackPanel Margin="20" Width="200">
         <TextBlock>Email</TextBlock>

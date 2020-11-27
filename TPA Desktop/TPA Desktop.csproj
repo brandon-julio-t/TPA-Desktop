@@ -46,31 +46,31 @@
             <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="mscorlib"/>
+        <Reference Include="mscorlib" />
         <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System"/>
-        <Reference Include="System.ComponentModel.Composition"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Drawing"/>
-        <Reference Include="System.IO.Compression"/>
-        <Reference Include="System.IO.Compression.FileSystem"/>
-        <Reference Include="System.Numerics"/>
-        <Reference Include="System.Transactions"/>
-        <Reference Include="System.Xml"/>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.Composition" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.IO.Compression" />
+        <Reference Include="System.IO.Compression.FileSystem" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Transactions" />
+        <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
         </Reference>
-        <Reference Include="System.Xml.Linq"/>
+        <Reference Include="System.Xml.Linq" />
         <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
             <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="WindowsBase"/>
-        <Reference Include="PresentationCore"/>
+        <Reference Include="WindowsBase" />
+        <Reference Include="PresentationCore" />
         <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
@@ -82,47 +82,47 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Core\Builders\AccountBuilder.cs"/>
-        <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs"/>
-        <Compile Include="Core\Builders\QueryBuilder.cs"/>
-        <Compile Include="Core\Decorators\QRCodeDecorator.cs"/>
-        <Compile Include="Core\Default Implementations\DefaultNotifyPropertyChanged.cs"/>
-        <Compile Include="Core\Facades\Authentication.cs"/>
-        <Compile Include="Core\Facades\Database.cs"/>
-        <Compile Include="Core\Facades\Environment.cs"/>
-        <Compile Include="Core\Facades\Helpers.cs"/>
-        <Compile Include="Core\Facades\Validator.cs"/>
-        <Compile Include="Core\Factories\ViewStrategyFactory.cs"/>
-        <Compile Include="Core\Interfaces\ICustomerAccountStore.cs"/>
-        <Compile Include="Core\Interfaces\IMediator.cs"/>
-        <Compile Include="Core\Interfaces\IStrategy.cs"/>
-        <Compile Include="Core\Managers\CustomerQueueManager.cs"/>
-        <Compile Include="Core\Models\Abstracts\BaseModel.cs"/>
-        <Compile Include="Core\Models\Abstracts\User.cs"/>
-        <Compile Include="Core\Models\Account.cs"/>
-        <Compile Include="Core\Models\Customer.cs"/>
-        <Compile Include="Core\Models\CustomerSatisfaction.cs"/>
-        <Compile Include="Core\Models\Employee.cs"/>
-        <Compile Include="Core\Models\EmployeePosition.cs"/>
-        <Compile Include="Core\Models\EmployeeViolation.cs"/>
-        <Compile Include="Core\Models\PaymentType.cs"/>
-        <Compile Include="Core\Models\QrCode.cs"/>
-        <Compile Include="Core\Models\Queue.cs"/>
-        <Compile Include="Core\Models\Transaction.cs"/>
-        <Compile Include="Core\Models\TransactionType.cs"/>
-        <Compile Include="Core\Models\VirtualAccount.cs"/>
-        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs"/>
-        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs"/>
-        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs"/>
-        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs"/>
-        <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
-        <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
-        <Compile Include="Properties\Annotations.cs"/>
+        <Compile Include="Core\Builders\AccountBuilder.cs" />
+        <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs" />
+        <Compile Include="Core\Builders\QueryBuilder.cs" />
+        <Compile Include="Core\Decorators\QrCodeDecorator.cs" />
+        <Compile Include="Core\Default Implementations\DefaultNotifyPropertyChanged.cs" />
+        <Compile Include="Core\Facades\Authentication.cs" />
+        <Compile Include="Core\Facades\Database.cs" />
+        <Compile Include="Core\Facades\Environment.cs" />
+        <Compile Include="Core\Facades\Helpers.cs" />
+        <Compile Include="Core\Facades\Validator.cs" />
+        <Compile Include="Core\Factories\ViewStrategyFactory.cs" />
+        <Compile Include="Core\Interfaces\ICustomerAccountStore.cs" />
+        <Compile Include="Core\Interfaces\IMediator.cs" />
+        <Compile Include="Core\Interfaces\IStrategy.cs" />
+        <Compile Include="Core\Managers\CustomerQueueManager.cs" />
+        <Compile Include="Core\Models\Abstracts\BaseModel.cs" />
+        <Compile Include="Core\Models\Abstracts\User.cs" />
+        <Compile Include="Core\Models\Account.cs" />
+        <Compile Include="Core\Models\Customer.cs" />
+        <Compile Include="Core\Models\CustomerSatisfaction.cs" />
+        <Compile Include="Core\Models\Employee.cs" />
+        <Compile Include="Core\Models\EmployeePosition.cs" />
+        <Compile Include="Core\Models\EmployeeViolation.cs" />
+        <Compile Include="Core\Models\PaymentType.cs" />
+        <Compile Include="Core\Models\QrCode.cs" />
+        <Compile Include="Core\Models\Queue.cs" />
+        <Compile Include="Core\Models\Transaction.cs" />
+        <Compile Include="Core\Models\TransactionType.cs" />
+        <Compile Include="Core\Models\VirtualAccount.cs" />
+        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
+        <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs" />
+        <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs" />
+        <Compile Include="Properties\Annotations.cs" />
         <Compile Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml.cs">
             <DependentUpon>NewIndividualAccountWindow.xaml</DependentUpon>
         </Compile>
@@ -228,48 +228,48 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-        <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml"/>
-        <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml"/>
-        <Page Include="Views\Departments\Manager\ManagerWindow.xaml"/>
-        <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml"/>
-        <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml"/>
-        <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml"/>
-        <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml"/>
-        <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml"/>
-        <Page Include="Views\Departments\Teller\PaymentWindow.xaml"/>
-        <Page Include="Views\Departments\Teller\TellerWindow.xaml"/>
-        <Page Include="Views\Departments\Teller\TransferMoneyWindow.xaml"/>
-        <Page Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml" />
+        <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml" />
+        <Page Include="Views\Departments\Manager\ManagerWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml" />
+        <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml" />
+        <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml" />
+        <Page Include="Views\Departments\Teller\PaymentWindow.xaml" />
+        <Page Include="Views\Departments\Teller\TellerWindow.xaml" />
+        <Page Include="Views\Departments\Teller\TransferMoneyWindow.xaml" />
+        <Page Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml" />
         <Page Include="Views\LoginWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
-        <Page Include="Views\Shared\TransactionsWindow.xaml"/>
-        <Page Include="Views\Shared\VerifyCustomerWindow.xaml"/>
-        <Page Include="Views\User Controls\CustomerQueue.xaml"/>
-        <Page Include="Views\User Controls\Greeting.xaml"/>
-        <Page Include="Views\User Controls\Logout.xaml"/>
+        <Page Include="Views\Shared\TransactionsWindow.xaml" />
+        <Page Include="Views\Shared\VerifyCustomerWindow.xaml" />
+        <Page Include="Views\User Controls\CustomerQueue.xaml" />
+        <Page Include="Views\User Controls\Greeting.xaml" />
+        <Page Include="Views\User Controls\Logout.xaml" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx"/>
-        <Content Include="Miscellaneous\Analysis\Full Use Case Description 2 - Credit Card Monthly Payment.docx"/>
-        <Content Include="Miscellaneous\Analysis\Full Use Case Description 3 - Customer Queue.docx"/>
-        <Content Include="Miscellaneous\Analysis\Full Use Case Description 4 - Request Credit Card.docx"/>
-        <Content Include="Miscellaneous\Analysis\Full Use Case Description 5 - Teller Service.docx"/>
-        <Content Include="Miscellaneous\Analysis\TPA Desktop.vpp"/>
-        <Content Include="Miscellaneous\database.sql"/>
-        <Content Include="Miscellaneous\Design Patterns.txt"/>
-        <Content Include="Miscellaneous\Dummy Virtual Accounts.xlsx"/>
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 1 - Create Main Accounts.docx" />
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 2 - Credit Card Monthly Payment.docx" />
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 3 - Customer Queue.docx" />
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 4 - Request Credit Card.docx" />
+        <Content Include="Miscellaneous\Analysis\Full Use Case Description 5 - Teller Service.docx" />
+        <Content Include="Miscellaneous\Analysis\TPA Desktop.vpp" />
+        <Content Include="Miscellaneous\database.sql" />
+        <Content Include="Miscellaneous\Design Patterns.txt" />
+        <Content Include="Miscellaneous\Dummy Virtual Accounts.xlsx" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

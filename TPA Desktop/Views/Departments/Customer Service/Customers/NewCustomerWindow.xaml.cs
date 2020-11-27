@@ -2,6 +2,7 @@
 using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Core.Models.Abstracts;
 
 namespace TPA_Desktop.Views.Departments.Customer_Service.Customers
 {
@@ -32,7 +33,7 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Customers
 
     public class NewCustomerWindowViewModel : DefaultNotifyPropertyChanged
     {
-        public Customer Customer { get; set; } = new Customer();
+        public Customer Customer { get; set; } = new Customer(); // dependency inversion
 
         public bool IsMale
         {
