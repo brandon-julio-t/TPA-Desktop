@@ -75,7 +75,7 @@ namespace TPA_Desktop.Core.Builders
             return false;
         }
 
-        public bool Update(Dictionary<string, object> data)
+        public bool Update(Dictionary<string, object?> data)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace TPA_Desktop.Core.Builders
             return this;
         }
 
-        public QueryBuilder Where(string column, string value)
+        public QueryBuilder Where(string column, string? value)
         {
             Sql += HasUsedWhere ? " and " : " where ";
             Sql += value == null ? $"{column} is null" : $"{column} = '{value}'";

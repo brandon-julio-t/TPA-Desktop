@@ -1,0 +1,39 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Finance_Team.ManageCreditCardRequestsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:financeTeam="clr-namespace:TPA_Desktop.Views.Departments.Finance_Team"
+        mc:Ignorable="d"
+        Title="ManageCreditCardRequestsWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance financeTeam:ManageCreditCardRequestsWindowViewModel}">
+    <Grid Margin="20">
+        <DataGrid ItemsSource="{Binding ExpenseRequestDetails, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectedItem="{Binding SelectedExpenseRequestDetail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Request Type" Binding="{Binding RequestType}" />
+                <DataGridTextColumn Header="Request Status" Binding="{Binding RequestStatus}" />
+                <DataGridTextColumn Header="Account Number" Binding="{Binding AccountNumber}" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Credit Card Company" Binding="{Binding CreditCardCompany}" />
+                <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" />
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Approve" Click="HandleApprove" />
+                                <Button Content="Reject" Click="HandleReject" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

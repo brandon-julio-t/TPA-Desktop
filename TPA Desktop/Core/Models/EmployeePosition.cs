@@ -8,6 +8,10 @@ namespace TPA_Desktop.Core.Models
 {
     public class EmployeePosition : BaseModel
     {
+        public EmployeePosition()
+        {
+        }
+
         public EmployeePosition(Guid id, string name)
         {
             Id = id;
@@ -40,7 +44,7 @@ namespace TPA_Desktop.Core.Models
             }
         }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
         public static EmployeePosition[] GetAllEmployeePositions()
         {

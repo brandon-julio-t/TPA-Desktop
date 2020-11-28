@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TPA_Desktop.Core.Commands;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Core.Models;
@@ -26,16 +27,7 @@ namespace TPA_Desktop.Views.Departments.Teller
                 return;
             }
 
-            var transactionSuccess = Database.Transaction(
-                () =>
-                {
-                    if (!_viewModel.IsCredit) _customerAccountStore.Account.Balance -= _viewModel.Transaction.Amount;
-                    _viewModel.Transaction.Account = _customerAccountStore.Account;
-                    return _customerAccountStore.Account.Save() && _viewModel.Transaction.Save();
-                }
-            );
-
-            MessageBox.Show(transactionSuccess ? "Payment success." : "An error occurred while doing payment.");
+            new PaymentCommand(_customerAccountStore, _viewModel).Execute();
         }
     }
 

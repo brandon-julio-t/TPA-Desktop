@@ -135,6 +135,7 @@ namespace TPA_Desktop.Core.Models
             }
         }
 
+        public Guid CustomerId { get; set; }
         public DebitCard? DebitCard { get; set; }
         public Customer Owner { get; set; }
         public DateTime? BlockedAt { get; set; }
@@ -149,7 +150,7 @@ namespace TPA_Desktop.Core.Models
         public decimal MinimumSavingAmount { get; set; }
         public double Interest { get; set; }
         public string AccountNumber { get; set; }
-        public string GuardianAccountNumber { get; set; }
+        public string? GuardianAccountNumber { get; set; }
         public string Name { get; set; }
         public string Level { get; set; }
 

@@ -1,0 +1,33 @@
+﻿<Window x:Class="TPA_Desktop.Views.Shared.NotificationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:shared="clr-namespace:TPA_Desktop.Views.Shared"
+        mc:Ignorable="d"
+        Title="Notifications"
+        Height="520"
+        Width="846"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance shared:NotificationsWindowViewModel}">
+    <Grid Margin="20">
+        <DataGrid ItemsSource="{Binding Notifications, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectedItem="{Binding SelectedNotification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" />
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Mark as Read" Click="MarkAsRead" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

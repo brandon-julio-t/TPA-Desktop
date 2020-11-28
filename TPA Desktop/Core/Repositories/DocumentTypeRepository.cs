@@ -4,13 +4,14 @@ using System.Windows;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Core.Models.Abstracts;
 using Environment = TPA_Desktop.Core.Facades.Environment;
 
 namespace TPA_Desktop.Core.Repositories
 {
-    public class DocumentTypeRepository : IReadOnlyRepository<DocumentType>
+    public class DocumentTypeRepository : ReadOnlyRepository<DocumentType>
     {
-        public DocumentType FindById(Guid id)
+        public override DocumentType FindById(Guid id)
         {
             using var reader = QueryBuilder
                 .Table(nameof(DocumentType))
@@ -28,7 +29,7 @@ namespace TPA_Desktop.Core.Repositories
             };
         }
 
-        public DocumentType[] FindAll()
+        public override DocumentType[] FindAll()
         {
             using var reader = QueryBuilder
                 .Table(nameof(DocumentType))

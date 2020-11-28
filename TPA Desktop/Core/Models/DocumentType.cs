@@ -6,5 +6,10 @@ namespace TPA_Desktop.Core.Models
     {
         public Guid Id;
         public string Name;
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -5,11 +5,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:creditCards="clr-namespace:TPA_Desktop.Views.Departments.Customer_Service.CreditCards"
         mc:Ignorable="d"
-        Title="RequestCreditCard"
+        Title="Request Credit Card"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance creditCards:RequestCreditCardWindowViewModel}">
-    <Grid Margin="20">
+    <Grid Width="500" Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*" />
             <ColumnDefinition Width="8*" />

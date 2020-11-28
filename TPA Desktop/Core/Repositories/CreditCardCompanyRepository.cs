@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Interfaces;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Core.Models.Abstracts;
 
 namespace TPA_Desktop.Core.Repositories
 {
-    public class CreditCardCompanyRepository : IReadOnlyRepository<CreditCardCompany>
+    public class CreditCardCompanyRepository : ReadOnlyRepository<CreditCardCompany>
     {
-        public CreditCardCompany FindById(Guid id)
+        public override CreditCardCompany FindById(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public CreditCardCompany[] FindAll()
+        public override CreditCardCompany[] FindAll()
         {
             using var reader = QueryBuilder
                 .Table(nameof(CreditCardCompany))
