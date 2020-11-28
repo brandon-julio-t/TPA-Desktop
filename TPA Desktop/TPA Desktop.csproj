@@ -140,9 +140,11 @@
         <Compile Include="Core\Repositories\ExpenseRequestRepository.cs" />
         <Compile Include="Core\Repositories\ExpenseRequestTypeRepository.cs" />
         <Compile Include="Core\Repositories\NotificationRepository.cs" />
+        <Compile Include="Core\Repositories\QueueRepository.cs" />
         <Compile Include="Core\Repositories\RequestStatusRepository.cs" />
         <Compile Include="Core\Services\CreditCardService.cs" />
         <Compile Include="Core\Services\NotificationService.cs" />
+        <Compile Include="Core\Services\QueueService.cs" />
         <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
@@ -204,8 +206,14 @@
         <Compile Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml.cs">
             <DependentUpon>CustomerSatisfactionWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\Departments\Queueing Machine\InputQueueNumberWindow.xaml.cs">
+          <DependentUpon>InputQueueNumberWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml.cs">
             <DependentUpon>QueueingMachineWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Departments\Queueing Machine\ShowQrCodeWindow.xaml.cs">
+          <DependentUpon>ShowQrCodeWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml.cs">
             <DependentUpon>ShowQueueWindow.xaml</DependentUpon>
@@ -288,7 +296,9 @@
         <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml" />
         <Page Include="Views\Departments\Manager\ManagerWindow.xaml" />
         <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\InputQueueNumberWindow.xaml" />
         <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\ShowQrCodeWindow.xaml" />
         <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml" />
         <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml" />
         <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml" />

@@ -81,12 +81,20 @@ create table [Account]
     primary key (CustomerID, AccountNumber)
 )
 
+create table [QRCode]
+(
+    ID        uniqueidentifier not null primary key default newid(),
+    URL       text             not null,
+    CreatedAt datetime2        not null             default getdate()
+)
+
 create table [Queue]
 (
     ID             uniqueidentifier not null primary key default newid(),
     QueuedAt       datetime2        not null             default getdate(),
     ServiceStartAt datetime2        null,
     ServedAt       datetime2        null,
+	QRCodeID uniqueidentifier null foreign key references [QRCode] (ID),
 )
 
 create table [TellerQueue]
@@ -99,13 +107,6 @@ create table [CustomerServiceQueue]
 (
     ID     uniqueidentifier not null primary key foreign key references [Queue] (ID),
     Number bigint           not null identity,
-)
-
-create table [QRCode]
-(
-    ID        uniqueidentifier not null primary key default newid(),
-    URL       text             not null,
-    CreatedAt datetime2        not null             default getdate(),
 )
 
 create table [CustomerSatisfaction]
@@ -170,16 +171,16 @@ create table [DebitCard]
 
 create table [RequestStatus]
 (
-	ID uniqueidentifier not null primary key default newid(),
-	Name varchar(25) not null unique,
+    ID   uniqueidentifier not null primary key default newid(),
+    Name varchar(25)      not null unique,
 )
 
 create table [Request]
 (
-	ID uniqueidentifier not null primary key default newid(),
-	CreatedAt datetime2 not null default getdate(),
-	UpdatedAt datetime2 null,
-	RequestStatusID uniqueidentifier not null foreign key references [RequestStatus] (ID)
+    ID              uniqueidentifier not null primary key default newid(),
+    CreatedAt       datetime2        not null             default getdate(),
+    UpdatedAt       datetime2        null,
+    RequestStatusID uniqueidentifier not null foreign key references [RequestStatus] (ID)
 )
 
 create table [ExpenseRequestType]
@@ -192,7 +193,7 @@ create table [ExpenseRequest]
 (
     ID                   uniqueidentifier not null primary key foreign key references [Request] (ID) default newid(),
     ExpenseRequestTypeID uniqueidentifier not null foreign key references [ExpenseRequestType] (ID),
-	EntityID uniqueidentifier not null unique,
+    EntityID             uniqueidentifier not null unique,
 )
 
 create table [CreditCardCompany]
@@ -208,7 +209,7 @@ create table [CreditCard]
 (
     ID                  uniqueidentifier not null primary key default newid(),
     CreditCardCompanyID uniqueidentifier not null foreign key references [CreditCardCompany] (ID),
-	AccountNumber char(16) not null foreign key references [Account] (AccountNumber),
+    AccountNumber       char(16)         not null foreign key references [Account] (AccountNumber),
 )
 
 create table [DocumentType]
@@ -227,21 +228,21 @@ create table [Document]
 
 create table [Notification]
 (
-	ID uniqueidentifier not null primary key default newid(),
-	Title varchar(100) not null,
-	CreatedAt datetime2 not null default getdate(),
-	ReadAt datetime2 null,
-	EmployeePositionID uniqueidentifier not null foreign key references [EmployeePosition] (ID),
+    ID                 uniqueidentifier not null primary key default newid(),
+    Title              varchar(100)     not null,
+    CreatedAt          datetime2        not null             default getdate(),
+    ReadAt             datetime2        null,
+    EmployeePositionID uniqueidentifier not null foreign key references [EmployeePosition] (ID),
 )
 
 create table [Charge]
 (
-	ID uniqueidentifier not null primary key default newid(),
-	Amount money not null,
-	Description varchar(100) not null,
-	DueAt datetime2 not null,
-	PaidAt datetime2 null,
-	AccountNumber char(16) not null foreign key references [Account] (AccountNumber),
+    ID            uniqueidentifier not null primary key default newid(),
+    Amount        money            not null,
+    Description   varchar(100)     not null,
+    DueAt         datetime2        not null,
+    PaidAt        datetime2        null,
+    AccountNumber char(16)         not null foreign key references [Account] (AccountNumber),
 )
 
 /*--------------------------------------------------------------------------------------------------------------------*
@@ -271,7 +272,9 @@ values ('Pulse'),
        ('Insurance')
 
 insert into RequestStatus (Name)
-values ('Approved'), ('Rejected'), ('Pending')
+values ('Approved'),
+       ('Rejected'),
+       ('Pending')
 
 insert into ExpenseRequestType (Name)
 values ('Credit Card')
@@ -292,7 +295,7 @@ values ('Guarantee'),
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
- 
+
 select Email, Password, EP.Name, U.Gender
 from Employee E
          join EmployeePosition EP on EP.ID = E.EmployeePositionID
@@ -371,36 +374,55 @@ from DebitCard DC
          full join Account A
                    on DC.AccountNumber = A.AccountNumber
 
-select ERT.Name, RS.Name, A.AccountNumber, FirstName, LastName, CCC.Name, R.CreatedAt, UpdatedAt
+select ERT.Name,
+       RS.Name,
+       A.AccountNumber,
+       FirstName,
+       LastName,
+       CCC.Name,
+       R.CreatedAt,
+       UpdatedAt
 from [ExpenseRequest] ER
-	join [Request] R
-		on ER.ID = R.ID
-	join [RequestStatus] RS 
-		on R.RequestStatusID = RS.ID
-	join [ExpenseRequestType] ERT 
-		on ER.ExpenseRequestTypeID = ERT.ID
-	join [CreditCard] CC
-		on ER.EntityID = CC.ID
-	join [CreditCardCompany] CCC
-		on CC.CreditCardCompanyID = CCC.ID
-	join [Account] A
-		on A.AccountNumber = CC.AccountNumber
-	join [Customer] C
-		on C.ID = A.CustomerID
-	join [User] U
-		on U.ID = C.ID
-		select * from ExpenseRequest Er join Request R on Er.ID = R.ID
+         join [Request] R
+              on ER.ID = R.ID
+         join [RequestStatus] RS
+              on R.RequestStatusID = RS.ID
+         join [ExpenseRequestType] ERT
+              on ER.ExpenseRequestTypeID = ERT.ID
+         join [CreditCard] CC
+              on ER.EntityID = CC.ID
+         join [CreditCardCompany] CCC
+              on CC.CreditCardCompanyID = CCC.ID
+         join [Account] A
+              on A.AccountNumber = CC.AccountNumber
+         join [Customer] C
+              on C.ID = A.CustomerID
+         join [User] U
+              on U.ID = C.ID
+select *
+from ExpenseRequest Er
+         join Request R on Er.ID = R.ID
 
-select * from [Document]
-select * from [Notification]
-select * from Account
-update Request set RequestStatusId = (select ID from RequestStatus where Name = 'Approved') where ID = 'E745590D-D420-41EB-B6FA-2B365EFF5A6A'
-select R.id, AccountNumber, RS.Name from Request R join RequestStatus RS on R.RequestStatusID = RS.ID join ExpenseRequest ER on R.ID = ER.ID join CreditCard CC on ER.EntityID = CC.ID
+select *
+from [Document]
+select *
+from [Notification]
+select *
+from Account
+update Request
+set RequestStatusId = (select ID from RequestStatus where Name = 'Approved')
+where ID = 'E745590D-D420-41EB-B6FA-2B365EFF5A6A'
+select R.id, AccountNumber, RS.Name
+from Request R
+         join RequestStatus RS on R.RequestStatusID = RS.ID
+         join ExpenseRequest ER on R.ID = ER.ID
+         join CreditCard CC on ER.EntityID = CC.ID
 
 select RS.Name
 from CreditCard CC
-	join ExpenseRequest ER on CC.ID = ER.EntityID
-	join Request R on ER.ID = R.ID
-	join RequestStatus RS on R.RequestStatusID = RS.ID
+         join ExpenseRequest ER on CC.ID = ER.EntityID
+         join Request R on ER.ID = R.ID
+         join RequestStatus RS on R.RequestStatusID = RS.ID
 
-select * from Charge
+select *
+from Charge

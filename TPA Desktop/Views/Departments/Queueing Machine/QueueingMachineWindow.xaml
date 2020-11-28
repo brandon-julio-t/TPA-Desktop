@@ -17,11 +17,13 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Content="Teller" Click="HandleTellerQueue" />
-        <Button Grid.Row="0" Grid.Column="1" Content="Customer Service" Click="HandleCustomerServiceQueue" />
+        <Button Grid.Column="0" Grid.ColumnSpan="2" Content="Satisfaction Feedback" Click="HandleSatisfactionFeedback" />
+        <Button Grid.Row="1" Grid.Column="0" Content="Teller" Click="HandleTellerQueue" />
+        <Button Grid.Row="1" Grid.Column="1" Content="Customer Service" Click="HandleCustomerServiceQueue" />
 
-        <userControls:Logout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+        <userControls:Logout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

@@ -10,18 +10,8 @@
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance queueingMachine:ShowQueueWindowViewModel}">
     <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
         <TextBlock Grid.Row="0"
                    Text="{Binding Queue.Number, StringFormat=Queue Number: {0}}"
                    TextAlignment="Center" />
-
-        <Image Grid.Row="1" Source="{Binding QrCodeImage}" />
-
-        <Button Grid.Row="2" Content="Open QRCode" Click="HandleOpenQrCode" />
     </Grid>
 </Window>

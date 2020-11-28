@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TPA_Desktop.Core.Managers;
+using TPA_Desktop.Core.Services;
 
 namespace TPA_Desktop.Views.Departments.Queueing_Machine
 {
@@ -28,6 +29,11 @@ namespace TPA_Desktop.Views.Departments.Queueing_Machine
                 new ShowQueueWindow(queue).Show();
             else
                 MessageBox.Show("Failed to queue.");
+        }
+
+        private void HandleSatisfactionFeedback(object sender, RoutedEventArgs e)
+        {
+            new InputQueueNumberWindow(new QueueService()).Show();
         }
     }
 }

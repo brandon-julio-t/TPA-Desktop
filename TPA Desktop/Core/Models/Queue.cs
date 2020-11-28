@@ -10,11 +10,15 @@ namespace TPA_Desktop.Core.Models
 {
     public class Queue : BaseModel
     {
-        private readonly string _queueTable;
+        public readonly string QueueTable;
+
+        public Queue()
+        {
+        }
 
         public Queue(string queueTable)
         {
-            _queueTable = queueTable;
+            QueueTable = queueTable;
         }
 
         public Queue(Guid id, string queueTable)
@@ -57,6 +61,7 @@ namespace TPA_Desktop.Core.Models
         public DateTime? ServedAt { get; set; }
         public DateTime? ServiceStartAt { get; set; }
         public long Number { get; set; }
+        public Guid? QrCodeId { get; set; }
 
         public override bool Save()
         {
@@ -76,7 +81,7 @@ namespace TPA_Desktop.Core.Models
             return Database.Transaction(() =>
             {
                 var data = new Dictionary<string, object> {{"ID", Id}};
-                return QueryBuilder.Table("Queue").Insert(data) && QueryBuilder.Table(_queueTable).Insert(data);
+                return QueryBuilder.Table("Queue").Insert(data) && QueryBuilder.Table(QueueTable).Insert(data);
             });
         }
 
