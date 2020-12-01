@@ -13,7 +13,6 @@ namespace TPA_Desktop.Core.Repositories
             using var reader = QueryBuilder
                 .Table(nameof(Transaction))
                 .Where("AccountNumber", accountNumber)
-                .Where("month(Date)", DateTime.Today.Month.ToString())
                 .Get();
             var entities = new List<Transaction>();
             while (reader.Read())
