@@ -127,16 +127,16 @@
         <Compile Include="Core\Models\ExpenseRequestType.cs" />
         <Compile Include="Core\Models\Notification.cs" />
         <Compile Include="Core\Models\PaymentType.cs" />
-        <Compile Include="Core\Models\QrCode.cs" />
-        <Compile Include="Core\Models\Queue.cs" />
-        <Compile Include="Core\Models\RequestStatus.cs" />
-        <Compile Include="Core\Models\Transaction.cs" />
-        <Compile Include="Core\Models\TransactionType.cs" />
-        <Compile Include="Core\Models\VirtualAccount.cs" />
+        <Compile Include="Core\Models\QrCode.cs"/>
+        <Compile Include="Core\Models\Queue.cs"/>
+        <Compile Include="Core\Models\RequestStatus.cs"/>
+        <Compile Include="Core\Models\Transaction.cs"/>
+        <Compile Include="Core\Models\TransactionType.cs"/>
+        <Compile Include="Core\Models\VirtualAccount.cs"/>
         <Compile Include="Core\Repositories\BusinessCardRepository.cs"/>
-        <Compile Include="Core\Repositories\ChargeRepository.cs" />
-        <Compile Include="Core\Repositories\CreditCardCompanyRepository.cs" />
-        <Compile Include="Core\Repositories\CreditCardRepository.cs" />
+        <Compile Include="Core\Repositories\ChargeRepository.cs"/>
+        <Compile Include="Core\Repositories\CreditCardCompanyRepository.cs"/>
+        <Compile Include="Core\Repositories\CreditCardRepository.cs"/>
         <Compile Include="Core\Repositories\DebitCardRepository.cs"/>
         <Compile Include="Core\Repositories\DocumentRepository.cs"/>
         <Compile Include="Core\Repositories\DocumentTypeRepository.cs"/>
@@ -166,8 +166,8 @@
         <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
         <Compile Include="Properties\Annotations.cs"/>
-        <Compile Include="Views\Departments\ATM Machine\AtmMachineWindow.xaml.cs">
-            <DependentUpon>AtmMachineWindow.xaml</DependentUpon>
+        <Compile Include="Views\Departments\ATM Machine\AtmWindow.xaml.cs">
+            <DependentUpon>AtmWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Customer Service\Accounts\CheckTransactionsWindow.xaml.cs">
             <DependentUpon>CheckTransactionsWindow.xaml</DependentUpon>
@@ -297,7 +297,7 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-        <Page Include="Views\Departments\ATM Machine\AtmMachineWindow.xaml"/>
+        <Page Include="Views\Departments\ATM Machine\AtmWindow.xaml"/>
         <Page Include="Views\Departments\Customer Service\Accounts\CheckTransactionsWindow.xaml"/>
         <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml"/>
         <Page Include="Views\Departments\Customer Service\CreditCards\ManageCreditCardsWindow.xaml"/>
@@ -309,16 +309,16 @@
         <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml"/>
         <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml"/>
         <Page Include="Views\Departments\Finance Team\ManageCreditCardRequestsWindow.xaml"/>
-        <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml" />
-        <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml" />
-        <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml" />
-        <Page Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml" />
-        <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml" />
-        <Page Include="Views\Departments\Manager\ManagerWindow.xaml" />
-        <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml" />
-        <Page Include="Views\Departments\Queueing Machine\InputQueueNumberWindow.xaml" />
-        <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml" />
-        <Page Include="Views\Departments\Queueing Machine\ShowQrCodeWindow.xaml" />
+        <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Violations\AddViolationWindow.xaml"/>
+        <Page Include="Views\Departments\Human Resource\Violations\AllViolationsWindow.xaml"/>
+        <Page Include="Views\Departments\Manager\ManagerWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\CustomerSatisfactionWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\InputQueueNumberWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml"/>
+        <Page Include="Views\Departments\Queueing Machine\ShowQrCodeWindow.xaml"/>
         <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml" />
         <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml" />
         <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml" />

@@ -307,10 +307,7 @@ values ('Guarantee'),
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 select *
-from [TransactionType]
-where AccountNumber = '8766153557599758'
-  and month(date) > month(getdate()) - 3
-  and month(date) <= month(getdate())
+from [Account]
 -- Employee login
 
 select Email, Password, EP.Name, U.Gender

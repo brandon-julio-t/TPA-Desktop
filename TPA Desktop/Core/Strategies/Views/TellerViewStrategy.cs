@@ -1,5 +1,5 @@
 ﻿using TPA_Desktop.Core.Interfaces;
-using TPA_Desktop.Views.Departments.Teller;
+using TPA_Desktop.Views.Departments.ATM_Machine;
 
 namespace TPA_Desktop.Core.Strategies.Views
 {
@@ -7,7 +7,7 @@ namespace TPA_Desktop.Core.Strategies.Views
     {
         public void Execute()
         {
-            new TellerWindow().Show();
+            new AtmWindow().Show();
         }
     }
 }

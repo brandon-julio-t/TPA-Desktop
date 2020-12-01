@@ -40,7 +40,7 @@ namespace TPA_Desktop.Views
 
         private void HandleLoginAsAtmMachine(object sender, RoutedEventArgs e)
         {
-            new AtmMachineWindow().Show();
+            new AtmWindow().Show();
             Close();
         }
     }
