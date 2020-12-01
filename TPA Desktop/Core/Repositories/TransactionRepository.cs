@@ -36,7 +36,20 @@ namespace TPA_Desktop.Core.Repositories
 
         public override Transaction[] FindAll()
         {
-            throw new NotImplementedException();
+            using var reader = QueryBuilder.Table(nameof(Transaction)).Get();
+            var entities = new List<Transaction>();
+            while (reader.Read())
+                entities.Add(new Transaction
+                {
+                    Id = reader.GetGuid(0),
+                    TransactionTypeId = reader.GetGuid(1),
+                    PaymentTypeId = reader.IsDBNull(2) ? null as Guid? : reader.GetGuid(2),
+                    CustomerId = reader.GetGuid(3),
+                    Date = reader.GetDateTime(4),
+                    Amount = reader.GetDecimal(5),
+                    AccountNumber = reader.GetString(6)
+                });
+            return entities.ToArray();
         }
 
         public override bool Update(Transaction entity)

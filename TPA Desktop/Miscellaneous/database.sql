@@ -307,7 +307,7 @@ values ('Guarantee'),
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 select *
-from [Transaction]
+from [TransactionType]
 where AccountNumber = '8766153557599758'
   and month(date) > month(getdate()) - 3
   and month(date) <= month(getdate())
