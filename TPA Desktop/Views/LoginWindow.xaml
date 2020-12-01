@@ -16,6 +16,7 @@
         <PasswordBox x:Name="PasswordBox" />
         <Button Click="HandleLogin">Login</Button>
         <Button Click="HandleLoginAsQueueingMachine">Login as Queueing Machine</Button>
+        <Button Click="HandleLoginAsAtmMachine">Login as ATM Machine</Button>
     </StackPanel>
 
 </Window>

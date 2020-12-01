@@ -137,24 +137,28 @@
         <Compile Include="Core\Repositories\ChargeRepository.cs" />
         <Compile Include="Core\Repositories\CreditCardCompanyRepository.cs" />
         <Compile Include="Core\Repositories\CreditCardRepository.cs" />
-        <Compile Include="Core\Repositories\DebitCardRepository.cs" />
-        <Compile Include="Core\Repositories\DocumentRepository.cs" />
-        <Compile Include="Core\Repositories\DocumentTypeRepository.cs" />
-        <Compile Include="Core\Repositories\EmployeePositionRepository.cs" />
-        <Compile Include="Core\Repositories\ExpenseRequestRepository.cs" />
-        <Compile Include="Core\Repositories\ExpenseRequestTypeRepository.cs" />
-        <Compile Include="Core\Repositories\NotificationRepository.cs" />
-        <Compile Include="Core\Repositories\QueueRepository.cs" />
-        <Compile Include="Core\Repositories\RequestStatusRepository.cs" />
-        <Compile Include="Core\Services\CreditCardService.cs" />
-        <Compile Include="Core\Services\NotificationService.cs" />
-        <Compile Include="Core\Services\QueueService.cs" />
-        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs" />
-        <Compile Include="Core\Strategies\CustomerService\RequestCreditCardStrategy.cs" />
+        <Compile Include="Core\Repositories\DebitCardRepository.cs"/>
+        <Compile Include="Core\Repositories\DocumentRepository.cs"/>
+        <Compile Include="Core\Repositories\DocumentTypeRepository.cs"/>
+        <Compile Include="Core\Repositories\EmployeePositionRepository.cs"/>
+        <Compile Include="Core\Repositories\ExpenseRequestRepository.cs"/>
+        <Compile Include="Core\Repositories\ExpenseRequestTypeRepository.cs"/>
+        <Compile Include="Core\Repositories\NotificationRepository.cs"/>
+        <Compile Include="Core\Repositories\PaymentTypeRepository.cs"/>
+        <Compile Include="Core\Repositories\QueueRepository.cs"/>
+        <Compile Include="Core\Repositories\RequestStatusRepository.cs"/>
+        <Compile Include="Core\Repositories\TransactionRepository.cs"/>
+        <Compile Include="Core\Repositories\TransactionTypeRepository.cs"/>
+        <Compile Include="Core\Services\CreditCardService.cs"/>
+        <Compile Include="Core\Services\NotificationService.cs"/>
+        <Compile Include="Core\Services\QueueService.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\CheckTransactionsStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\CreateVirtualAccountStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\GenerateVirtualAccountsFromExcelStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\NewIndividualAccountStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs"/>
+        <Compile Include="Core\Strategies\CustomerService\RequestCreditCardStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs"/>
@@ -162,6 +166,12 @@
         <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
         <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
         <Compile Include="Properties\Annotations.cs"/>
+        <Compile Include="Views\Departments\ATM Machine\AtmMachineWindow.xaml.cs">
+            <DependentUpon>AtmMachineWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Departments\Customer Service\Accounts\CheckTransactionsWindow.xaml.cs">
+            <DependentUpon>CheckTransactionsWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml.cs">
             <DependentUpon>NewIndividualAccountWindow.xaml</DependentUpon>
         </Compile>
@@ -287,16 +297,18 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-        <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml" />
+        <Page Include="Views\Departments\ATM Machine\AtmMachineWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Accounts\CheckTransactionsWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml"/>
         <Page Include="Views\Departments\Customer Service\CreditCards\ManageCreditCardsWindow.xaml"/>
-        <Page Include="Views\Departments\Customer Service\CreditCards\RequestCreditCardWindow.xaml" />
-        <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml" />
-        <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml" />
-        <Page Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml" />
-        <Page Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml" />
-        <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml" />
-        <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml" />
-        <Page Include="Views\Departments\Finance Team\ManageCreditCardRequestsWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\CreditCards\RequestCreditCardWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\Customers\NewCustomerWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\CreateVirtualAccountWindow.xaml"/>
+        <Page Include="Views\Departments\Customer Service\VirtualAccounts\GenerateVirtualAccountsFromExcelWindow.xaml"/>
+        <Page Include="Views\Departments\Finance Team\FinanceWindow.xaml"/>
+        <Page Include="Views\Departments\Finance Team\ManageCreditCardRequestsWindow.xaml"/>
         <Page Include="Views\Departments\Human Resource\Employees\ManageEmployeesWindow.xaml" />
         <Page Include="Views\Departments\Human Resource\Employees\NewEmployeeWindow.xaml" />
         <Page Include="Views\Departments\Human Resource\HumanResourceWindow.xaml" />

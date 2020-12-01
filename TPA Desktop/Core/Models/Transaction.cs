@@ -18,8 +18,12 @@ namespace TPA_Desktop.Core.Models
             TransactionType = new TransactionType(transactionTypeName);
         }
 
-        public Customer Customer { get; set; }
-        public Account Account { get; set; }
+        public Guid CustomerId { get; set; }
+        public string? AccountNumber { get; set; }
+        public Guid? PaymentTypeId { get; set; }
+        public Guid TransactionTypeId { get; set; }
+        public Customer? Customer { get; set; }
+        public Account? Account { get; set; }
         public DateTime Date { get; set; }
         [CanBeNull] public PaymentType PaymentType { get; set; }
         public TransactionType TransactionType { get; set; }

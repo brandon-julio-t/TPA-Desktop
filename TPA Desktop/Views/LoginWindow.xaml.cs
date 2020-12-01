@@ -3,6 +3,7 @@ using System.Windows;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Factories;
 using TPA_Desktop.Core.Models;
+using TPA_Desktop.Views.Departments.ATM_Machine;
 using TPA_Desktop.Views.Departments.Queueing_Machine;
 
 namespace TPA_Desktop.Views
@@ -34,6 +35,12 @@ namespace TPA_Desktop.Views
         private void HandleLoginAsQueueingMachine(object sender, RoutedEventArgs e)
         {
             new QueueingMachineWindow().Show();
+            Close();
+        }
+
+        private void HandleLoginAsAtmMachine(object sender, RoutedEventArgs e)
+        {
+            new AtmMachineWindow().Show();
             Close();
         }
     }

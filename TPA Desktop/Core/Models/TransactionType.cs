@@ -6,6 +6,10 @@ namespace TPA_Desktop.Core.Models
 {
     public class TransactionType
     {
+        public TransactionType()
+        {
+        }
+
         public TransactionType(Guid id)
         {
             using (var reader = QueryBuilder

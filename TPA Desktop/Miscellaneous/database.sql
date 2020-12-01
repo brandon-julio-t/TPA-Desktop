@@ -307,8 +307,11 @@ values ('Guarantee'),
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 select *
-from Account
-where IsBusiness = 1
+from [Transaction]
+select *
+from PaymentType
+-- where month(Date) = month(getdate())
+
 -- Employee login
 
 select Email, Password, EP.Name, U.Gender

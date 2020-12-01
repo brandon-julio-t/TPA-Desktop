@@ -27,6 +27,9 @@ namespace TPA_Desktop.Views.Departments.Customer_Service
 
         private void HandleRequestCreditCard(object sender, RoutedEventArgs e) =>
             _mediator.Notify(sender, "Request Credit Card");
+
+        private void HandleCheckTransactions(object sender, RoutedEventArgs e) =>
+            _mediator.Notify(sender, "Check Transactions");
     }
 
     public class CustomerServiceWindowMediator : IMediator
@@ -41,6 +44,7 @@ namespace TPA_Desktop.Views.Departments.Customer_Service
                 "New Individual Account" => new NewIndividualAccountStrategy(),
                 "Register New Customer" => new RegisterNewCustomerStrategy(),
                 "Request Credit Card" => new RequestCreditCardStrategy(),
+                "Check Transactions" => new CheckTransactionsStrategy(),
                 _ => throw new InvalidOperationException($"{@event} is not supported.")
             };
 

@@ -1,0 +1,15 @@
+﻿<Window x:Class="TPA_Desktop.Views.Departments.Customer_Service.Accounts.CheckTransactionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:accounts="clr-namespace:TPA_Desktop.Views.Departments.Customer_Service.Accounts"
+        mc:Ignorable="d"
+        Title="CheckTransactionsWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance accounts:CheckTransactionsWindowViewModel}">
+    <Grid Margin="20">
+        <DataGrid ItemsSource="{Binding TransactionDetails}" />
+    </Grid>
+</Window>

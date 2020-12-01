@@ -32,8 +32,9 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.ColumnSpan="2" Text="Account" />
-            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="New Individual Account"
-                    Click="HandleNewIndividualAccount" />
+            <Button Grid.Row="1" Grid.Column="0" Content="New Individual Account" Click="HandleNewIndividualAccount" />
+            <Button Grid.Row="1" Grid.Column="1" Content="Check Transactions (3 Months)"
+                    Click="HandleCheckTransactions" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Credit Card" />
             <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Request Credit Card"
