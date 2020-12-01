@@ -11,5 +11,6 @@
     <StackPanel>
         <TextBlock Text="{Binding Name, StringFormat=Hello\, {0}.}" />
         <TextBlock Text="{Binding Role, StringFormat=Logged in as {0}.}" />
+        <Button Content="Report Broken Item" Click="HandleReportBrokenItem" />
     </StackPanel>
 </UserControl>

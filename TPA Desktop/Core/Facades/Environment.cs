@@ -2,6 +2,6 @@
 {
     public static class Environment
     {
-        public static bool IsDevelopment => false;
+        public static bool IsDevelopment => true;
     }
 }

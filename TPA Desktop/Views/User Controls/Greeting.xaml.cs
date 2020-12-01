@@ -1,4 +1,7 @@
-﻿using TPA_Desktop.Core.Facades;
+﻿using System.Windows;
+using TPA_Desktop.Core.Facades;
+using TPA_Desktop.Core.Repositories;
+using TPA_Desktop.Views.Shared;
 
 namespace TPA_Desktop.Views.User_Controls
 {
@@ -10,6 +13,14 @@ namespace TPA_Desktop.Views.User_Controls
         {
             InitializeComponent();
             DataContext = _viewModel;
+        }
+
+        private void HandleReportBrokenItem(object sender, RoutedEventArgs e)
+        {
+            new ReportBrokenItemWindow(
+                new EquipmentRepository(),
+                new EquipmentConditionRepository()
+            ).Show();
         }
     }
 

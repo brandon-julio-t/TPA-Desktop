@@ -256,6 +256,30 @@ create table [BusinessCard]
     SupportsForeignCurrency  bit              not null,
 )
 
+create table [EquipmentCondition]
+(
+    ID   uniqueidentifier not null primary key default newid(),
+    Name varchar(50)      not null,
+)
+
+create table [Equipment]
+(
+    ID                   uniqueidentifier not null primary key default newid(),
+    Name                 varchar(50)      not null,
+    EquipmentConditionID uniqueidentifier not null foreign key references EquipmentCondition (ID),
+    Floor                int              not null,
+    DeletedAt            datetime2        null,
+)
+
+create table [BrokenEquipmentReport]
+(
+    ID          uniqueidentifier not null primary key default newid(),
+    EquipmentId uniqueidentifier not null foreign key references Equipment (ID),
+    ReportedAt  datetime2        not null,
+    Description varchar(255)     not null             default '',
+    EmployeeId  uniqueidentifier not null foreign key references Employee (ID)
+)
+
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DML                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
@@ -303,11 +327,28 @@ insert into DocumentType (Name)
 values ('Guarantee'),
        ('Gross income per month')
 
+insert into EquipmentCondition (Name)
+values ('Good'),
+       ('Pending'),
+       ('Broken')
+
+insert into Equipment (Name, EquipmentConditionID, Floor)
+values ('Papan Tulis', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('Spidol', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 1', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 2', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 3', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 4', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 5', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 6', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 7', (select ID from EquipmentCondition where name = 'Good'), 1),
+       ('PC 8', (select ID from EquipmentCondition where name = 'Good'), 1)
+
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
 select *
-from [Account]
+from [EquipmentCondition]
 -- Employee login
 
 select Email, Password, EP.Name, U.Gender

@@ -90,6 +90,7 @@
         <Compile Include="Core\Commands\CreateBusinessAccountCommand.cs"/>
         <Compile Include="Core\Commands\CreateCreditCardRequestCommand.cs" />
         <Compile Include="Core\Commands\PaymentCommand.cs" />
+        <Compile Include="Core\Commands\ReportBrokenItemCommand.cs"/>
         <Compile Include="Core\Decorators\QrCodeDecorator.cs" />
         <Compile Include="Core\Default Implementations\DefaultCustomerAccountStore.cs"/>
         <Compile Include="Core\Default Implementations\DefaultNotifyPropertyChanged.cs" />
@@ -101,46 +102,54 @@
         <Compile Include="Core\Factories\ViewStrategyFactory.cs" />
         <Compile Include="Core\Interfaces\ICommand.cs" />
         <Compile Include="Core\Interfaces\ICustomerAccountStore.cs" />
-        <Compile Include="Core\Interfaces\IDirector.cs" />
-        <Compile Include="Core\Interfaces\IMediator.cs" />
-        <Compile Include="Core\Interfaces\IStrategy.cs" />
-        <Compile Include="Core\Managers\CustomerQueueManager.cs" />
-        <Compile Include="Core\Models\Abstracts\BaseModel.cs" />
-        <Compile Include="Core\Models\Abstracts\CrudRepository.cs" />
-        <Compile Include="Core\Models\Abstracts\ReadOnlyRepository.cs" />
-        <Compile Include="Core\Models\Abstracts\Request.cs" />
-        <Compile Include="Core\Models\Abstracts\User.cs" />
-        <Compile Include="Core\Models\Account.cs" />
+        <Compile Include="Core\Interfaces\IDirector.cs"/>
+        <Compile Include="Core\Interfaces\IMediator.cs"/>
+        <Compile Include="Core\Interfaces\IStrategy.cs"/>
+        <Compile Include="Core\Managers\CustomerQueueManager.cs"/>
+        <Compile Include="Core\Models\Abstracts\BaseModel.cs"/>
+        <Compile Include="Core\Models\Abstracts\CrudRepository.cs"/>
+        <Compile Include="Core\Models\Abstracts\ReadOnlyRepository.cs"/>
+        <Compile Include="Core\Models\Abstracts\Request.cs"/>
+        <Compile Include="Core\Models\Abstracts\User.cs"/>
+        <Compile Include="Core\Models\Account.cs"/>
+        <Compile Include="Core\Models\BrokenEquipmentReport.cs"/>
         <Compile Include="Core\Models\BusinessCard.cs"/>
-        <Compile Include="Core\Models\Charge.cs" />
-        <Compile Include="Core\Models\CreditCard.cs" />
-        <Compile Include="Core\Models\CreditCardCompany.cs" />
-        <Compile Include="Core\Models\Customer.cs" />
-        <Compile Include="Core\Models\CustomerSatisfaction.cs" />
-        <Compile Include="Core\Models\DebitCard.cs" />
-        <Compile Include="Core\Models\Document.cs" />
-        <Compile Include="Core\Models\DocumentType.cs" />
-        <Compile Include="Core\Models\Employee.cs" />
-        <Compile Include="Core\Models\EmployeePosition.cs" />
-        <Compile Include="Core\Models\EmployeeViolation.cs" />
-        <Compile Include="Core\Models\ExpenseRequest.cs" />
-        <Compile Include="Core\Models\ExpenseRequestType.cs" />
-        <Compile Include="Core\Models\Notification.cs" />
-        <Compile Include="Core\Models\PaymentType.cs" />
+        <Compile Include="Core\Models\Charge.cs"/>
+        <Compile Include="Core\Models\CreditCard.cs"/>
+        <Compile Include="Core\Models\CreditCardCompany.cs"/>
+        <Compile Include="Core\Models\Customer.cs"/>
+        <Compile Include="Core\Models\CustomerSatisfaction.cs"/>
+        <Compile Include="Core\Models\DebitCard.cs"/>
+        <Compile Include="Core\Models\Document.cs"/>
+        <Compile Include="Core\Models\DocumentType.cs"/>
+        <Compile Include="Core\Models\Employee.cs"/>
+        <Compile Include="Core\Models\EmployeePosition.cs"/>
+        <Compile Include="Core\Models\EmployeeViolation.cs"/>
+        <Compile Include="Core\Models\Equipment.cs"/>
+        <Compile Include="Core\Models\EquipmentCondition.cs"/>
+        <Compile Include="Core\Models\ExpenseRequest.cs"/>
+        <Compile Include="Core\Models\ExpenseRequestType.cs"/>
+        <Compile Include="Core\Models\Notification.cs"/>
+        <Compile Include="Core\Models\PaymentType.cs"/>
         <Compile Include="Core\Models\QrCode.cs"/>
         <Compile Include="Core\Models\Queue.cs"/>
         <Compile Include="Core\Models\RequestStatus.cs"/>
         <Compile Include="Core\Models\Transaction.cs"/>
         <Compile Include="Core\Models\TransactionType.cs"/>
         <Compile Include="Core\Models\VirtualAccount.cs"/>
+        <Compile Include="Core\Repositories\AccountRepository.cs"/>
+        <Compile Include="Core\Repositories\BrokenEquipmentReportRepository.cs"/>
         <Compile Include="Core\Repositories\BusinessCardRepository.cs"/>
         <Compile Include="Core\Repositories\ChargeRepository.cs"/>
         <Compile Include="Core\Repositories\CreditCardCompanyRepository.cs"/>
         <Compile Include="Core\Repositories\CreditCardRepository.cs"/>
+        <Compile Include="Core\Repositories\CustomerRepository.cs"/>
         <Compile Include="Core\Repositories\DebitCardRepository.cs"/>
         <Compile Include="Core\Repositories\DocumentRepository.cs"/>
         <Compile Include="Core\Repositories\DocumentTypeRepository.cs"/>
         <Compile Include="Core\Repositories\EmployeePositionRepository.cs"/>
+        <Compile Include="Core\Repositories\EquipmentConditionRepository.cs"/>
+        <Compile Include="Core\Repositories\EquipmentRepository.cs"/>
         <Compile Include="Core\Repositories\ExpenseRequestRepository.cs"/>
         <Compile Include="Core\Repositories\ExpenseRequestTypeRepository.cs"/>
         <Compile Include="Core\Repositories\NotificationRepository.cs"/>
@@ -257,10 +266,14 @@
             <DependentUpon>LoginWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Views\Shared\AccountRepository.cs" />
-        <Compile Include="Views\Shared\CustomerRepository.cs" />
+        <Compile Include="Views\Shared\BrokenItemDescriptionWindow.xaml.cs">
+            <DependentUpon>BrokenItemDescriptionWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Shared\NotificationsWindow.xaml.cs">
-          <DependentUpon>NotificationsWindow.xaml</DependentUpon>
+            <DependentUpon>NotificationsWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Shared\ReportBrokenItemWindow.xaml.cs">
+            <DependentUpon>ReportBrokenItemWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Shared\TransactionsWindow.xaml.cs">
             <DependentUpon>TransactionsWindow.xaml</DependentUpon>
@@ -319,18 +332,20 @@
         <Page Include="Views\Departments\Queueing Machine\InputQueueNumberWindow.xaml"/>
         <Page Include="Views\Departments\Queueing Machine\QueueingMachineWindow.xaml"/>
         <Page Include="Views\Departments\Queueing Machine\ShowQrCodeWindow.xaml"/>
-        <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml" />
-        <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml" />
-        <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml" />
-        <Page Include="Views\Departments\Teller\PaymentWindow.xaml" />
-        <Page Include="Views\Departments\Teller\TellerWindow.xaml" />
-        <Page Include="Views\Departments\Teller\TransferMoneyWindow.xaml" />
-        <Page Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml" />
+        <Page Include="Views\Departments\Queueing Machine\ShowQueueWindow.xaml"/>
+        <Page Include="Views\Departments\Security and Maintenance\SecurityAndMaintenanceWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\DepositWithdrawWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\PaymentWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\TellerWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\TransferMoneyWindow.xaml"/>
+        <Page Include="Views\Departments\Teller\TransferVirtualAccountWindow.xaml"/>
         <Page Include="Views\LoginWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
+        <Page Include="Views\Shared\BrokenItemDescriptionWindow.xaml"/>
         <Page Include="Views\Shared\NotificationsWindow.xaml" />
+        <Page Include="Views\Shared\ReportBrokenItemWindow.xaml"/>
         <Page Include="Views\Shared\TransactionsWindow.xaml" />
         <Page Include="Views\Shared\VerifyCustomerWindow.xaml" />
         <Page Include="Views\User Controls\CustomerQueue.xaml" />
