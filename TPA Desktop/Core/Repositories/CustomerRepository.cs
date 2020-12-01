@@ -4,7 +4,7 @@ using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Models;
 using TPA_Desktop.Core.Models.Abstracts;
 
-namespace TPA_Desktop.Views.Shared
+namespace TPA_Desktop.Core.Repositories
 {
     public class CustomerRepository : CrudRepository<Customer>
     {
