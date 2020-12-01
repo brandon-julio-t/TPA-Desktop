@@ -42,7 +42,8 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
 
             var items =
                 from transaction in transactions
-                where transaction.Date.Month == DateTime.Today.Month
+                where transaction.Date.Month > DateTime.Today.Month - 3 &&
+                      transaction.Date.Month <= DateTime.Today.Month
                 join paymentType in paymentTypes on transaction.PaymentTypeId equals paymentType.Id into temp
                 from item in temp.DefaultIfEmpty(null)
                 join transactionType in transactionTypes on transaction.TransactionTypeId equals transactionType.Id

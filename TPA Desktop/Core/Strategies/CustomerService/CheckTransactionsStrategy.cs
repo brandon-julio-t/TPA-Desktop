@@ -12,11 +12,12 @@ namespace TPA_Desktop.Core.Strategies.CustomerService
         {
             var store = new DefaultCustomerAccountStore();
             new VerifyCustomerWindow(store, () => new CheckTransactionsWindow(
-                store,
-                new TransactionRepository(),
-                new PaymentTypeRepository(),
-                new TransactionTypeRepository()
-            ).Show()).Show();
+                    store,
+                    new TransactionRepository(),
+                    new PaymentTypeRepository(),
+                    new TransactionTypeRepository()
+                ).Show()
+            ).Show();
         }
     }
 }

@@ -308,10 +308,9 @@ values ('Guarantee'),
  *--------------------------------------------------------------------------------------------------------------------*/
 select *
 from [Transaction]
-select *
-from PaymentType
--- where month(Date) = month(getdate())
-
+where AccountNumber = '8766153557599758'
+  and month(date) > month(getdate()) - 3
+  and month(date) <= month(getdate())
 -- Employee login
 
 select Email, Password, EP.Name, U.Gender
