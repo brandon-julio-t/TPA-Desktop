@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TPA_Desktop.Core.Builders.Directors
+﻿namespace TPA_Desktop.Core.Builders.Directors
 {
     public class AccountBuilderDirector
     {
@@ -117,9 +115,19 @@ namespace TPA_Desktop.Core.Builders.Directors
             builder.SetLevel(_level);
         }
 
-        public void MakeBusinessAccount(AccountBuilder builder)
+        public void MakeBusinessAccount(AccountBuilder builder, string regularAccountNumber)
         {
-            throw new NotImplementedException();
+            builder.Reset();
+            builder.SetAdministrationFee(5_000);
+            builder.SetBalance(0);
+            builder.SetInterest(3.5);
+            builder.SetMaximumTransferAmount(100_000_000);
+            builder.SetMinimumSavingAmount(0);
+            builder.SetSupportForeignCurrency(false);
+            builder.SetUseAutomaticRollOver(false);
+            builder.SetRegularAccountNumber(regularAccountNumber);
+            builder.SetName("Business");
+            builder.SetIsBusiness(true);
         }
     }
 }

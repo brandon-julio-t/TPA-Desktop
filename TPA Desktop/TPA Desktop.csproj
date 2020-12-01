@@ -87,9 +87,11 @@
         <Compile Include="Core\Builders\AccountBuilder.cs" />
         <Compile Include="Core\Builders\Directors\AccountBuilderDirector.cs" />
         <Compile Include="Core\Builders\QueryBuilder.cs" />
+        <Compile Include="Core\Commands\CreateBusinessAccountCommand.cs"/>
         <Compile Include="Core\Commands\CreateCreditCardRequestCommand.cs" />
         <Compile Include="Core\Commands\PaymentCommand.cs" />
         <Compile Include="Core\Decorators\QrCodeDecorator.cs" />
+        <Compile Include="Core\Default Implementations\DefaultCustomerAccountStore.cs"/>
         <Compile Include="Core\Default Implementations\DefaultNotifyPropertyChanged.cs" />
         <Compile Include="Core\Facades\Authentication.cs" />
         <Compile Include="Core\Facades\Database.cs" />
@@ -109,6 +111,7 @@
         <Compile Include="Core\Models\Abstracts\Request.cs" />
         <Compile Include="Core\Models\Abstracts\User.cs" />
         <Compile Include="Core\Models\Account.cs" />
+        <Compile Include="Core\Models\BusinessCard.cs"/>
         <Compile Include="Core\Models\Charge.cs" />
         <Compile Include="Core\Models\CreditCard.cs" />
         <Compile Include="Core\Models\CreditCardCompany.cs" />
@@ -130,6 +133,7 @@
         <Compile Include="Core\Models\Transaction.cs" />
         <Compile Include="Core\Models\TransactionType.cs" />
         <Compile Include="Core\Models\VirtualAccount.cs" />
+        <Compile Include="Core\Repositories\BusinessCardRepository.cs"/>
         <Compile Include="Core\Repositories\ChargeRepository.cs" />
         <Compile Include="Core\Repositories\CreditCardCompanyRepository.cs" />
         <Compile Include="Core\Repositories\CreditCardRepository.cs" />
@@ -151,18 +155,21 @@
         <Compile Include="Core\Strategies\CustomerService\RegisterNewCustomerStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\ManageCustomerAccountDataStrategy.cs" />
         <Compile Include="Core\Strategies\CustomerService\RequestCreditCardStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs" />
-        <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs" />
-        <Compile Include="Properties\Annotations.cs" />
+        <Compile Include="Core\Strategies\Views\CustomerServiceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\FinanceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\HumanResourceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\ManagerViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\SecurityAndMaintenanceViewStrategy.cs"/>
+        <Compile Include="Core\Strategies\Views\TellerViewStrategy.cs"/>
+        <Compile Include="Properties\Annotations.cs"/>
         <Compile Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml.cs">
             <DependentUpon>NewIndividualAccountWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\Departments\Customer Service\CreditCards\ManageCreditCardsWindow.xaml.cs">
+            <DependentUpon>ManageCreditCardsWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\Departments\Customer Service\CreditCards\RequestCreditCardWindow.xaml.cs">
-          <DependentUpon>RequestCreditCardWindow.xaml</DependentUpon>
+            <DependentUpon>RequestCreditCardWindow.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml.cs">
             <DependentUpon>CustomerServiceWindow.xaml</DependentUpon>
@@ -281,6 +288,7 @@
     </ItemGroup>
     <ItemGroup>
         <Page Include="Views\Departments\Customer Service\Accounts\NewIndividualAccountWindow.xaml" />
+        <Page Include="Views\Departments\Customer Service\CreditCards\ManageCreditCardsWindow.xaml"/>
         <Page Include="Views\Departments\Customer Service\CreditCards\RequestCreditCardWindow.xaml" />
         <Page Include="Views\Departments\Customer Service\CustomerServiceWindow.xaml" />
         <Page Include="Views\Departments\Customer Service\Customers\ManageCustomerAccountDataWindow.xaml" />

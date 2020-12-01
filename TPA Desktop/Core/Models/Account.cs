@@ -12,6 +12,7 @@ namespace TPA_Desktop.Core.Models
     {
         public Account()
         {
+            AccountNumber = Helpers.RandomDigitString(16);
         }
 
         public Account(string accountNumber)
@@ -151,8 +152,10 @@ namespace TPA_Desktop.Core.Models
         public double Interest { get; set; }
         public string AccountNumber { get; set; }
         public string? GuardianAccountNumber { get; set; }
+        public string? RegularAccountNumber { get; set; }
         public string Name { get; set; }
         public string Level { get; set; }
+        public bool IsBusiness { get; set; }
 
         private void PopulateProperties(IDataRecord reader)
         {

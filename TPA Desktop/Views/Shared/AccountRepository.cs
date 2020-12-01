@@ -50,7 +50,28 @@ namespace TPA_Desktop.Views.Shared
 
         public override bool Save(Account entity)
         {
-            throw new NotImplementedException();
+            return QueryBuilder
+                .Table(nameof(Account))
+                .Insert(new Dictionary<string, object>
+                {
+                    {"CustomerID", entity.CustomerId},
+                    {"AccountNumber", entity.AccountNumber},
+                    {"Balance", entity.Balance},
+                    {"Interest", entity.Interest},
+                    {"MaximumWithdrawalAmount", entity.MaximumWithdrawalAmount},
+                    {"MaximumTransferAmount", entity.MaximumTransferAmount},
+                    {"GuardianAccountNumber", entity.GuardianAccountNumber},
+                    {"SupportForeignCurrency", entity.SupportForeignCurrency},
+                    {"Name", entity.Name},
+                    {"BlockedAt", entity.BlockedAt},
+                    {"CreatedAt", entity.CreatedAt},
+                    {"ClosedAt", entity.ClosedAt},
+                    {"AdministrationFee", entity.AdministrationFee},
+                    {"MinimumSavingAmount", entity.MinimumSavingAmount},
+                    {"UseAutomaticRollOver", entity.UseAutomaticRollOver},
+                    {"IsBusiness", entity.IsBusiness},
+                    {"RegularAccountNumber", entity.RegularAccountNumber}
+                });
         }
 
         public override bool Delete(Account entity)

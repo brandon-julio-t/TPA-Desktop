@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:userControls1="clr-namespace:TPA_Desktop.Views.User_Controls"
+        xmlns:userControls="clr-namespace:TPA_Desktop.Views.User_Controls"
         mc:Ignorable="d"
         Title="Customer Service"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
     <StackPanel Margin="20" Width="500">
-        <userControls1:Greeting />
-        <userControls1:CustomerQueue QueueTableName="CustomerServiceQueue" />
+        <userControls:Greeting />
+        <userControls:CustomerQueue QueueTableName="CustomerServiceQueue" />
 
         <Grid Margin="0,20">
             <Grid.ColumnDefinitions>
@@ -32,12 +32,12 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.ColumnSpan="2" Text="Account" />
-            <Button Grid.Row="1" Grid.Column="0" Content="New Individual Account" Click="HandleNewIndividualAccount" />
-            <Button Grid.Row="1" Grid.Column="1" Content="New Business Account" />
-            
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="New Individual Account"
+                    Click="HandleNewIndividualAccount" />
+
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Credit Card" />
-            <Button Grid.Row="3" Grid.Column="0" Content="Request Credit Card" Click="HandleRequestCreditCard" />
-            <Button Grid.Row="3" Grid.Column="1" Content="Manage Credit Card" />
+            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Request Credit Card"
+                    Click="HandleRequestCreditCard" />
 
             <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Customer" />
             <Button Grid.Row="5" Grid.Column="0" Content="New Customer" Click="HandleRegisterNewCustomer" />
@@ -54,6 +54,6 @@
             <Button Grid.Row="9" Grid.Column="1" Content="Generate Payrolls From Excel" />
         </Grid>
 
-        <userControls1:Logout />
+        <userControls:Logout />
     </StackPanel>
 </Window>

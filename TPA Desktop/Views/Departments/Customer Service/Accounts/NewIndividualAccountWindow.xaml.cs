@@ -2,10 +2,12 @@
 using System.Windows;
 using TPA_Desktop.Core.Builders;
 using TPA_Desktop.Core.Builders.Directors;
+using TPA_Desktop.Core.Commands;
 using TPA_Desktop.Core.Default_Implementations;
 using TPA_Desktop.Core.Facades;
 using TPA_Desktop.Core.Models;
 using TPA_Desktop.Core.Repositories;
+using TPA_Desktop.Views.Shared;
 
 namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
 {
@@ -35,14 +37,16 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string MotherMaidenName { get; set; }
-        public string[] AccountTypes { get; set; } = {"Regular", "Student", "Saving", "Deposit"};
+        public string? MotherMaidenName { get; set; }
+        public string[] AccountTypes { get; set; } = {"Regular", "Student", "Saving", "Deposit", "Business"};
         public string SelectedAccountType => AccountTypes[_selectedAccountTypeIndex];
         public string[] AccountLevels { get; set; } = {"Bronze", "Silver", "Gold", "Black"};
+        public string[] BusinessCards { get; set; } = {"Business", "Petty", "Deposit", "Reward"};
+        public string SelectedBusinessCard { get; set; }
         public int SelectedAccountLevelIndex { get; set; }
         public string SelectedAccountLevel => AccountLevels[SelectedAccountLevelIndex];
-        public string RegularAccountNumber { get; set; }
-        public string GuardianAccountNumber { get; set; }
+        public string? RegularAccountNumber { get; set; }
+        public string? GuardianAccountNumber { get; set; }
         public bool UseAutomaticRollOver { get; set; }
 
         public int SelectedAccountTypeIndex
@@ -69,27 +73,28 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
 
         public Visibility AccountLevelVisibility =>
             AccountFormVisibility == Visibility.Visible &&
-            (_selectedAccountTypeIndex == 0 || _selectedAccountTypeIndex == 1)
+            (SelectedAccountType == "Regular" || SelectedAccountType == "Student")
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
         public Visibility RegularAccountNumberVisibility =>
             AccountFormVisibility == Visibility.Visible &&
-            (_selectedAccountTypeIndex == 2 || _selectedAccountTypeIndex == 3)
+            (SelectedAccountType == "Saving" || SelectedAccountType == "Deposit" || SelectedAccountType == "Business")
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
         public Visibility GuardianAccountNumberVisibility =>
-            AccountFormVisibility == Visibility.Visible
-            && _selectedAccountTypeIndex == 1
+            AccountFormVisibility == Visibility.Visible && SelectedAccountType == "Student"
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
         public Visibility AutomaticRollOverVisibility =>
-            AccountFormVisibility == Visibility.Visible
-            && _selectedAccountTypeIndex == 3
+            AccountFormVisibility == Visibility.Visible && SelectedAccountType == "Deposit"
                 ? Visibility.Visible
                 : Visibility.Collapsed;
+
+        public Visibility BusinessCardVisibility =>
+            SelectedAccountType == "Business" ? Visibility.Visible : Visibility.Collapsed;
     }
 
     public abstract class NewIndividualAccountWindowState
@@ -165,11 +170,37 @@ namespace TPA_Desktop.Views.Departments.Customer_Service.Accounts
                 case "Deposit":
                     director.MakeDepositAccount(builder, Window.ViewModel.UseAutomaticRollOver);
                     break;
+                case "Business":
+                    director.MakeBusinessAccount(builder, Window.ViewModel.RegularAccountNumber);
+                    break;
             }
 
             var account = builder.GetResult();
             account.Owner = Window.Customer;
             account.DebitCard = new DebitCard(account);
+
+            if (Window.ViewModel.SelectedAccountType == "Regular")
+            {
+                var age = DateTime.Today.Year - Window.Customer.DateOfBirth.Year;
+                if (age < 15)
+                {
+                    MessageBox.Show("Age must be at least 15.");
+                    return;
+                }
+            }
+
+            if (Window.ViewModel.SelectedAccountType == "Business")
+            {
+                new CreateBusinessAccountCommand(
+                    Window.Customer,
+                    account,
+                    Window.ViewModel.SelectedBusinessCard,
+                    Window.ViewModel.RegularAccountNumber ?? throw new InvalidOperationException(),
+                    new AccountRepository(),
+                    new BusinessCardRepository()
+                ).Execute();
+                return;
+            }
 
             var success =
                 Database.Transaction(() =>

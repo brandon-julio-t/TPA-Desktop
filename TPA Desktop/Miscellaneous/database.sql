@@ -77,6 +77,8 @@ create table [Account]
     AdministrationFee       money            not null,
     MinimumSavingAmount     money            not null,
     UseAutomaticRollOver    bit              not null,
+    IsBusiness              bit              not null default 0,
+    RegularAccountNumber    char(16)         null,
 
     primary key (CustomerID, AccountNumber)
 )
@@ -94,7 +96,7 @@ create table [Queue]
     QueuedAt       datetime2        not null             default getdate(),
     ServiceStartAt datetime2        null,
     ServedAt       datetime2        null,
-	QRCodeID uniqueidentifier null foreign key references [QRCode] (ID),
+    QRCodeID       uniqueidentifier null foreign key references [QRCode] (ID),
 )
 
 create table [TellerQueue]
@@ -245,6 +247,15 @@ create table [Charge]
     AccountNumber char(16)         not null foreign key references [Account] (AccountNumber),
 )
 
+create table [BusinessCard]
+(
+    ID                       uniqueidentifier not null primary key default newid(),
+    Name                     varchar(50)      not null,
+    CanWithdraw              bit              not null,
+    MaximumTransactionAmount money            not null,
+    SupportsForeignCurrency  bit              not null,
+)
+
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DML                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
@@ -295,6 +306,10 @@ values ('Guarantee'),
 /*--------------------------------------------------------------------------------------------------------------------*
  |                                                         DQL                                                        |
  *--------------------------------------------------------------------------------------------------------------------*/
+select *
+from Account
+where IsBusiness = 1
+-- Employee login
 
 select Email, Password, EP.Name, U.Gender
 from Employee E
@@ -405,24 +420,32 @@ from ExpenseRequest Er
 
 select *
 from [Document]
+
 select *
 from [Notification]
+
 select *
 from Account
+
 update Request
 set RequestStatusId = (select ID from RequestStatus where Name = 'Approved')
 where ID = 'E745590D-D420-41EB-B6FA-2B365EFF5A6A'
+
 select R.id, AccountNumber, RS.Name
 from Request R
          join RequestStatus RS on R.RequestStatusID = RS.ID
          join ExpenseRequest ER on R.ID = ER.ID
          join CreditCard CC on ER.EntityID = CC.ID
 
+-- CC Request
+
 select RS.Name
 from CreditCard CC
          join ExpenseRequest ER on CC.ID = ER.EntityID
          join Request R on ER.ID = R.ID
          join RequestStatus RS on R.RequestStatusID = RS.ID
+
+-- CC Charge
 
 select *
 from Charge

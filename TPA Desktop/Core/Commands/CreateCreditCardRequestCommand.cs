@@ -9,11 +9,12 @@ namespace TPA_Desktop.Core.Commands
 {
     public class CreateCreditCardRequestCommand : ICommand, ICustomerAccountStore
     {
-        private readonly Document _document;
-        private readonly CreditCardCompany? _creditCardCompany;
         private readonly Account? _account;
+        private readonly CreditCardCompany? _creditCardCompany;
+        private readonly Document _document;
 
-        public CreateCreditCardRequestCommand(ICustomerAccountStore customerAccountStore,
+        public CreateCreditCardRequestCommand(
+            ICustomerAccountStore customerAccountStore,
             RequestCreditCardWindowViewModel viewModel)
         {
             _document = viewModel.Document;
