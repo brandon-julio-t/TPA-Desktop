@@ -15,7 +15,18 @@ namespace TPA_Desktop.Core.Repositories
 
         public override BrokenEquipmentReport[] FindAll()
         {
-            throw new NotImplementedException();
+            using var reader = QueryBuilder.Table(nameof(BrokenEquipmentReport)).Get();
+            var entities = new List<BrokenEquipmentReport>();
+            while (reader.Read())
+                entities.Add(new BrokenEquipmentReport
+                {
+                    Id = reader.GetGuid(0),
+                    EquipmentId = reader.GetGuid(1),
+                    ReportedAt = reader.GetDateTime(2),
+                    Description = reader.GetString(3),
+                    EmployeeId = reader.GetGuid(4)
+                });
+            return entities.ToArray();
         }
 
         public override bool Update(BrokenEquipmentReport entity)
